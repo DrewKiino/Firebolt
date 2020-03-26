@@ -10,12 +10,11 @@ extension SwiftResolver {
     closure: @escaping BoxClosureNoArg<T>
   ) throws -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    GlobalResolver.shared.boxKeyToResolverIdMap[boxKey] = resolverId
     boxes[boxKey] = Box<T, Void, Void, Void, Void>(
       scope: scope,
       closure: .noargs(closure)
     )
-    print("[SwiftResolver] registered \(boxKey)")
+    logger(.info, "registered \(boxKey)")
     return self
   }
   
@@ -27,12 +26,11 @@ extension SwiftResolver {
     closure: @escaping BoxClosure1Arg<T, A>
   ) throws -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    GlobalResolver.shared.boxKeyToResolverIdMap[boxKey] = resolverId
-    boxes[boxKey] = Box<T, A, Void, Void, Void>(
+    boxes[boxKey] = Box<T?, A, Void, Void, Void>(
       scope: scope,
       closure: .arg1(closure)
     )
-    print("[SwiftResolver] registered \(boxKey) with expected argument \(arg1)")
+    logger(.info, "registered \(boxKey) with expected argument \(arg1)")
     return self
   }
   
@@ -45,12 +43,12 @@ extension SwiftResolver {
     closure: @escaping BoxClosure2Arg<T, A, B>
   ) throws -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    GlobalResolver.shared.boxKeyToResolverIdMap[boxKey] = resolverId
-    boxes[boxKey] = Box<T, A, B, Void, Void>(
+    let box = Box<T?, A, B, Void, Void>(
       scope: scope,
       closure: .args2(closure)
     )
-    print("[SwiftResolver] registered \(boxKey) with expected argument \(arg1)")
+    boxes[boxKey] = box
+    logger(.info, "registered \(boxKey) with expected args \(box.stringArgs)")
     return self
   }
   
@@ -64,12 +62,11 @@ extension SwiftResolver {
     closure: @escaping BoxClosure3Arg<T, A, B, C>
   ) throws -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    GlobalResolver.shared.boxKeyToResolverIdMap[boxKey] = resolverId
     boxes[boxKey] = Box<T, A, B, C, Void>(
       scope: scope,
       closure: .args3(closure)
     )
-    print("[SwiftResolver] registered \(boxKey) with expected argument \(arg1)")
+    logger(.info, "registered \(boxKey) with expected argument \(arg1)")
     return self
   }
   
@@ -84,12 +81,11 @@ extension SwiftResolver {
     closure: @escaping BoxClosure4Arg<T, A, B, C, D>
   ) throws -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    GlobalResolver.shared.boxKeyToResolverIdMap[boxKey] = resolverId
     boxes[boxKey] = Box<T, A, B, C, D>(
       scope: scope,
       closure: .args4(closure)
     )
-    print("[SwiftResolver] registered \(boxKey) with expected argument \(arg1)")
+    logger(.info, "registered \(boxKey) with expected argument \(arg1)")
     return self
   }
 }
