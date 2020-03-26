@@ -7,10 +7,10 @@ public final class SwiftResolver {
     case single
   }
   
-  internal let resolverId: String
+  let resolverId: String
   
-  internal var boxes: [String: Any] = [:]
-  internal var cachedDependencies: [String: Any] = [:]
+  var boxes: [String: Any] = [:]
+  var cachedDependencies: [String: Any] = [:]
 
   public init() {
     self.resolverId = UUID().uuidString

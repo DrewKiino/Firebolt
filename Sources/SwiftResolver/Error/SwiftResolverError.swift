@@ -1,6 +1,6 @@
 import Foundation
 
-internal enum SwiftResolverError: Error {
+enum SwiftResolverError: Error {
   case invalidKey(key: String, className: String)
   case classNotRegistered(
     expectedObject: String,

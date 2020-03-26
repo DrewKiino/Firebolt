@@ -17,7 +17,7 @@ extension String {
     }
   }
 
-  internal func clean() -> String {
+  func clean() -> String {
     return matches(#"(?<=<)(.*)(?=>)"#).first
       ?? replacingOccurrences(of: ".Type", with: "")
         .replacingOccurrences(of: ".Protocol", with: "")

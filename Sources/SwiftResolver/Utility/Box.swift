@@ -1,14 +1,14 @@
 
 import Foundation
 
-internal protocol BoxProtocol {
+protocol BoxProtocol {
   var valueType: String { get }
   var argsType: [String] { get }
   var scope: SwiftResolver.Scope { get }
 }
 
-internal class Box<T, A, B, C, D>: BoxProtocol {
-  internal enum Closure {
+class Box<T, A, B, C, D>: BoxProtocol {
+  enum Closure {
     case noargs(BoxClosureNoArg<T>)
     case arg1(BoxClosure1Arg<T, A>)
     case args2(BoxClosure2Arg<T, A, B>)
@@ -16,11 +16,11 @@ internal class Box<T, A, B, C, D>: BoxProtocol {
     case args4(BoxClosure4Arg<T, A, B, C, D>)
   }
   
-  internal let scope: SwiftResolver.Scope
-  internal let closure: Closure
+  let scope: SwiftResolver.Scope
+  let closure: Closure
   
-  internal let valueType = String(describing: T.self)
-  internal let argsType = [A.self, B.self, C.self].map { String(describing: $0) }
+  let valueType = String(describing: T.self)
+  let argsType = [A.self, B.self, C.self].map { String(describing: $0) }
 
   public init(
     scope: SwiftResolver.Scope,
@@ -31,6 +31,6 @@ internal class Box<T, A, B, C, D>: BoxProtocol {
   }
 }
 
-internal func getBoxKey(_ any: Any) -> String {
+func getBoxKey(_ any: Any) -> String {
   return String(describing: type(of: any))
 }
