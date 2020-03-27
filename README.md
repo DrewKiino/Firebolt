@@ -2,7 +2,7 @@
 
 **SwiftResolver** is a dependency injection framework written for `Swift`. Inspired by `Kotlin` [Koin](https://insert-koin.io/). This framework is meant to be lightweight and unopinionated by design with resolutions working simply by good old functional programming.
 
-[![CI Status](https://img.shields.io/travis/drewkiino/SwiftResolver.svg?style=flat)](https://travis-ci.org/drewkiino/SwiftResolver) [![Version](https://img.shields.io/cocoapods/v/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver) [![License](https://img.shields.io/cocoapods/l/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver) [![Platform](https://img.shields.io/cocoapods/p/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver)
+<!-- [![CI Status](https://img.shields.io/travis/drewkiino/SwiftResolver.svg?style=flat)](https://travis-ci.org/drewkiino/SwiftResolver) -->[![Version](https://img.shields.io/cocoapods/v/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver) [![License](https://img.shields.io/cocoapods/l/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver) [![Platform](https://img.shields.io/cocoapods/p/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver)
 
 ## Documentation
 * [Usage](#usage)
