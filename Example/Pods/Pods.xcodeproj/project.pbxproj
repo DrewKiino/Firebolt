@@ -7,165 +7,189 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03827E1FAF37B566A493578CAE61B233 /* Viper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F77A02C49A4919664044BDD62580068 /* Viper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		174DD2E90DBD314DD0DEFA24FA3C45D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		2118C3589B4E0AF5BC9C44C907B19E70 /* Viper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DAF892B5B00D096DDCD17C762E37DB /* Viper-dummy.m */; };
-		5B22D9474B7C182424B073CAD8BC3344 /* SwiftResolver+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96EB750E73D8E3AA112E691BF4942D7 /* SwiftResolver+Register.swift */; };
-		70BF60A03F2E0DC6FB0361E7ECE8E12D /* SwiftResolverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3E23CD4E0EC6F48990D9DF2AC5E1D /* SwiftResolverError.swift */; };
-		7237F275CDD459BD2B9763790302DC58 /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = F97BE9EB8035D1E9778A70FA8B9363FE /* Get.swift */; };
-		8B942BF7FA60E104B9DC9C664405D68C /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFB425A2B3CFB30F712FF9B7D5A2AEF /* Typealias.swift */; };
-		8CB918F4AB2EDA4FC31464E7CDD59063 /* Pods-Viper_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EE022B11C4AC53EDF852C2A37F39DC /* Pods-Viper_Tests-dummy.m */; };
-		A37BEBD24819EC70D828A05F8DD9ECDD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		B7CA60446E3242B4CBC04C4873D3950E /* SwiftResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF86DBC3F72C9385F408E8B7626B827 /* SwiftResolver.swift */; };
-		C809418DB33622476E881152FF231953 /* Pods-Viper_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B44F3FD18FE666E1D366488B865DC7AD /* Pods-Viper_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D0604ED328523D207D90A108C1023E4F /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638ECF16DBF37124CBA97919E480BD8B /* Box.swift */; };
-		D2A8B10A9F3EB9F4527712C16A803F03 /* SwiftResolver+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0144962E59BB030A6E836486E780F1A7 /* SwiftResolver+Get.swift */; };
-		E0C12352FF0C6AE7DC99F45AE92EF1E1 /* GlobalResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AF2C196F75092BDAEC66369F2EC60A /* GlobalResolver.swift */; };
-		FDBFC0BE6BBBE9309428851039D3A10F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0545DCF42BDEC917B406D8B4A0E184 /* String+Extension.swift */; };
+		02CD8755EE6187CE4C63FEF0AC341F27 /* Zol-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 583220B526DAE2B9DC43757E1D62E9AA /* Zol-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D6E5125F0D962BCD5FEF652AF649A7E /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53514B7EF8F5A82773ADB52324E3B643 /* Box.swift */; };
+		44550823E17B35260D68AFF3B8FFD4D5 /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B53FD979F23C346ACC8EC43011F121 /* Get.swift */; };
+		4A2032F255FA75F1745405AA05859011 /* Resolver+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4FA89CF1E3CB3448302E09DC644D6B /* Resolver+Get.swift */; };
+		591FA99592DCD07C3EF987A6A6BD8D89 /* Resolver+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925093D7A45B0173A9385BA531EF03E8 /* Resolver+Register.swift */; };
+		5C44130CF355EEB03FD4AEB0572628E4 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE4C4DD9485B1AE59C31B7EF931F435 /* Typealias.swift */; };
+		5D3B4696B762DC49DBC57B634504E80F /* Pods-Zol_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C54851B4AAC4A8997A16BC1B3383B8D /* Pods-Zol_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76FBEDA7CBA226AF54A608A987D68C19 /* SwiftResolverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A459D18BC0F29BB417CC66B662766875 /* SwiftResolverError.swift */; };
+		83A526CCF6C7051C0BCAE79B8933CEA1 /* Zol-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF4B2C0E8C17E6B968DE5C3E1DFE302 /* Zol-dummy.m */; };
+		87E2BCDB7E418E3418AB49BD08D3564E /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5F2874531915DA6530AFE31998FB34 /* Resolver.swift */; };
+		92B5945E71C66C12D546CE5B1D77F7AC /* GlobalResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA0643279406D1384B99C888ADE944 /* GlobalResolver.swift */; };
+		AAFF88BBA0A27362D74F4314F4EBE22E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC270B7944CE749EB281B65E290EE8BE /* String+Extension.swift */; };
+		B956501AB40BEAE505B9759F496BF3B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		BBFCC65943B34E8B382718ADD3581669 /* Pods-Zol_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C7BAD0F78FEB4EBC0F8FC5EDA84200 /* Pods-Zol_Tests-dummy.m */; };
+		EAC469EF25DFCD5BB48121FBEF2C49A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ECCE52C959F3B1219785CC9E762FE493 /* PBXContainerItemProxy */ = {
+		FC8CFA04368CB1B597FA3D4E683F7523 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 14C94274F1D2C3067C370AA60DAD0341;
-			remoteInfo = Viper;
+			remoteGlobalIDString = 04501CE630AD8082836AFB2E90A8D6B2;
+			remoteInfo = Zol;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0144962E59BB030A6E836486E780F1A7 /* SwiftResolver+Get.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SwiftResolver+Get.swift"; sourceTree = "<group>"; };
-		06F0E36A9CB018086CB213AA4E1F2E06 /* Viper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Viper.framework; path = Viper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CF86DBC3F72C9385F408E8B7626B827 /* SwiftResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftResolver.swift; path = Viper/Classes/SwiftResolver.swift; sourceTree = "<group>"; };
-		17EE022B11C4AC53EDF852C2A37F39DC /* Pods-Viper_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Viper_Tests-dummy.m"; sourceTree = "<group>"; };
-		27148969ACFDF82AADA226002959E1F8 /* Viper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Viper.debug.xcconfig; sourceTree = "<group>"; };
-		28919252A2501C83BEADFEEE270674B3 /* Pods-Viper_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Viper_Tests-Info.plist"; sourceTree = "<group>"; };
-		2AFB425A2B3CFB30F712FF9B7D5A2AEF /* Typealias.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealias.swift; path = Viper/Classes/Typealias.swift; sourceTree = "<group>"; };
+		17E9AE8942EA4D1F116145C4BCF38659 /* Zol-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Zol-prefix.pch"; sourceTree = "<group>"; };
+		1DF4D9F542626A3DED0D596A34027EF7 /* Pods_Zol_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Zol_Tests.framework; path = "Pods-Zol_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21C1E7D4E0FD4CA7A0AF79290F938448 /* Zol.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Zol.modulemap; sourceTree = "<group>"; };
+		28DA9F88D119551A31668E2BE5B691A8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		35AF2C196F75092BDAEC66369F2EC60A /* GlobalResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GlobalResolver.swift; path = Viper/Classes/GlobalResolver.swift; sourceTree = "<group>"; };
-		3C9A0D61FE39B090FECA8A55B2CDB840 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		40DAF892B5B00D096DDCD17C762E37DB /* Viper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Viper-dummy.m"; sourceTree = "<group>"; };
-		430D1CFC07B1136CA315F7A6993B7FC5 /* Pods-Viper_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Viper_Tests.modulemap"; sourceTree = "<group>"; };
-		5D21E1E8C25CC78F1D3120351F1DAD98 /* Pods-Viper_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Viper_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		5F77A02C49A4919664044BDD62580068 /* Viper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Viper-umbrella.h"; sourceTree = "<group>"; };
-		638ECF16DBF37124CBA97919E480BD8B /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		63F3E23CD4E0EC6F48990D9DF2AC5E1D /* SwiftResolverError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftResolverError.swift; sourceTree = "<group>"; };
-		6C243D503059F6225AE5801BAC119AA5 /* Viper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Viper.release.xcconfig; sourceTree = "<group>"; };
-		6EF7746CD157DB1FC0888ADF5136FB48 /* Viper-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Viper-Info.plist"; sourceTree = "<group>"; };
-		72910A75C41E6C369CDED28FB0021875 /* Pods-Viper_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Viper_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7ACEB137BACACF82C42F3BC8D3A9A1B3 /* Pods-Viper_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Viper_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		7F30EA8D40B1044B06F2578B953CD9E6 /* Viper.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Viper.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		53514B7EF8F5A82773ADB52324E3B643 /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		55701133592524FCE9459A12A349EDE5 /* Zol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Zol.release.xcconfig; sourceTree = "<group>"; };
+		583220B526DAE2B9DC43757E1D62E9AA /* Zol-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Zol-umbrella.h"; sourceTree = "<group>"; };
+		6531E13D14B38B270C349EF68E6D60F8 /* Zol.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Zol.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		6878C6FD9F30395039D8EAF6A5FD21D7 /* Pods-Zol_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Zol_Tests-Info.plist"; sourceTree = "<group>"; };
+		6A5F2874531915DA6530AFE31998FB34 /* Resolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resolver.swift; path = Zol/Classes/Resolver.swift; sourceTree = "<group>"; };
+		6AE4C4DD9485B1AE59C31B7EF931F435 /* Typealias.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealias.swift; path = Zol/Classes/Typealias.swift; sourceTree = "<group>"; };
+		7DF4B2C0E8C17E6B968DE5C3E1DFE302 /* Zol-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Zol-dummy.m"; sourceTree = "<group>"; };
+		91C8A3ED0DAACB5AE05511808FEB72B6 /* Zol-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Zol-Info.plist"; sourceTree = "<group>"; };
+		925093D7A45B0173A9385BA531EF03E8 /* Resolver+Register.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Resolver+Register.swift"; sourceTree = "<group>"; };
+		9C54851B4AAC4A8997A16BC1B3383B8D /* Pods-Zol_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Zol_Tests-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F9CC7FA53D818A0EA9DF6505EC2F5A2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		B44F3FD18FE666E1D366488B865DC7AD /* Pods-Viper_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Viper_Tests-umbrella.h"; sourceTree = "<group>"; };
-		CA0545DCF42BDEC917B406D8B4A0E184 /* String+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		CEE6C4E921D2E51ACF20E74CA3571D5A /* Pods-Viper_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Viper_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		EE28F011FCE6A9A18D4F8DC2EEF1F95B /* Viper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Viper-prefix.pch"; sourceTree = "<group>"; };
-		F04B2007AAC419C59B30B78178D54EB6 /* Pods_Viper_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Viper_Tests.framework; path = "Pods-Viper_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2BE3F576FC8A27027ABA1A8D28ED186 /* Viper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Viper.modulemap; sourceTree = "<group>"; };
-		F9294CE35697360C2D5F3D2F6DB10D4D /* Pods-Viper_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Viper_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		F96EB750E73D8E3AA112E691BF4942D7 /* SwiftResolver+Register.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SwiftResolver+Register.swift"; sourceTree = "<group>"; };
-		F97BE9EB8035D1E9778A70FA8B9363FE /* Get.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
+		A459D18BC0F29BB417CC66B662766875 /* SwiftResolverError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftResolverError.swift; sourceTree = "<group>"; };
+		AA91739F9C1E55EE8D1240F030726088 /* Pods-Zol_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Zol_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		AEF19D5C6C5FA7999E2A8FD24B4E1D71 /* Zol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Zol.debug.xcconfig; sourceTree = "<group>"; };
+		B33F8EC338D6967247BA797F5DE7B8A3 /* Pods-Zol_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Zol_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		B4C7BAD0F78FEB4EBC0F8FC5EDA84200 /* Pods-Zol_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Zol_Tests-dummy.m"; sourceTree = "<group>"; };
+		B5B53FD979F23C346ACC8EC43011F121 /* Get.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
+		B7E2E8643257808F4173642B1231753E /* Pods-Zol_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Zol_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BED2C7C8DC3013DCD6307A955EA83D3B /* Pods-Zol_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Zol_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CA4F5D5EDBC7890F53AD52AB38A3A9F0 /* Zol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Zol.framework; path = Zol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8954D3A93C323F495D72423D7B1601A /* Pods-Zol_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Zol_Tests.modulemap"; sourceTree = "<group>"; };
+		DC270B7944CE749EB281B65E290EE8BE /* String+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		EE4FA89CF1E3CB3448302E09DC644D6B /* Resolver+Get.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Resolver+Get.swift"; sourceTree = "<group>"; };
+		EECA0643279406D1384B99C888ADE944 /* GlobalResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GlobalResolver.swift; path = Zol/Classes/GlobalResolver.swift; sourceTree = "<group>"; };
+		F3A779AB10A556756F40671DDB9C95BB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		FD0885CF26C467293A73A98BFCF219CA /* Pods-Zol_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Zol_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1E6629B8133E28F52230DCA6ADCDDF5F /* Frameworks */ = {
+		A8158E1436CD8CA7C89F5E4ED2FCC4DC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				174DD2E90DBD314DD0DEFA24FA3C45D7 /* Foundation.framework in Frameworks */,
+				EAC469EF25DFCD5BB48121FBEF2C49A9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F00E656AF659BB30734A48C2C21530D0 /* Frameworks */ = {
+		AA59BBEFEFE67E0481FF4A405DF7A4FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A37BEBD24819EC70D828A05F8DD9ECDD /* Foundation.framework in Frameworks */,
+				B956501AB40BEAE505B9759F496BF3B4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0804AFE5A56729359FC4AEFCAE62CA6E /* Products */ = {
+		032F1189E094B6073D4BFB56CD0A7377 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F04B2007AAC419C59B30B78178D54EB6 /* Pods_Viper_Tests.framework */,
-				06F0E36A9CB018086CB213AA4E1F2E06 /* Viper.framework */,
+				1DF4D9F542626A3DED0D596A34027EF7 /* Pods_Zol_Tests.framework */,
+				CA4F5D5EDBC7890F53AD52AB38A3A9F0 /* Zol.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		242476C60BE7A45650EBE41E9DCBBB1B /* Pods-Viper_Tests */ = {
+		1D067DF792D402CC7721AA457C427616 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				430D1CFC07B1136CA315F7A6993B7FC5 /* Pods-Viper_Tests.modulemap */,
-				72910A75C41E6C369CDED28FB0021875 /* Pods-Viper_Tests-acknowledgements.markdown */,
-				CEE6C4E921D2E51ACF20E74CA3571D5A /* Pods-Viper_Tests-acknowledgements.plist */,
-				17EE022B11C4AC53EDF852C2A37F39DC /* Pods-Viper_Tests-dummy.m */,
-				7ACEB137BACACF82C42F3BC8D3A9A1B3 /* Pods-Viper_Tests-frameworks.sh */,
-				28919252A2501C83BEADFEEE270674B3 /* Pods-Viper_Tests-Info.plist */,
-				B44F3FD18FE666E1D366488B865DC7AD /* Pods-Viper_Tests-umbrella.h */,
-				5D21E1E8C25CC78F1D3120351F1DAD98 /* Pods-Viper_Tests.debug.xcconfig */,
-				F9294CE35697360C2D5F3D2F6DB10D4D /* Pods-Viper_Tests.release.xcconfig */,
+				21C1E7D4E0FD4CA7A0AF79290F938448 /* Zol.modulemap */,
+				7DF4B2C0E8C17E6B968DE5C3E1DFE302 /* Zol-dummy.m */,
+				91C8A3ED0DAACB5AE05511808FEB72B6 /* Zol-Info.plist */,
+				17E9AE8942EA4D1F116145C4BCF38659 /* Zol-prefix.pch */,
+				583220B526DAE2B9DC43757E1D62E9AA /* Zol-umbrella.h */,
+				AEF19D5C6C5FA7999E2A8FD24B4E1D71 /* Zol.debug.xcconfig */,
+				55701133592524FCE9459A12A349EDE5 /* Zol.release.xcconfig */,
 			);
-			name = "Pods-Viper_Tests";
-			path = "Target Support Files/Pods-Viper_Tests";
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Zol";
 			sourceTree = "<group>";
 		};
-		833919C66EF55ECDF753A4E342E34804 /* Development Pods */ = {
+		2B67E7629A727CD68AB2725249732E01 /* Zol */ = {
 			isa = PBXGroup;
 			children = (
-				ECEB5626A9CCD273185FDE6D67B365A5 /* Viper */,
+				EECA0643279406D1384B99C888ADE944 /* GlobalResolver.swift */,
+				6A5F2874531915DA6530AFE31998FB34 /* Resolver.swift */,
+				6AE4C4DD9485B1AE59C31B7EF931F435 /* Typealias.swift */,
+				7BF2BC17FF7DC69079776F3F5D73B649 /* Error */,
+				7DD3255777C5DFE5B97391A2E41A8597 /* Extension */,
+				6494E58BCF9B3436B06B78A86599466A /* Pod */,
+				1D067DF792D402CC7721AA457C427616 /* Support Files */,
+				D66C483A755ACC4308DD864C061FA0C5 /* Utility */,
 			);
-			name = "Development Pods";
+			name = Zol;
+			path = ../..;
 			sourceTree = "<group>";
 		};
-		88FE6DFD822257A111169399123B1455 /* Error */ = {
+		6494E58BCF9B3436B06B78A86599466A /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				63F3E23CD4E0EC6F48990D9DF2AC5E1D /* SwiftResolverError.swift */,
-			);
-			name = Error;
-			path = Viper/Classes/Error;
-			sourceTree = "<group>";
-		};
-		9BF1E7BA38E6FB4E9779D73363B8FD6F /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				CA0545DCF42BDEC917B406D8B4A0E184 /* String+Extension.swift */,
-				0144962E59BB030A6E836486E780F1A7 /* SwiftResolver+Get.swift */,
-				F96EB750E73D8E3AA112E691BF4942D7 /* SwiftResolver+Register.swift */,
-			);
-			name = Extension;
-			path = Viper/Classes/Extension;
-			sourceTree = "<group>";
-		};
-		B46B9A01942FA907785966147A61BAF2 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				3C9A0D61FE39B090FECA8A55B2CDB840 /* LICENSE */,
-				9F9CC7FA53D818A0EA9DF6505EC2F5A2 /* README.md */,
-				7F30EA8D40B1044B06F2578B953CD9E6 /* Viper.podspec */,
+				28DA9F88D119551A31668E2BE5B691A8 /* LICENSE */,
+				F3A779AB10A556756F40671DDB9C95BB /* README.md */,
+				6531E13D14B38B270C349EF68E6D60F8 /* Zol.podspec */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		BC40DE642C8CE0F978836A09E5B9C438 /* Support Files */ = {
+		7BF2BC17FF7DC69079776F3F5D73B649 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				F2BE3F576FC8A27027ABA1A8D28ED186 /* Viper.modulemap */,
-				40DAF892B5B00D096DDCD17C762E37DB /* Viper-dummy.m */,
-				6EF7746CD157DB1FC0888ADF5136FB48 /* Viper-Info.plist */,
-				EE28F011FCE6A9A18D4F8DC2EEF1F95B /* Viper-prefix.pch */,
-				5F77A02C49A4919664044BDD62580068 /* Viper-umbrella.h */,
-				27148969ACFDF82AADA226002959E1F8 /* Viper.debug.xcconfig */,
-				6C243D503059F6225AE5801BAC119AA5 /* Viper.release.xcconfig */,
+				A459D18BC0F29BB417CC66B662766875 /* SwiftResolverError.swift */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Viper";
+			name = Error;
+			path = Zol/Classes/Error;
+			sourceTree = "<group>";
+		};
+		7DD3255777C5DFE5B97391A2E41A8597 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EE4FA89CF1E3CB3448302E09DC644D6B /* Resolver+Get.swift */,
+				925093D7A45B0173A9385BA531EF03E8 /* Resolver+Register.swift */,
+				DC270B7944CE749EB281B65E290EE8BE /* String+Extension.swift */,
+			);
+			name = Extension;
+			path = Zol/Classes/Extension;
+			sourceTree = "<group>";
+		};
+		A8EC713DC185CAA833942C870FA14605 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B67E7629A727CD68AB2725249732E01 /* Zol */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		B1231C70DA2F1C601255F8D6F0985AC5 /* Pods-Zol_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D8954D3A93C323F495D72423D7B1601A /* Pods-Zol_Tests.modulemap */,
+				B7E2E8643257808F4173642B1231753E /* Pods-Zol_Tests-acknowledgements.markdown */,
+				BED2C7C8DC3013DCD6307A955EA83D3B /* Pods-Zol_Tests-acknowledgements.plist */,
+				B4C7BAD0F78FEB4EBC0F8FC5EDA84200 /* Pods-Zol_Tests-dummy.m */,
+				B33F8EC338D6967247BA797F5DE7B8A3 /* Pods-Zol_Tests-frameworks.sh */,
+				6878C6FD9F30395039D8EAF6A5FD21D7 /* Pods-Zol_Tests-Info.plist */,
+				9C54851B4AAC4A8997A16BC1B3383B8D /* Pods-Zol_Tests-umbrella.h */,
+				AA91739F9C1E55EE8D1240F030726088 /* Pods-Zol_Tests.debug.xcconfig */,
+				FD0885CF26C467293A73A98BFCF219CA /* Pods-Zol_Tests.release.xcconfig */,
+			);
+			name = "Pods-Zol_Tests";
+			path = "Target Support Files/Pods-Zol_Tests";
+			sourceTree = "<group>";
+		};
+		BD19FC76B33E887BD51C8FD94827B934 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1231C70DA2F1C601255F8D6F0985AC5 /* Pods-Zol_Tests */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -176,24 +200,14 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		C52DFB6E87106E70D3413C4F76151721 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				638ECF16DBF37124CBA97919E480BD8B /* Box.swift */,
-				F97BE9EB8035D1E9778A70FA8B9363FE /* Get.swift */,
-			);
-			name = Utility;
-			path = Viper/Classes/Utility;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				833919C66EF55ECDF753A4E342E34804 /* Development Pods */,
+				A8EC713DC185CAA833942C870FA14605 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				0804AFE5A56729359FC4AEFCAE62CA6E /* Products */,
-				DF73259FEC1872A9B4572EFF9A8F0563 /* Targets Support Files */,
+				032F1189E094B6073D4BFB56CD0A7377 /* Products */,
+				BD19FC76B33E887BD51C8FD94827B934 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,87 +219,73 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DF73259FEC1872A9B4572EFF9A8F0563 /* Targets Support Files */ = {
+		D66C483A755ACC4308DD864C061FA0C5 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				242476C60BE7A45650EBE41E9DCBBB1B /* Pods-Viper_Tests */,
+				53514B7EF8F5A82773ADB52324E3B643 /* Box.swift */,
+				B5B53FD979F23C346ACC8EC43011F121 /* Get.swift */,
 			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		ECEB5626A9CCD273185FDE6D67B365A5 /* Viper */ = {
-			isa = PBXGroup;
-			children = (
-				35AF2C196F75092BDAEC66369F2EC60A /* GlobalResolver.swift */,
-				0CF86DBC3F72C9385F408E8B7626B827 /* SwiftResolver.swift */,
-				2AFB425A2B3CFB30F712FF9B7D5A2AEF /* Typealias.swift */,
-				88FE6DFD822257A111169399123B1455 /* Error */,
-				9BF1E7BA38E6FB4E9779D73363B8FD6F /* Extension */,
-				B46B9A01942FA907785966147A61BAF2 /* Pod */,
-				BC40DE642C8CE0F978836A09E5B9C438 /* Support Files */,
-				C52DFB6E87106E70D3413C4F76151721 /* Utility */,
-			);
-			name = Viper;
-			path = ../..;
+			name = Utility;
+			path = Zol/Classes/Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3F33920E777F62A81B270E7197161D07 /* Headers */ = {
+		6E35C8F0558BCED14EF8F65839EB8A49 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C809418DB33622476E881152FF231953 /* Pods-Viper_Tests-umbrella.h in Headers */,
+				02CD8755EE6187CE4C63FEF0AC341F27 /* Zol-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B68876C6A8E60640135D839A36A565AB /* Headers */ = {
+		BDBB932D65517F111D2938782976228A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03827E1FAF37B566A493578CAE61B233 /* Viper-umbrella.h in Headers */,
+				5D3B4696B762DC49DBC57B634504E80F /* Pods-Zol_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		009781F0FCBD4A21B92B3CEA44895686 /* Pods-Viper_Tests */ = {
+		04501CE630AD8082836AFB2E90A8D6B2 /* Zol */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E619AA79F7B8D08F994166DCEB292D3E /* Build configuration list for PBXNativeTarget "Pods-Viper_Tests" */;
+			buildConfigurationList = 70A1BA21BEE7AEC814A08FFA22E8845D /* Build configuration list for PBXNativeTarget "Zol" */;
 			buildPhases = (
-				3F33920E777F62A81B270E7197161D07 /* Headers */,
-				4703D168882415D2FA8ACE42DF87B4AB /* Sources */,
-				F00E656AF659BB30734A48C2C21530D0 /* Frameworks */,
-				D27AE06A2F60C058FAAB2F9724527619 /* Resources */,
+				6E35C8F0558BCED14EF8F65839EB8A49 /* Headers */,
+				71D4AC93976387E162CEEB261146B608 /* Sources */,
+				AA59BBEFEFE67E0481FF4A405DF7A4FD /* Frameworks */,
+				5A7AAF1844AB6CAA6CAE88065D3A2D4B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				99662EA444EE8E9FCC43824C0A5305B6 /* PBXTargetDependency */,
 			);
-			name = "Pods-Viper_Tests";
-			productName = "Pods-Viper_Tests";
-			productReference = F04B2007AAC419C59B30B78178D54EB6 /* Pods_Viper_Tests.framework */;
+			name = Zol;
+			productName = Zol;
+			productReference = CA4F5D5EDBC7890F53AD52AB38A3A9F0 /* Zol.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		14C94274F1D2C3067C370AA60DAD0341 /* Viper */ = {
+		ECEF31D7D51E95DA8FEE769685684EF1 /* Pods-Zol_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F07DAD690F8612EFF239D0BBA141E809 /* Build configuration list for PBXNativeTarget "Viper" */;
+			buildConfigurationList = 88F3F409B66BA62DBAC3A3049BB734EC /* Build configuration list for PBXNativeTarget "Pods-Zol_Tests" */;
 			buildPhases = (
-				B68876C6A8E60640135D839A36A565AB /* Headers */,
-				2F3EC51BD61F473B0C3E4F58EB76D611 /* Sources */,
-				1E6629B8133E28F52230DCA6ADCDDF5F /* Frameworks */,
-				557C4895A9268E500EEEB7E168009D06 /* Resources */,
+				BDBB932D65517F111D2938782976228A /* Headers */,
+				9F66C9754325EE157F9698FC58744BAE /* Sources */,
+				A8158E1436CD8CA7C89F5E4ED2FCC4DC /* Frameworks */,
+				9E08ECA2CA929F6ED17FC31A41F90197 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				21379F28BD318B6E45819EEE4A80FF44 /* PBXTargetDependency */,
 			);
-			name = Viper;
-			productName = Viper;
-			productReference = 06F0E36A9CB018086CB213AA4E1F2E06 /* Viper.framework */;
+			name = "Pods-Zol_Tests";
+			productName = "Pods-Zol_Tests";
+			productReference = 1DF4D9F542626A3DED0D596A34027EF7 /* Pods_Zol_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -306,25 +306,25 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 0804AFE5A56729359FC4AEFCAE62CA6E /* Products */;
+			productRefGroup = 032F1189E094B6073D4BFB56CD0A7377 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				009781F0FCBD4A21B92B3CEA44895686 /* Pods-Viper_Tests */,
-				14C94274F1D2C3067C370AA60DAD0341 /* Viper */,
+				ECEF31D7D51E95DA8FEE769685684EF1 /* Pods-Zol_Tests */,
+				04501CE630AD8082836AFB2E90A8D6B2 /* Zol */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		557C4895A9268E500EEEB7E168009D06 /* Resources */ = {
+		5A7AAF1844AB6CAA6CAE88065D3A2D4B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D27AE06A2F60C058FAAB2F9724527619 /* Resources */ = {
+		9E08ECA2CA929F6ED17FC31A41F90197 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,46 +334,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2F3EC51BD61F473B0C3E4F58EB76D611 /* Sources */ = {
+		71D4AC93976387E162CEEB261146B608 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0604ED328523D207D90A108C1023E4F /* Box.swift in Sources */,
-				7237F275CDD459BD2B9763790302DC58 /* Get.swift in Sources */,
-				E0C12352FF0C6AE7DC99F45AE92EF1E1 /* GlobalResolver.swift in Sources */,
-				FDBFC0BE6BBBE9309428851039D3A10F /* String+Extension.swift in Sources */,
-				D2A8B10A9F3EB9F4527712C16A803F03 /* SwiftResolver+Get.swift in Sources */,
-				5B22D9474B7C182424B073CAD8BC3344 /* SwiftResolver+Register.swift in Sources */,
-				B7CA60446E3242B4CBC04C4873D3950E /* SwiftResolver.swift in Sources */,
-				70BF60A03F2E0DC6FB0361E7ECE8E12D /* SwiftResolverError.swift in Sources */,
-				8B942BF7FA60E104B9DC9C664405D68C /* Typealias.swift in Sources */,
-				2118C3589B4E0AF5BC9C44C907B19E70 /* Viper-dummy.m in Sources */,
+				2D6E5125F0D962BCD5FEF652AF649A7E /* Box.swift in Sources */,
+				44550823E17B35260D68AFF3B8FFD4D5 /* Get.swift in Sources */,
+				92B5945E71C66C12D546CE5B1D77F7AC /* GlobalResolver.swift in Sources */,
+				4A2032F255FA75F1745405AA05859011 /* Resolver+Get.swift in Sources */,
+				591FA99592DCD07C3EF987A6A6BD8D89 /* Resolver+Register.swift in Sources */,
+				87E2BCDB7E418E3418AB49BD08D3564E /* Resolver.swift in Sources */,
+				AAFF88BBA0A27362D74F4314F4EBE22E /* String+Extension.swift in Sources */,
+				76FBEDA7CBA226AF54A608A987D68C19 /* SwiftResolverError.swift in Sources */,
+				5C44130CF355EEB03FD4AEB0572628E4 /* Typealias.swift in Sources */,
+				83A526CCF6C7051C0BCAE79B8933CEA1 /* Zol-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4703D168882415D2FA8ACE42DF87B4AB /* Sources */ = {
+		9F66C9754325EE157F9698FC58744BAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CB918F4AB2EDA4FC31464E7CDD59063 /* Pods-Viper_Tests-dummy.m in Sources */,
+				BBFCC65943B34E8B382718ADD3581669 /* Pods-Zol_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		99662EA444EE8E9FCC43824C0A5305B6 /* PBXTargetDependency */ = {
+		21379F28BD318B6E45819EEE4A80FF44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Viper;
-			target = 14C94274F1D2C3067C370AA60DAD0341 /* Viper */;
-			targetProxy = ECCE52C959F3B1219785CC9E762FE493 /* PBXContainerItemProxy */;
+			name = Zol;
+			target = 04501CE630AD8082836AFB2E90A8D6B2 /* Zol */;
+			targetProxy = FC8CFA04368CB1B597FA3D4E683F7523 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0A69F8F08ECC3AE0B044D98BC7FEFC1A /* Release */ = {
+		6992B5D45E0169A51773C8BCEF8113C1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C243D503059F6225AE5801BAC119AA5 /* Viper.release.xcconfig */;
+			baseConfigurationReference = 55701133592524FCE9459A12A349EDE5 /* Zol.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -384,14 +384,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Viper/Viper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Viper/Viper-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Zol/Zol-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Zol/Zol-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Viper/Viper.modulemap";
-				PRODUCT_MODULE_NAME = Viper;
-				PRODUCT_NAME = Viper;
+				MODULEMAP_FILE = "Target Support Files/Zol/Zol.modulemap";
+				PRODUCT_MODULE_NAME = Zol;
+				PRODUCT_NAME = Zol;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -403,9 +403,9 @@
 			};
 			name = Release;
 		};
-		15E90B13DD57321E4566B8F2F904F172 /* Release */ = {
+		6E180AD19D18776D8E87E7DD32E7960C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9294CE35697360C2D5F3D2F6DB10D4D /* Pods-Viper_Tests.release.xcconfig */;
+			baseConfigurationReference = FD0885CF26C467293A73A98BFCF219CA /* Pods-Zol_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -417,12 +417,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Viper_Tests/Pods-Viper_Tests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Zol_Tests/Pods-Zol_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Viper_Tests/Pods-Viper_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-Zol_Tests/Pods-Zol_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -437,9 +437,42 @@
 			};
 			name = Release;
 		};
-		673698973CA63D670A241EA080BAC737 /* Debug */ = {
+		831EF545DF6C75F1F14DBB24E167E6A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27148969ACFDF82AADA226002959E1F8 /* Viper.debug.xcconfig */;
+			baseConfigurationReference = AA91739F9C1E55EE8D1240F030726088 /* Pods-Zol_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Zol_Tests/Pods-Zol_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Zol_Tests/Pods-Zol_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		930ABE39EF501DEA9122ABCD12A30553 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEF19D5C6C5FA7999E2A8FD24B4E1D71 /* Zol.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -450,14 +483,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Viper/Viper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Viper/Viper-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Zol/Zol-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Zol/Zol-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Viper/Viper.modulemap";
-				PRODUCT_MODULE_NAME = Viper;
-				PRODUCT_NAME = Viper;
+				MODULEMAP_FILE = "Target Support Files/Zol/Zol.modulemap";
+				PRODUCT_MODULE_NAME = Zol;
+				PRODUCT_NAME = Zol;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -592,39 +625,6 @@
 			};
 			name = Debug;
 		};
-		F903EB454D9998544C111B37BCCB9A1C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D21E1E8C25CC78F1D3120351F1DAD98 /* Pods-Viper_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Viper_Tests/Pods-Viper_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Viper_Tests/Pods-Viper_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -637,20 +637,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E619AA79F7B8D08F994166DCEB292D3E /* Build configuration list for PBXNativeTarget "Pods-Viper_Tests" */ = {
+		70A1BA21BEE7AEC814A08FFA22E8845D /* Build configuration list for PBXNativeTarget "Zol" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F903EB454D9998544C111B37BCCB9A1C /* Debug */,
-				15E90B13DD57321E4566B8F2F904F172 /* Release */,
+				930ABE39EF501DEA9122ABCD12A30553 /* Debug */,
+				6992B5D45E0169A51773C8BCEF8113C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F07DAD690F8612EFF239D0BBA141E809 /* Build configuration list for PBXNativeTarget "Viper" */ = {
+		88F3F409B66BA62DBAC3A3049BB734EC /* Build configuration list for PBXNativeTarget "Pods-Zol_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				673698973CA63D670A241EA080BAC737 /* Debug */,
-				0A69F8F08ECC3AE0B044D98BC7FEFC1A /* Release */,
+				831EF545DF6C75F1F14DBB24E167E6A7 /* Debug */,
+				6E180AD19D18776D8E87E7DD32E7960C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

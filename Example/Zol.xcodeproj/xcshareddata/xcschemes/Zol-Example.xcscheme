@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "Viper_Example.app"
-               BlueprintName = "Viper_Example"
-               ReferencedContainer = "container:Viper.xcodeproj">
+               BuildableName = "Zol_Example.app"
+               BlueprintName = "Zol_Example"
+               ReferencedContainer = "container:Zol.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "Viper_Tests.xctest"
-               BlueprintName = "Viper_Tests"
-               ReferencedContainer = "container:Viper.xcodeproj">
+               BuildableName = "Zol_Tests.xctest"
+               BlueprintName = "Zol_Tests"
+               ReferencedContainer = "container:Zol.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,9 +48,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "Viper_Tests.xctest"
-               BlueprintName = "Viper_Tests"
-               ReferencedContainer = "container:Viper.xcodeproj">
+               BuildableName = "Zol_Tests.xctest"
+               BlueprintName = "Zol_Tests"
+               ReferencedContainer = "container:Zol.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -58,9 +58,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "Viper_Example.app"
-            BlueprintName = "Viper_Example"
-            ReferencedContainer = "container:Viper.xcodeproj">
+            BuildableName = "Zol_Example.app"
+            BlueprintName = "Zol_Example"
+            ReferencedContainer = "container:Zol.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "Viper_Example.app"
-            BlueprintName = "Viper_Example"
-            ReferencedContainer = "container:Viper.xcodeproj">
+            BuildableName = "Zol_Example.app"
+            BlueprintName = "Zol_Example"
+            ReferencedContainer = "container:Zol.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -101,9 +101,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "Viper_Example.app"
-            BlueprintName = "Viper_Example"
-            ReferencedContainer = "container:Viper.xcodeproj">
+            BuildableName = "Zol_Example.app"
+            BlueprintName = "Zol_Example"
+            ReferencedContainer = "container:Zol.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

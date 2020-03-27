@@ -1,16 +1,16 @@
 PODS:
-  - Viper (0.0.1)
+  - Zol (0.0.2)
 
 DEPENDENCIES:
-  - Viper (from `../`)
+  - Zol (from `../`)
 
 EXTERNAL SOURCES:
-  Viper:
+  Zol:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Viper: b8bc96ee3826630210084364120f39064f7cb8fd
+  Zol: 84a7ce15c64803c0acdd61551af85e640a877f75
 
-PODFILE CHECKSUM: 659dabe6efbea8dde9c5ef19e7b575f550c73eab
+PODFILE CHECKSUM: bf53281d5d139946191176cb0391f110909161b5
 
 COCOAPODS: 1.9.1
