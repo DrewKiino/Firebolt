@@ -8,7 +8,7 @@ extension SwiftResolver {
     _ scope: Scope = .factory,
     expect object: T.Type = T.self,
     closure: @escaping BoxClosureNoArg<T>
-  ) throws -> Self {
+  ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
     boxes[boxKey] = Box<T, Void, Void, Void, Void>(
       scope: scope,
@@ -24,7 +24,7 @@ extension SwiftResolver {
     expect object: T.Type = T.self,
     arg1: A.Type,
     closure: @escaping BoxClosure1Arg<T, A>
-  ) throws -> Self {
+  ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
     boxes[boxKey] = Box<T?, A, Void, Void, Void>(
       scope: scope,
@@ -41,7 +41,7 @@ extension SwiftResolver {
     arg1: A.Type,
     arg2: B.Type,
     closure: @escaping BoxClosure2Arg<T, A, B>
-  ) throws -> Self {
+  ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
     let box = Box<T?, A, B, Void, Void>(
       scope: scope,
@@ -60,7 +60,7 @@ extension SwiftResolver {
     arg2: B.Type,
     arg3: C.Type,
     closure: @escaping BoxClosure3Arg<T, A, B, C>
-  ) throws -> Self {
+  ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
     boxes[boxKey] = Box<T, A, B, C, Void>(
       scope: scope,
@@ -79,7 +79,7 @@ extension SwiftResolver {
     arg3: C.Type,
     arg4: D.Type,
     closure: @escaping BoxClosure4Arg<T, A, B, C, D>
-  ) throws -> Self {
+  ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
     boxes[boxKey] = Box<T, A, B, C, D>(
       scope: scope,

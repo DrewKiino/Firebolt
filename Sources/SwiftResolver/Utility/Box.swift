@@ -2,7 +2,7 @@
 import Foundation
 
 protocol BoxProtocol {
-  var valueType: String { get }
+  var stringValue: String { get }
   var stringArgs: [String] { get }
   func scope() -> SwiftResolver.Scope
   func value<_T, _A, _B, _C, _D>(
@@ -25,7 +25,7 @@ class Box<T, A, B, C, D>: BoxProtocol {
   private let _scope: SwiftResolver.Scope
   private let closure: Closure
   
-  let valueType = String(describing: T.self)
+  let stringValue = String(describing: T.self)
   let stringArgs = [A.self, B.self, C.self, D.self].map { String(describing: $0) }.filter { $0 != "()" }
   
   func scope() -> SwiftResolver.Scope {

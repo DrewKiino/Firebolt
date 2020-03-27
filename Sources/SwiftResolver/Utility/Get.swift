@@ -9,9 +9,9 @@ import Foundation
 
 public func get<T>(
   expect: T.Type = T.self,
-  resolverId: String? = nil
+  _  resolverId: String? = nil
 ) -> T! {
-  SwiftResolver.getResolver(
+  GlobalResolver.getResolver(
     expect: expect,
     resolverId: resolverId ?? globalResolverId,
     arg1: (), arg2: (), arg3: (), arg4: ()
@@ -20,10 +20,10 @@ public func get<T>(
 
 public func get<T, A>(
   expect: T.Type = T.self,
-  resolverId: String? = nil,
+  _ resolverId: String? = nil,
   arg1: A
 ) -> T! {
-  SwiftResolver.getResolver(
+  GlobalResolver.getResolver(
     expect: expect,
     resolverId: resolverId ?? globalResolverId,
     arg1: arg1, arg2: (), arg3: (), arg4: ()
@@ -32,11 +32,11 @@ public func get<T, A>(
 
 public func get<T, A, B>(
   expect: T.Type = T.self,
-  resolverId: String? = nil,
+  _ resolverId: String? = nil,
   arg1: A,
   arg2: B
 ) -> T! {
-  SwiftResolver.getResolver(
+  GlobalResolver.getResolver(
     expect: expect,
     resolverId: resolverId ?? globalResolverId,
     arg1: arg1, arg2: arg2, arg3: (), arg4: ()
@@ -45,12 +45,12 @@ public func get<T, A, B>(
 
 public func get<T, A, B, C>(
   expect: T.Type = T.self,
-  resolverId: String? = nil,
+  _ resolverId: String? = nil,
   arg1: A,
   arg2: B,
   arg3: C
 ) -> T! {
-  SwiftResolver.getResolver(
+  GlobalResolver.getResolver(
     expect: expect,
     resolverId: resolverId ?? globalResolverId,
     arg1: arg1, arg2: arg2, arg3: arg3, arg4: ()
@@ -59,13 +59,13 @@ public func get<T, A, B, C>(
 
 public func get<T, A, B, C, D>(
   expect: T.Type = T.self,
-  resolverId: String? = nil,
+  _ resolverId: String? = nil,
   arg1: A,
   arg2: B,
   arg3: C,
   arg4: D
 ) -> T! {
-  SwiftResolver.getResolver(
+  GlobalResolver.getResolver(
     expect: expect,
     resolverId: resolverId ?? globalResolverId,
     arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4
