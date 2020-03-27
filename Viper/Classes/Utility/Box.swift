@@ -4,7 +4,7 @@ import Foundation
 protocol BoxProtocol {
   var stringValue: String { get }
   var stringArgs: [String] { get }
-  func scope() -> Viper.Scope
+  func scope() -> Resolver.Scope
   func value<_T, _A, _B, _C, _D>(
     arg1: _A,
     arg2: _B,
@@ -22,18 +22,18 @@ class Box<T, A, B, C, D>: BoxProtocol {
     case args4(BoxClosure4Arg<T, A, B, C, D>)
   }
   
-  private let _scope: Viper.Scope
+  private let _scope: Resolver.Scope
   private let closure: Closure
   
   let stringValue = String(describing: T.self)
   let stringArgs = [A.self, B.self, C.self, D.self].map { String(describing: $0) }.filter { $0 != "()" }
   
-  func scope() -> Viper.Scope {
+  func scope() -> Resolver.Scope {
     _scope
   }
   
   public init(
-    scope: Viper.Scope,
+    scope: Resolver.Scope,
     closure: Closure
   ) {
     self._scope = scope

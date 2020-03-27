@@ -1,13 +1,13 @@
 //
-//  Viper+Get.swift
-//  Viper
+//  Resolver+Get.swift
+//  Resolver
 //
 //  Created by Andrew Aquino on 3/26/20.
 //
 
 import Foundation
 
-extension Viper {
+extension Resolver {
   public func get<T>(
     expect: T.Type = T.self
   ) -> T! {

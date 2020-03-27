@@ -1,8 +1,8 @@
 {
   "name": "Viper",
-  "version": "0.1.0",
-  "summary": "A short description of Viper.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "0.0.1",
+  "summary": "Viper is a dependency injection framework written for Swift",
+  "description": "Viper is a dependency injection framework written for Swift. Inspired by Kotlin Koin. \nThis framework is meant to be lightweight and unopinionated by design with resolutions working \nsimply by good old functional programming.",
   "homepage": "https://github.com/drewkiino/Viper",
   "license": {
     "type": "MIT",
@@ -13,10 +13,12 @@
   },
   "source": {
     "git": "https://github.com/drewkiino/Viper.git",
-    "tag": "0.1.0"
+    "tag": "0.0.1"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "Viper/Classes/**/*"
+  "source_files": "Viper/Classes/**/*",
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
 }

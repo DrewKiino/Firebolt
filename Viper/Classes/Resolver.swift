@@ -1,7 +1,7 @@
 
 import Foundation
 
-public final class Viper {
+public final class Resolver {
   public enum Scope {
     case factory
     case single
@@ -41,8 +41,8 @@ public final class Viper {
     return self
   }
 
-  public func combine(with resolver: Viper, newResolverId: String) -> Viper {
-    let newResolver = Viper(newResolverId)
+  public func combine(with resolver: Resolver, newResolverId: String) -> Resolver {
+    let newResolver = Resolver(newResolverId)
     newResolver.boxes = resolver.boxes.merging(boxes, uniquingKeysWith: { $1 })
     return newResolver
   }
@@ -54,5 +54,5 @@ internal enum LogLevel: String {
 }
 
 internal func logger(_ logLevel: LogLevel, _ value: Any) {
-  print("[Viper] \(logLevel.rawValue) - \(value)")
+  print("[Resolver] \(logLevel.rawValue) - \(value)")
 }

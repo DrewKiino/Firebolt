@@ -137,8 +137,8 @@
 				TargetAttributes = {
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2NC533SE3E;
 						LastSwiftMigration = 1130;
-						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -331,6 +331,7 @@
 			baseConfigurationReference = 6CED765BE899ADBB5159C660 /* Pods-Viper_Tests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 2NC533SE3E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -347,7 +348,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Viper_Example.app/Viper_Example";
 			};
 			name = Debug;
 		};
@@ -356,6 +356,7 @@
 			baseConfigurationReference = AA355B7000B07B53FB0EB3FB /* Pods-Viper_Tests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 2NC533SE3E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -367,7 +368,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Viper_Tests-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Viper_Example.app/Viper_Example";
 			};
 			name = Release;
 		};

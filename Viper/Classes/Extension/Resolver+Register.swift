@@ -1,7 +1,7 @@
 
 import Foundation
 
-extension Viper {
+extension Resolver {
 
   @discardableResult
   public func register<T>(
