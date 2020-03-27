@@ -2,13 +2,30 @@
 
 **SwiftResolver** is a dependency injection framework written for `Swift`. Inspired by `Kotlin` [Koin](https://insert-koin.io/). This framework is meant to be lightweight and unopinionated by design with resolutions working simply by good old functional programming.
 
+[![CI Status](https://img.shields.io/travis/drewkiino/SwiftResolver.svg?style=flat)](https://travis-ci.org/drewkiino/SwiftResolver) [![Version](https://img.shields.io/cocoapods/v/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver) [![License](https://img.shields.io/cocoapods/l/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver) [![Platform](https://img.shields.io/cocoapods/p/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver)
+
+## Documentation
 * [Usage](#usage)
 * [Scope](#scope)
 * [Arguments](#arguments)
 * [Protocol Conformance](#protocol_conformance)
 * [Multiple Resolvers](#multiple_resolvers)
+* [Examples](#examples)
 
-## Usage {#usage}
+## Installation
+
+SwiftResolver is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'SwiftResolver'
+```
+
+## Author
+
+drewkiino, andrewaquino118@gmail.com
+
+### Usage {#usage}
 
 1. Instantiate a `Resolver`
 ```swift
@@ -35,7 +52,7 @@ let classA: ClassA = get()
 let classB: ClassB = get()
 ```
 
-## Scope {#scope}
+### Scope {#scope}
 You can pass in a `scope` qualifier during registration to tell the `Resolver` how you want to instance to be resolved. 
 
 The current supported forms of `scope` are:
@@ -57,7 +74,7 @@ let classA: ClassA = get()
 let classA: ClassA = get()
 ```
 
-## Arguments {#arguments}
+### Arguments {#arguments}
 
 You can pass in arguments during registration like so.
 ```swift
@@ -101,7 +118,7 @@ resolver
 let classC: ClassC = get(arg1: ClassA())
 ```
 
-## Protocol Conformance {$protocol_conformance}
+### Protocol Conformance {$protocol_conformance}
 Protocol conformance is also supported by the `Resolver`. Let's say you want to have a `ClassA` protocol and a `ClassAImpl` concrete type registered, you can use the `expect` argument.
 
 ```swift
@@ -157,7 +174,7 @@ let classB: ClassB = get()
 This works because `ClassA` is registered in the dependency scope
 but we are able to cast it to the expected type `ClassAVaraintA` by using the `get()` qualifier and the `expect` argument passed in during the callsite. 
 
-## Multiple Resolvers {#multiple_resolvers}
+### Multiple Resolvers {#multiple_resolvers}
 Normally, if you initialze a `Resolver` without a resolver identifier passed in, you will get the `GlobalResolver`.
 ```swift
 let resolver = SwiftResolver() // <- GlobalResolver created
@@ -195,7 +212,7 @@ func viewDidLoad() {
 ```
 Objects not registered by the resolver won't be shared by other resolvers. This includes objects registered as `.single` as well unless the they are registered by the `GlobalResolver` itself in which they become a true `Singleton`.
 
-## Examples
+### Examples {#examples}
 **Application Architecture**
 ```swift
 // UserManager.swift
@@ -221,6 +238,10 @@ class AppDelegate {
   }
 }
 ```
+
+## License
+
+**SwiftResolver** is available under the MIT license. See the LICENSE file for more info.
 
 
 

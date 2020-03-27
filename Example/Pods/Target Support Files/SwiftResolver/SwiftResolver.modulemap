@@ -1,0 +1,6 @@
+framework module SwiftResolver {
+  umbrella header "SwiftResolver-umbrella.h"
+
+  export *
+  module * { export * }
+}

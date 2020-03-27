@@ -1,0 +1,6 @@
+use_frameworks!
+target 'SwiftResolver_Tests' do
+  pod 'SwiftResolver', :path => '../'
+  
+  
+end
