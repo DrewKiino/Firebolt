@@ -23,7 +23,7 @@ pod 'SwiftResolver'
 
 ## Author
 
-drewkiino, andrewaquino118@gmail.com
+Andrew Aquino, andrewaquino118@gmail.com
 
 ### Usage {#usage}
 

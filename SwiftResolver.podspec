@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftResolver'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SwiftResolver.'
+  s.summary          = 'SwiftResolver is a dependency injection framework written for Swift'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  SwiftResolver is a dependency injection framework written for Swift. Inspired by Kotlin Koin. 
+  This framework is meant to be lightweight and unopinionated by design with resolutions working 
+  simply by good old functional programming.
                        DESC
 
   s.homepage         = 'https://github.com/drewkiino/SwiftResolver'
@@ -31,7 +33,8 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'SwiftResolver/Classes/**/*'
-  
+  s.swift_version = '5.0'
+
   # s.resource_bundles = {
   #   'SwiftResolver' => ['SwiftResolver/Assets/*.png']
   # }
