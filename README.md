@@ -1,8 +1,8 @@
-# SwiftResolver
+# Viper
 
-**SwiftResolver** is a dependency injection framework written for `Swift`. Inspired by `Kotlin` [Koin](https://insert-koin.io/). This framework is meant to be lightweight and unopinionated by design with resolutions working simply by good old functional programming.
+**Viper** is a dependency injection framework written for `Swift`. Inspired by `Kotlin` [Koin](https://insert-koin.io/). This framework is meant to be lightweight and unopinionated by design with resolutions working simply by good old functional programming.
 
-<!-- [![CI Status](https://img.shields.io/travis/drewkiino/SwiftResolver.svg?style=flat)](https://travis-ci.org/drewkiino/SwiftResolver) -->[![Version](https://img.shields.io/cocoapods/v/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver) [![License](https://img.shields.io/cocoapods/l/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver) [![Platform](https://img.shields.io/cocoapods/p/SwiftResolver.svg?style=flat)](https://cocoapods.org/pods/SwiftResolver)
+<!-- [![CI Status](https://img.shields.io/travis/drewkiino/Viper.svg?style=flat)](https://travis-ci.org/drewkiino/Viper) -->[![Version](https://img.shields.io/cocoapods/v/Viper.svg?style=flat)](https://cocoapods.org/pods/Viper) [![License](https://img.shields.io/cocoapods/l/Viper.svg?style=flat)](https://cocoapods.org/pods/Viper) [![Platform](https://img.shields.io/cocoapods/p/Viper.svg?style=flat)](https://cocoapods.org/pods/Viper)
 
 ## Documentation
 * [Usage](#usage)
@@ -14,11 +14,11 @@
 
 ## Installation
 
-SwiftResolver is available through [CocoaPods](https://cocoapods.org). To install
+Viper is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'SwiftResolver'
+pod 'Viper'
 ```
 
 ## Author
@@ -29,7 +29,7 @@ Andrew Aquino, andrewaquino118@gmail.com
 
 1. Instantiate a `Resolver`
 ```swift
-let resolver = SwiftResolver()
+let resolver = Viper()
 ```
 2. Register dependencies.
 ```swift
@@ -78,7 +78,7 @@ let classA: ClassA = get()
 
 You can pass in arguments during registration like so.
 ```swift
-let resolver = SwiftResolver()
+let resolver = Viper()
 let environment: String = "stage"
 
 reasolver.register { ClassD(environment: environment, classA: get()) }
@@ -104,7 +104,7 @@ let classD: ClassD = get(arg1: "stage", arg2: 1200)
 
 For shared non-registered arguments between dependencies, you can pass in arguments from within the `register` block using the upstream argument themselves.
 ```swift
-let resolver = SwiftResolver()
+let resolver = Viper()
 
 resolver
     .register(arg1: ClassA.self) { ClassB(classA: $0) }
@@ -126,7 +126,7 @@ protocol ClassA { func foo() }
 
 class ClassAImpl: ClassA { func foo() {} }
 
-let resolver = SwiftResolver()
+let resolver = Viper()
 
 resolver.register(expect: ClassA.self) { ClassAImpl() }
 ```
@@ -145,7 +145,7 @@ class ClassAImpl: ClassAVariantA, ClassAVariantB {
     func bar() {}
 }
 
-let resolver = SwiftResolver()
+let resolver = Viper()
 
 resolver.register(expect: ClassA.self) { ClassAImpl() }
 
@@ -161,7 +161,7 @@ class ClassA: ClassAVariantA {}
 
 class ClassB { init(classAVariant: ClassAVariantA) {} }
 
-let resolver = SwiftResolver()
+let resolver = Viper()
 
 resolver
     .register { ClassA() }
@@ -177,7 +177,7 @@ but we are able to cast it to the expected type `ClassAVaraintA` by using the `g
 ### Multiple Resolvers {#multiple_resolvers}
 Normally, if you initialze a `Resolver` without a resolver identifier passed in, you will get the `GlobalResolver`.
 ```swift
-let resolver = SwiftResolver() // <- GlobalResolver created
+let resolver = Viper() // <- GlobalResolver created
 ```
 This means that you can inject dependencies without specifying the resolver identifier.
 ```swift
@@ -186,10 +186,10 @@ let classA: ClassA = get()
 However, if you want to keep dependencies separate:
 1. You can instantiate multiple resolvers. Each having their own scope.
 ```swift
-let resolver1 = SwiftResolver("Resolver_1")
+let resolver1 = Viper("Resolver_1")
 resolver1.register { ClassA() }
 
-let resolver2 = SwiftResolver("Resolver_2")
+let resolver2 = Viper("Resolver_2")
 resolver2.register { ClassA() }
 resolver2.register { ClassB() }
 ```
@@ -203,8 +203,8 @@ let classB: ClassB = get("Resolver_2")
 ```
 3. You can also call `get()` directly by the resolver if you want to go through an `Interface` like design.
 ```swift
-let resolver: SwiftResolver
-init(resolver: SwiftResolver) { self.resolver = resolver }
+let resolver: Viper
+init(resolver: Viper) { self.resolver = resolver }
 
 func viewDidLoad() {
     let classB: ClassB = resolver.get()
@@ -226,7 +226,7 @@ class ViewController: UIViewController {
 // AppDelegate.swift
 class AppDelegate {
 
-  let resolver = SwiftResolver()
+  let resolver = Viper()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -241,7 +241,7 @@ class AppDelegate {
 
 ## License
 
-**SwiftResolver** is available under the MIT license. See the LICENSE file for more info.
+**Viper** is available under the MIT license. See the LICENSE file for more info.
 
 
 

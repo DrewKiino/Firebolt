@@ -1,8 +1,8 @@
 
 import XCTest
-@testable import SwiftResolver
+@testable import Viper
 
-private let globalResolver = SwiftResolver()
+private let globalResolver = Viper()
 
 final class SwiftResolverTests: XCTestCase {
   
@@ -187,7 +187,7 @@ final class SwiftResolverTests: XCTestCase {
 
   func test_resolver_init() {
     let resolverId = "TEST_RESOLVER"
-    let newResolver = SwiftResolver(resolverId)
+    let newResolver = Viper(resolverId)
     let read = GlobalResolver.resolvers[resolverId]
     XCTAssertNotNil(read)
     XCTAssertEqual(read?.resolverId, resolverId)
@@ -199,8 +199,8 @@ final class SwiftResolverTests: XCTestCase {
   func test_two_resolvers() {
     let resolverId = "TEST_RESOLVER"
     let resolverId2 = "TEST_RESOLVER_2"
-    _ = SwiftResolver(resolverId)
-    _ = SwiftResolver(resolverId2)
+    _ = Viper(resolverId)
+    _ = Viper(resolverId2)
     
     let read = GlobalResolver.resolvers[resolverId]
     let read2 = GlobalResolver.resolvers[resolverId2]
@@ -213,8 +213,8 @@ final class SwiftResolverTests: XCTestCase {
   func test_two_resolvers_same_deps() {
     let resolverId = "TEST_RESOLVER"
     let resolverId2 = "TEST_RESOLVER_2"
-    let newResolver1 = SwiftResolver(resolverId)
-    let _ = SwiftResolver(resolverId2)
+    let newResolver1 = Viper(resolverId)
+    let _ = Viper(resolverId2)
 
     newResolver1.register { ClassA() }
 
@@ -229,7 +229,7 @@ final class SwiftResolverTests: XCTestCase {
   
   func test_two_resolvers_same_deps_one_global() {
     let resolverId = "TEST_RESOLVER"
-    _ = SwiftResolver(resolverId)
+    _ = Viper(resolverId)
 
     globalResolver.register { ClassA() }
 
@@ -242,7 +242,7 @@ final class SwiftResolverTests: XCTestCase {
   
   func test_resolver_get_by_instance() {
     let resolverId = "TEST_RESOLVER"
-    let resolver = SwiftResolver(resolverId)
+    let resolver = Viper(resolverId)
     
     resolver.register { ClassA() }
 

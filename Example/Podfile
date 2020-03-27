@@ -1,6 +1,6 @@
 use_frameworks!
-target 'SwiftResolver_Tests' do
-  pod 'SwiftResolver', :path => '../'
+target 'Viper_Tests' do
+  pod 'Viper', :path => '../'
   
   
 end
