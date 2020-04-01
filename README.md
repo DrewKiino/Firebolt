@@ -100,7 +100,7 @@ resolver.register(arg1: String.self, arg2: Int.self) {
 let classD: ClassD = get("stage", 1200)
 ```
 
-For shared arguments between dependencies, you can pass in arguments from within the `register` block using the upstream argument themselves.
+For shared non-registered arguments between dependencies, you can pass in arguments from within the `register` block using the upstream argument themselves.
 ```swift
 let resolver = Resolver()
 
@@ -109,7 +109,6 @@ class ClassC {
 }
 
 resolver
-    .register { ClassA() }
     .register(arg1: ClassA.self) { ClassB(classA: $0) }
     .register(arg1: ClassA.self) { 
         // ClassA is now shared between ClassB and ClassC
@@ -118,7 +117,7 @@ resolver
     }
 
 // Then call them like so
-let classA: ClassA = get()
+let classA: ClassA = Class()
 let classC: ClassC = get(classA)
 ```
 
