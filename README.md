@@ -88,7 +88,7 @@ reasolver.register(arg1: String.self) { ClassD(environment: $0) }
 ```
 Then you can pass in the argument afterwards.
 ```swift
-let classD: ClassD = get(environment: "stage")
+let classD: ClassD = get("stage")
 ```
 
 You can pass in multiple arguments as well.
@@ -97,23 +97,29 @@ resolver.register(arg1: String.self, arg2: Int.self) {
     ClassD(environment: $0, timestamp: $1) 
 }
 
-let classD: ClassD = get(arg1: "stage", arg2: 1200)
+let classD: ClassD = get("stage", 1200)
 ```
 
 For shared non-registered arguments between dependencies, you can pass in arguments from within the `register` block using the upstream argument themselves.
 ```swift
 let resolver = Resolver()
 
+class ClassC {
+    init(classA: ClassA, classB: ClassB) {}
+}
+
 resolver
+    .register { ClassA() }
     .register(arg1: ClassA.self) { ClassB(classA: $0) }
     .register(arg1: ClassA.self) { 
         // ClassA is now shared between ClassB and ClassC
         // without registration
-        ClassC(environment: $0), classB: get(arg1: $0)) 
+        ClassC(classA: $0, classB: get($0)) 
     }
 
-// Then call it like so
-let classC: ClassC = get(arg1: ClassA())
+// Then call them like so
+let classA: ClassA = get()
+let classC: ClassC = get(classA)
 ```
 
 ### Protocol Conformance 
@@ -194,10 +200,10 @@ resolver2.register { ClassB() }
 2. Then inject by identifying the resolver. 
 ```swift
 // resolves to `nil` because Resolver_1 never registered ClassB
-let classB: ClassB = get("Resolver_1") 
+let classB: ClassB = get(resolverId: "Resolver_1") 
 
 // resolves to ClassB 
-let classB: ClassB = get("Resolver_2") 
+let classB: ClassB = get(resolverId: "Resolver_2") 
 ```
 3. You can also call `get()` directly by the resolver if you want to go through an `Interface` like design.
 ```swift
