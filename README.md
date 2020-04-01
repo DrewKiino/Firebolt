@@ -8,8 +8,8 @@
 * [Usage](#usage)
 * [Scope](#scope)
 * [Arguments](#arguments)
-* [Protocol Conformance](#protocol_conformance)
-* [Multiple Resolvers](#multiple_resolvers)
+* [Protocol Conformance](#protocol-conformance)
+* [Multiple Resolvers](#multiple-resolvers)
 * [Examples](#examples)
 
 ## Installation
@@ -25,7 +25,7 @@ pod 'Viper'
 
 Andrew Aquino, andrewaquino118@gmail.com
 
-### Usage {#usage}
+### Usage
 
 1. Instantiate a `Resolver`
 ```swift
@@ -52,7 +52,7 @@ let classA: ClassA = get()
 let classB: ClassB = get()
 ```
 
-### Scope {#scope}
+### Scope
 You can pass in a `scope` qualifier during registration to tell the `Resolver` how you want to instance to be resolved. 
 
 The current supported forms of `scope` are:
@@ -74,7 +74,7 @@ let classA: ClassA = get()
 let classA: ClassA = get()
 ```
 
-### Arguments {#arguments}
+### Arguments
 
 You can pass in arguments during registration like so.
 ```swift
@@ -118,7 +118,7 @@ resolver
 let classC: ClassC = get(arg1: ClassA())
 ```
 
-### Protocol Conformance {$protocol_conformance}
+### Protocol Conformance 
 Protocol conformance is also supported by the `Resolver`. Let's say you want to have a `ClassA` protocol and a `ClassAImpl` concrete type registered, you can use the `expect` argument.
 
 ```swift
@@ -174,7 +174,7 @@ let classB: ClassB = get()
 This works because `ClassA` is registered in the dependency scope
 but we are able to cast it to the expected type `ClassAVaraintA` by using the `get()` qualifier and the `expect` argument passed in during the callsite. 
 
-### Multiple Resolvers {#multiple_resolvers}
+### Multiple Resolvers 
 Normally, if you initialze a `Resolver` without a resolver identifier passed in, you will get the `GlobalResolver`.
 ```swift
 let resolver = Viper() // <- GlobalResolver created
@@ -212,7 +212,7 @@ func viewDidLoad() {
 ```
 Objects not registered by the resolver won't be shared by other resolvers. This includes objects registered as `.single` as well unless the they are registered by the `GlobalResolver` itself in which they become a true `Singleton`.
 
-### Examples {#examples}
+### Examples 
 **Application Architecture**
 ```swift
 // UserManager.swift
