@@ -1,0 +1,6 @@
+framework module Firebolt {
+  umbrella header "Firebolt-umbrella.h"
+
+  export *
+  module * { export * }
+}

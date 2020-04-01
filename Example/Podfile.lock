@@ -1,16 +1,16 @@
 PODS:
-  - Viper (0.0.4)
+  - Firebolt (0.0.5)
 
 DEPENDENCIES:
-  - Viper (from `../`)
+  - Firebolt (from `../`)
 
 EXTERNAL SOURCES:
-  Viper:
+  Firebolt:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Viper: bdda8835949bc06967e8c0066d6491ef97721cef
+  Firebolt: c039b67db4240f374eb8a9c83ff09caa6794079f
 
-PODFILE CHECKSUM: 659dabe6efbea8dde9c5ef19e7b575f550c73eab
+PODFILE CHECKSUM: 5781d2f27f11c7be14611685b4886f583871509b
 
 COCOAPODS: 1.9.1

@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint Viper.podspec' to ensure this is a
+# Be sure to run `pod lib lint Firebolt.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'SwiftInject'
+  s.name             = 'Firebolt'
   s.version          = '0.0.5'
-  s.summary          = 'Viper is a dependency injection framework written for Swift'
+  s.summary          = 'Firebolt is a dependency injection framework written for Swift'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,25 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  Viper is a dependency injection framework written for Swift. Inspired by Kotlin Koin. 
+  Firebolt is a dependency injection framework written for Swift. Inspired by Kotlin Koin. 
   This framework is meant to be lightweight and unopinionated by design with resolutions working 
   simply by good old functional programming.
                        DESC
 
-  s.homepage         = 'https://github.com/drewkiino/Viper'
+  s.homepage         = 'https://github.com/drewkiino/Firebolt'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'drewkiino' => 'andrewaquino118@gmail.com' }
-  s.source           = { :git => 'https://github.com/drewkiino/Viper.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/drewkiino/Firebolt.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '11.0'
 
-  s.source_files = 'Viper/Classes/**/*'
+  s.source_files = 'Firebolt/Classes/**/*'
   s.swift_version = '5.0'
 
   # s.resource_bundles = {
-  #   'Viper' => ['Viper/Assets/*.png']
+  #   'Firebolt' => ['Firebolt/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

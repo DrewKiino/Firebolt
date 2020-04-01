@@ -1,6 +1,6 @@
 use_frameworks!
-target 'Viper_Tests' do
-  pod 'Viper', :path => '../'
+target 'Firebolt_Tests' do
+  pod 'Firebolt', :path => '../'
   
   
 end

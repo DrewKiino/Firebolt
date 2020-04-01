@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double ViperVersionNumber;
-FOUNDATION_EXPORT const unsigned char ViperVersionString[];
+FOUNDATION_EXPORT double FireboltVersionNumber;
+FOUNDATION_EXPORT const unsigned char FireboltVersionString[];
 

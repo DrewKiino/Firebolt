@@ -7,191 +7,173 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03827E1FAF37B566A493578CAE61B233 /* Viper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE071D6C7027B7D88DDDA17BF22A4052 /* Viper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		174DD2E90DBD314DD0DEFA24FA3C45D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		3BB2A0CD6B00F41AF5C87673A40771FD /* Resolver+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463D0EED35CBDB7F72FFD1EB6C1F1EF5 /* Resolver+Get.swift */; };
-		62048E8C1E9AFCBA37FD933C20B84DCD /* Viper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C98BCF36F2C9E18C9FE3BF95F95B0BE /* Viper-dummy.m */; };
-		638C181421F43EE2977A503FDD079253 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF8AC8E57EC272DC7056B0297C09087 /* Typealias.swift */; };
-		7358D27CAD7DD5FBE34169208723AA7A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02441623D81A7B5E1E5B0C6815B58D8 /* String+Extension.swift */; };
-		8CB918F4AB2EDA4FC31464E7CDD59063 /* Pods-Viper_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EE022B11C4AC53EDF852C2A37F39DC /* Pods-Viper_Tests-dummy.m */; };
-		9796644840BE5B5A84ABA14D4FFA3A1E /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F94CE258BFD42E4127723BB0482811 /* Box.swift */; };
-		A300834E352A3D8FF12001745CA8A6F0 /* GlobalResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE986D84F7200029BB1B0CF9BDD7E0FC /* GlobalResolver.swift */; };
-		A37BEBD24819EC70D828A05F8DD9ECDD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		A56F21D6C7C557DBBC3BBD95ECB29A2D /* Resolver+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391B568D360641206FF84FF7DA47164D /* Resolver+Register.swift */; };
-		BC04B703CF16707E7BD7003FCBEF142B /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7574AD6066FAF44142638D9874F2F7A9 /* Get.swift */; };
-		C6EED4A0CFB83D2A70782B87435DAC4E /* SwiftResolverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B52CCB9DF95C631689AA454E6A2A855 /* SwiftResolverError.swift */; };
-		C809418DB33622476E881152FF231953 /* Pods-Viper_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B44F3FD18FE666E1D366488B865DC7AD /* Pods-Viper_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF922A5A4CF566A0C3836E3911A72951 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FC03E4EC112E3E6E0E04B604BD7DF8 /* Resolver.swift */; };
+		07E2E75E7458A60EA7EA4E2C943219D4 /* Pods-Firebolt_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 891C3A1DD177DB85ED3E765456C73700 /* Pods-Firebolt_Tests-dummy.m */; };
+		10E7A62DC87664B9597D292D972379BB /* GlobalResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68818A962E427F0C4A331B2A0844FFAD /* GlobalResolver.swift */; };
+		16B11B6BBED501276F231499DFBE678A /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E930CD42BD24B50B6973092005792B /* Box.swift */; };
+		1958D758D8D67482564476BCCF8AC5EC /* Pods-Firebolt_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 571993CC272FAC3B6CB5361A401A1989 /* Pods-Firebolt_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23BB54BB3C0DA45D9E4324BB129F38CE /* Firebolt-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EF633FF687665EAC921643C111E897EB /* Firebolt-dummy.m */; };
+		38783FBE216CB078AEAE2309A9F61A14 /* SwiftResolverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6EB27AF9CA398CFDAC73623FF8B413 /* SwiftResolverError.swift */; };
+		4CD934E86135CDF1E01E254874BA7589 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630AC9B90A61EB8D1E4C495407ACFC95 /* String+Extension.swift */; };
+		4D8A1C7D9AE15EEF3F7AD2BE6A5404FD /* Resolver+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C00AC6A3455B1D95ADADD72B997288 /* Resolver+Register.swift */; };
+		4E75366EDE0FE501BB96FAC481D1B745 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		715A9D0400771BF4DE818AC31A6CF2B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		A992E26565045DF3525EC37A85D28005 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B514E870AD470B73AB15081FBA0A4014 /* Resolver.swift */; };
+		BFE713943B0C2000126C052E2FE39421 /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A59730B73342A5724AF067374C21DF /* Get.swift */; };
+		D35DDD6579EE9F01A2E3013325B38F58 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF807FC85F382B9495D7140FB46BD6 /* Typealias.swift */; };
+		E5B8591B5E2A1586BA8B5B42CAF83F97 /* Resolver+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E4F77758D34F090463808737B660C /* Resolver+Get.swift */; };
+		F24EFBF63543017CC4C6B81BF69EA00C /* Firebolt-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D6F8C38CFACB58E4CE76447A16BFA47 /* Firebolt-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ECCE52C959F3B1219785CC9E762FE493 /* PBXContainerItemProxy */ = {
+		917D7AFF7A41D2A91C67299D883D8C57 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 14C94274F1D2C3067C370AA60DAD0341;
-			remoteInfo = Viper;
+			remoteGlobalIDString = 195EA343917B74A5ECFA267FD24E2674;
+			remoteInfo = Firebolt;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06F0E36A9CB018086CB213AA4E1F2E06 /* Viper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Viper.framework; path = Viper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		17EE022B11C4AC53EDF852C2A37F39DC /* Pods-Viper_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Viper_Tests-dummy.m"; sourceTree = "<group>"; };
-		1B52CCB9DF95C631689AA454E6A2A855 /* SwiftResolverError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftResolverError.swift; sourceTree = "<group>"; };
-		27AA85EA2AC693EE05E0617A6F0A3571 /* Viper.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Viper.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		28919252A2501C83BEADFEEE270674B3 /* Pods-Viper_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Viper_Tests-Info.plist"; sourceTree = "<group>"; };
+		05E930CD42BD24B50B6973092005792B /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		0D6F8C38CFACB58E4CE76447A16BFA47 /* Firebolt-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Firebolt-umbrella.h"; sourceTree = "<group>"; };
+		0FE159F196B39CFAB122D578BD466BED /* Firebolt.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Firebolt.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		149BF850C8693226D362F2F431FDA327 /* Pods-Firebolt_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Firebolt_Tests.modulemap"; sourceTree = "<group>"; };
+		214A4E4C5D49D857AD914C34FF13004B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		2669144D8672FAF279B4AA2D118347E2 /* Firebolt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Firebolt.framework; path = Firebolt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		36FC03E4EC112E3E6E0E04B604BD7DF8 /* Resolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resolver.swift; path = Viper/Classes/Resolver.swift; sourceTree = "<group>"; };
-		391B568D360641206FF84FF7DA47164D /* Resolver+Register.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Resolver+Register.swift"; sourceTree = "<group>"; };
-		3C98BCF36F2C9E18C9FE3BF95F95B0BE /* Viper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Viper-dummy.m"; sourceTree = "<group>"; };
-		430D1CFC07B1136CA315F7A6993B7FC5 /* Pods-Viper_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Viper_Tests.modulemap"; sourceTree = "<group>"; };
-		463D0EED35CBDB7F72FFD1EB6C1F1EF5 /* Resolver+Get.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Resolver+Get.swift"; sourceTree = "<group>"; };
-		4D4B928F3B30D4EC73E8051F13A041AF /* Viper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Viper-prefix.pch"; sourceTree = "<group>"; };
-		56E9601E9D89519D01F72BCBBF956F76 /* Viper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Viper.release.xcconfig; sourceTree = "<group>"; };
-		5D21E1E8C25CC78F1D3120351F1DAD98 /* Pods-Viper_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Viper_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		64DA30D44D434DBB482BDBA02C163641 /* Viper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Viper.modulemap; sourceTree = "<group>"; };
-		72910A75C41E6C369CDED28FB0021875 /* Pods-Viper_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Viper_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7574AD6066FAF44142638D9874F2F7A9 /* Get.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
-		79F94CE258BFD42E4127723BB0482811 /* Box.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		7ACEB137BACACF82C42F3BC8D3A9A1B3 /* Pods-Viper_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Viper_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		9A4948AE23476D8B8369A474CF70BBCC /* Viper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Viper.debug.xcconfig; sourceTree = "<group>"; };
+		5177682DD6550E7F3CF9913A75E294A1 /* Pods-Firebolt_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Firebolt_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		519DFD7B8CE1D1DFEA8D4EF3CD8AD786 /* Firebolt.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Firebolt.modulemap; sourceTree = "<group>"; };
+		571993CC272FAC3B6CB5361A401A1989 /* Pods-Firebolt_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Firebolt_Tests-umbrella.h"; sourceTree = "<group>"; };
+		5A8E1DF1B5127AB8879AB2E9E4E0D4D5 /* Pods-Firebolt_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Firebolt_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		630AC9B90A61EB8D1E4C495407ACFC95 /* String+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		68818A962E427F0C4A331B2A0844FFAD /* GlobalResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GlobalResolver.swift; path = Firebolt/Classes/GlobalResolver.swift; sourceTree = "<group>"; };
+		6F0D9803EDD40EA9BE529BDB8A434BE0 /* Firebolt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Firebolt.release.xcconfig; sourceTree = "<group>"; };
+		85C00AC6A3455B1D95ADADD72B997288 /* Resolver+Register.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Resolver+Register.swift"; sourceTree = "<group>"; };
+		891C3A1DD177DB85ED3E765456C73700 /* Pods-Firebolt_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Firebolt_Tests-dummy.m"; sourceTree = "<group>"; };
+		919E4F77758D34F090463808737B660C /* Resolver+Get.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Resolver+Get.swift"; sourceTree = "<group>"; };
+		92A011CF38B31DB09A1575B392F8C6BF /* Firebolt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Firebolt.debug.xcconfig; sourceTree = "<group>"; };
+		9939756EA3809802020D6ADD63310BBE /* Firebolt-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Firebolt-Info.plist"; sourceTree = "<group>"; };
+		99A59730B73342A5724AF067374C21DF /* Get.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
+		9C6EB27AF9CA398CFDAC73623FF8B413 /* SwiftResolverError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwiftResolverError.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A5EEF340632032C9860C71A9E301E1DA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		AE986D84F7200029BB1B0CF9BDD7E0FC /* GlobalResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GlobalResolver.swift; path = Viper/Classes/GlobalResolver.swift; sourceTree = "<group>"; };
-		B02441623D81A7B5E1E5B0C6815B58D8 /* String+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		B44F3FD18FE666E1D366488B865DC7AD /* Pods-Viper_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Viper_Tests-umbrella.h"; sourceTree = "<group>"; };
-		CCF8AC8E57EC272DC7056B0297C09087 /* Typealias.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealias.swift; path = Viper/Classes/Typealias.swift; sourceTree = "<group>"; };
-		CE071D6C7027B7D88DDDA17BF22A4052 /* Viper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Viper-umbrella.h"; sourceTree = "<group>"; };
-		CEE6C4E921D2E51ACF20E74CA3571D5A /* Pods-Viper_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Viper_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		D44616E4F5BE22BE228D220A013CD378 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		DB9A4B8253020539677710182EC99FDE /* Viper-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Viper-Info.plist"; sourceTree = "<group>"; };
-		F04B2007AAC419C59B30B78178D54EB6 /* Pods_Viper_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Viper_Tests.framework; path = "Pods-Viper_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9294CE35697360C2D5F3D2F6DB10D4D /* Pods-Viper_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Viper_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		B514E870AD470B73AB15081FBA0A4014 /* Resolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resolver.swift; path = Firebolt/Classes/Resolver.swift; sourceTree = "<group>"; };
+		B72E959C95F95E17FFCE0B3AE8A0A364 /* Pods-Firebolt_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Firebolt_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CDDDB55E28ED115476B6CDEC0ECFE560 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		CECADC1AB3CAB0CC48E41FE1110F1585 /* Pods-Firebolt_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Firebolt_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		D19F69211629BD10FC4421F24D68B5F4 /* Pods-Firebolt_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Firebolt_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		D6271E18D8BA44213518E9D8B9E168FF /* Pods-Firebolt_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Firebolt_Tests-Info.plist"; sourceTree = "<group>"; };
+		D9AF807FC85F382B9495D7140FB46BD6 /* Typealias.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealias.swift; path = Firebolt/Classes/Typealias.swift; sourceTree = "<group>"; };
+		DCF59603CA56B83E206C131A3D6BEB9F /* Firebolt-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Firebolt-prefix.pch"; sourceTree = "<group>"; };
+		EF633FF687665EAC921643C111E897EB /* Firebolt-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Firebolt-dummy.m"; sourceTree = "<group>"; };
+		FFEEC3B876F29372EA76F98CD08A89C8 /* Pods_Firebolt_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Firebolt_Tests.framework; path = "Pods-Firebolt_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1E6629B8133E28F52230DCA6ADCDDF5F /* Frameworks */ = {
+		4AB3A744A0BFAB3359EF6AE3B6AE5DFD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				174DD2E90DBD314DD0DEFA24FA3C45D7 /* Foundation.framework in Frameworks */,
+				4E75366EDE0FE501BB96FAC481D1B745 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F00E656AF659BB30734A48C2C21530D0 /* Frameworks */ = {
+		7EE6A88FB3A6720DDC68BD84FF940489 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A37BEBD24819EC70D828A05F8DD9ECDD /* Foundation.framework in Frameworks */,
+				715A9D0400771BF4DE818AC31A6CF2B7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0804AFE5A56729359FC4AEFCAE62CA6E /* Products */ = {
+		066228225C8CCDBE2E93FC0E573F4692 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				F04B2007AAC419C59B30B78178D54EB6 /* Pods_Viper_Tests.framework */,
-				06F0E36A9CB018086CB213AA4E1F2E06 /* Viper.framework */,
+				9C6EB27AF9CA398CFDAC73623FF8B413 /* SwiftResolverError.swift */,
+			);
+			name = Error;
+			path = Firebolt/Classes/Error;
+			sourceTree = "<group>";
+		};
+		1127CC846BA0B070592A8B7D8D59D463 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				519DFD7B8CE1D1DFEA8D4EF3CD8AD786 /* Firebolt.modulemap */,
+				EF633FF687665EAC921643C111E897EB /* Firebolt-dummy.m */,
+				9939756EA3809802020D6ADD63310BBE /* Firebolt-Info.plist */,
+				DCF59603CA56B83E206C131A3D6BEB9F /* Firebolt-prefix.pch */,
+				0D6F8C38CFACB58E4CE76447A16BFA47 /* Firebolt-umbrella.h */,
+				92A011CF38B31DB09A1575B392F8C6BF /* Firebolt.debug.xcconfig */,
+				6F0D9803EDD40EA9BE529BDB8A434BE0 /* Firebolt.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Firebolt";
+			sourceTree = "<group>";
+		};
+		1BDE6CBC56F28C6AB69E31AB94EB9909 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2669144D8672FAF279B4AA2D118347E2 /* Firebolt.framework */,
+				FFEEC3B876F29372EA76F98CD08A89C8 /* Pods_Firebolt_Tests.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1E3FFDEFA015776943DEAB98D6C8BC01 /* Pod */ = {
+		507072B2EA9B4FA7172F13ACB959F3A2 /* Pods-Firebolt_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A5EEF340632032C9860C71A9E301E1DA /* LICENSE */,
-				D44616E4F5BE22BE228D220A013CD378 /* README.md */,
-				27AA85EA2AC693EE05E0617A6F0A3571 /* Viper.podspec */,
+				149BF850C8693226D362F2F431FDA327 /* Pods-Firebolt_Tests.modulemap */,
+				5A8E1DF1B5127AB8879AB2E9E4E0D4D5 /* Pods-Firebolt_Tests-acknowledgements.markdown */,
+				D19F69211629BD10FC4421F24D68B5F4 /* Pods-Firebolt_Tests-acknowledgements.plist */,
+				891C3A1DD177DB85ED3E765456C73700 /* Pods-Firebolt_Tests-dummy.m */,
+				CECADC1AB3CAB0CC48E41FE1110F1585 /* Pods-Firebolt_Tests-frameworks.sh */,
+				D6271E18D8BA44213518E9D8B9E168FF /* Pods-Firebolt_Tests-Info.plist */,
+				571993CC272FAC3B6CB5361A401A1989 /* Pods-Firebolt_Tests-umbrella.h */,
+				B72E959C95F95E17FFCE0B3AE8A0A364 /* Pods-Firebolt_Tests.debug.xcconfig */,
+				5177682DD6550E7F3CF9913A75E294A1 /* Pods-Firebolt_Tests.release.xcconfig */,
 			);
-			name = Pod;
+			name = "Pods-Firebolt_Tests";
+			path = "Target Support Files/Pods-Firebolt_Tests";
 			sourceTree = "<group>";
 		};
-		242476C60BE7A45650EBE41E9DCBBB1B /* Pods-Viper_Tests */ = {
+		741F239E4E972B549043BA52B705C8C8 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				430D1CFC07B1136CA315F7A6993B7FC5 /* Pods-Viper_Tests.modulemap */,
-				72910A75C41E6C369CDED28FB0021875 /* Pods-Viper_Tests-acknowledgements.markdown */,
-				CEE6C4E921D2E51ACF20E74CA3571D5A /* Pods-Viper_Tests-acknowledgements.plist */,
-				17EE022B11C4AC53EDF852C2A37F39DC /* Pods-Viper_Tests-dummy.m */,
-				7ACEB137BACACF82C42F3BC8D3A9A1B3 /* Pods-Viper_Tests-frameworks.sh */,
-				28919252A2501C83BEADFEEE270674B3 /* Pods-Viper_Tests-Info.plist */,
-				B44F3FD18FE666E1D366488B865DC7AD /* Pods-Viper_Tests-umbrella.h */,
-				5D21E1E8C25CC78F1D3120351F1DAD98 /* Pods-Viper_Tests.debug.xcconfig */,
-				F9294CE35697360C2D5F3D2F6DB10D4D /* Pods-Viper_Tests.release.xcconfig */,
-			);
-			name = "Pods-Viper_Tests";
-			path = "Target Support Files/Pods-Viper_Tests";
-			sourceTree = "<group>";
-		};
-		7A305DCD6B91602FFE09DED42B0CFD4E /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				79F94CE258BFD42E4127723BB0482811 /* Box.swift */,
-				7574AD6066FAF44142638D9874F2F7A9 /* Get.swift */,
-			);
-			name = Utility;
-			path = Viper/Classes/Utility;
-			sourceTree = "<group>";
-		};
-		7F3EEF03F88E35B005773B6A8ECAA688 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				463D0EED35CBDB7F72FFD1EB6C1F1EF5 /* Resolver+Get.swift */,
-				391B568D360641206FF84FF7DA47164D /* Resolver+Register.swift */,
-				B02441623D81A7B5E1E5B0C6815B58D8 /* String+Extension.swift */,
-			);
-			name = Extension;
-			path = Viper/Classes/Extension;
-			sourceTree = "<group>";
-		};
-		833919C66EF55ECDF753A4E342E34804 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B37A333544F090F78A5A53FDA44D5E99 /* Viper */,
+				F3522FB2C9C7D4C678CC3DB44C60C574 /* Firebolt */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		A918EC593EB95ECF5144138DE2CD357C /* Error */ = {
+		7A067A9F167447FBF83304472D573ECA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				1B52CCB9DF95C631689AA454E6A2A855 /* SwiftResolverError.swift */,
+				05E930CD42BD24B50B6973092005792B /* Box.swift */,
+				99A59730B73342A5724AF067374C21DF /* Get.swift */,
 			);
-			name = Error;
-			path = Viper/Classes/Error;
+			name = Utility;
+			path = Firebolt/Classes/Utility;
 			sourceTree = "<group>";
 		};
-		AC4401E59019D85318C7AA1A1A750657 /* Support Files */ = {
+		86B93FE33611BA091865A90F0F2256D4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				64DA30D44D434DBB482BDBA02C163641 /* Viper.modulemap */,
-				3C98BCF36F2C9E18C9FE3BF95F95B0BE /* Viper-dummy.m */,
-				DB9A4B8253020539677710182EC99FDE /* Viper-Info.plist */,
-				4D4B928F3B30D4EC73E8051F13A041AF /* Viper-prefix.pch */,
-				CE071D6C7027B7D88DDDA17BF22A4052 /* Viper-umbrella.h */,
-				9A4948AE23476D8B8369A474CF70BBCC /* Viper.debug.xcconfig */,
-				56E9601E9D89519D01F72BCBBF956F76 /* Viper.release.xcconfig */,
+				919E4F77758D34F090463808737B660C /* Resolver+Get.swift */,
+				85C00AC6A3455B1D95ADADD72B997288 /* Resolver+Register.swift */,
+				630AC9B90A61EB8D1E4C495407ACFC95 /* String+Extension.swift */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/Viper";
+			name = Extension;
+			path = Firebolt/Classes/Extension;
 			sourceTree = "<group>";
 		};
-		B37A333544F090F78A5A53FDA44D5E99 /* Viper */ = {
+		8EB2BCCD6D1F0D34B9C3BFE805BAC641 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				AE986D84F7200029BB1B0CF9BDD7E0FC /* GlobalResolver.swift */,
-				36FC03E4EC112E3E6E0E04B604BD7DF8 /* Resolver.swift */,
-				CCF8AC8E57EC272DC7056B0297C09087 /* Typealias.swift */,
-				A918EC593EB95ECF5144138DE2CD357C /* Error */,
-				7F3EEF03F88E35B005773B6A8ECAA688 /* Extension */,
-				1E3FFDEFA015776943DEAB98D6C8BC01 /* Pod */,
-				AC4401E59019D85318C7AA1A1A750657 /* Support Files */,
-				7A305DCD6B91602FFE09DED42B0CFD4E /* Utility */,
+				507072B2EA9B4FA7172F13ACB959F3A2 /* Pods-Firebolt_Tests */,
 			);
-			name = Viper;
-			path = ../..;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -206,10 +188,10 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				833919C66EF55ECDF753A4E342E34804 /* Development Pods */,
+				741F239E4E972B549043BA52B705C8C8 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				0804AFE5A56729359FC4AEFCAE62CA6E /* Products */,
-				DF73259FEC1872A9B4572EFF9A8F0563 /* Targets Support Files */,
+				1BDE6CBC56F28C6AB69E31AB94EB9909 /* Products */,
+				8EB2BCCD6D1F0D34B9C3BFE805BAC641 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -221,71 +203,89 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DF73259FEC1872A9B4572EFF9A8F0563 /* Targets Support Files */ = {
+		E905D23A97C6D2DC8CF1EB1AAC3ADA77 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				242476C60BE7A45650EBE41E9DCBBB1B /* Pods-Viper_Tests */,
+				0FE159F196B39CFAB122D578BD466BED /* Firebolt.podspec */,
+				214A4E4C5D49D857AD914C34FF13004B /* LICENSE */,
+				CDDDB55E28ED115476B6CDEC0ECFE560 /* README.md */,
 			);
-			name = "Targets Support Files";
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		F3522FB2C9C7D4C678CC3DB44C60C574 /* Firebolt */ = {
+			isa = PBXGroup;
+			children = (
+				68818A962E427F0C4A331B2A0844FFAD /* GlobalResolver.swift */,
+				B514E870AD470B73AB15081FBA0A4014 /* Resolver.swift */,
+				D9AF807FC85F382B9495D7140FB46BD6 /* Typealias.swift */,
+				066228225C8CCDBE2E93FC0E573F4692 /* Error */,
+				86B93FE33611BA091865A90F0F2256D4 /* Extension */,
+				E905D23A97C6D2DC8CF1EB1AAC3ADA77 /* Pod */,
+				1127CC846BA0B070592A8B7D8D59D463 /* Support Files */,
+				7A067A9F167447FBF83304472D573ECA /* Utility */,
+			);
+			name = Firebolt;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3F33920E777F62A81B270E7197161D07 /* Headers */ = {
+		6557B73800A7CAD938288F28EEDD840C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C809418DB33622476E881152FF231953 /* Pods-Viper_Tests-umbrella.h in Headers */,
+				F24EFBF63543017CC4C6B81BF69EA00C /* Firebolt-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B68876C6A8E60640135D839A36A565AB /* Headers */ = {
+		AE1140E1A9108EDCB27CD2CDF3D69283 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03827E1FAF37B566A493578CAE61B233 /* Viper-umbrella.h in Headers */,
+				1958D758D8D67482564476BCCF8AC5EC /* Pods-Firebolt_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		009781F0FCBD4A21B92B3CEA44895686 /* Pods-Viper_Tests */ = {
+		195EA343917B74A5ECFA267FD24E2674 /* Firebolt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E619AA79F7B8D08F994166DCEB292D3E /* Build configuration list for PBXNativeTarget "Pods-Viper_Tests" */;
+			buildConfigurationList = F6FA735D628D91B80C352CA493F5BCA2 /* Build configuration list for PBXNativeTarget "Firebolt" */;
 			buildPhases = (
-				3F33920E777F62A81B270E7197161D07 /* Headers */,
-				4703D168882415D2FA8ACE42DF87B4AB /* Sources */,
-				F00E656AF659BB30734A48C2C21530D0 /* Frameworks */,
-				D27AE06A2F60C058FAAB2F9724527619 /* Resources */,
+				6557B73800A7CAD938288F28EEDD840C /* Headers */,
+				FA7A995397DDBF8FB1251264DED659AF /* Sources */,
+				7EE6A88FB3A6720DDC68BD84FF940489 /* Frameworks */,
+				BC0932500DAE459520C1C940C1D16B99 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				99662EA444EE8E9FCC43824C0A5305B6 /* PBXTargetDependency */,
 			);
-			name = "Pods-Viper_Tests";
-			productName = "Pods-Viper_Tests";
-			productReference = F04B2007AAC419C59B30B78178D54EB6 /* Pods_Viper_Tests.framework */;
+			name = Firebolt;
+			productName = Firebolt;
+			productReference = 2669144D8672FAF279B4AA2D118347E2 /* Firebolt.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		14C94274F1D2C3067C370AA60DAD0341 /* Viper */ = {
+		FF5AEA93C82574BAF887D0F042853162 /* Pods-Firebolt_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F07DAD690F8612EFF239D0BBA141E809 /* Build configuration list for PBXNativeTarget "Viper" */;
+			buildConfigurationList = 908A3157FFC9654FC3ABB4A6DB2F3A56 /* Build configuration list for PBXNativeTarget "Pods-Firebolt_Tests" */;
 			buildPhases = (
-				B68876C6A8E60640135D839A36A565AB /* Headers */,
-				1963C3687BA5FDB31D9E78E21F303DAB /* Sources */,
-				1E6629B8133E28F52230DCA6ADCDDF5F /* Frameworks */,
-				557C4895A9268E500EEEB7E168009D06 /* Resources */,
+				AE1140E1A9108EDCB27CD2CDF3D69283 /* Headers */,
+				901EE427DAC6831348153B9056133D03 /* Sources */,
+				4AB3A744A0BFAB3359EF6AE3B6AE5DFD /* Frameworks */,
+				C46D9DB5BA4D672E9098C0F1B46169F2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FD44A930078CFA50CCBFBB79A00AEA41 /* PBXTargetDependency */,
 			);
-			name = Viper;
-			productName = Viper;
-			productReference = 06F0E36A9CB018086CB213AA4E1F2E06 /* Viper.framework */;
+			name = "Pods-Firebolt_Tests";
+			productName = "Pods-Firebolt_Tests";
+			productReference = FFEEC3B876F29372EA76F98CD08A89C8 /* Pods_Firebolt_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -306,25 +306,25 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 0804AFE5A56729359FC4AEFCAE62CA6E /* Products */;
+			productRefGroup = 1BDE6CBC56F28C6AB69E31AB94EB9909 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				009781F0FCBD4A21B92B3CEA44895686 /* Pods-Viper_Tests */,
-				14C94274F1D2C3067C370AA60DAD0341 /* Viper */,
+				195EA343917B74A5ECFA267FD24E2674 /* Firebolt */,
+				FF5AEA93C82574BAF887D0F042853162 /* Pods-Firebolt_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		557C4895A9268E500EEEB7E168009D06 /* Resources */ = {
+		BC0932500DAE459520C1C940C1D16B99 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D27AE06A2F60C058FAAB2F9724527619 /* Resources */ = {
+		C46D9DB5BA4D672E9098C0F1B46169F2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,78 +334,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1963C3687BA5FDB31D9E78E21F303DAB /* Sources */ = {
+		901EE427DAC6831348153B9056133D03 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9796644840BE5B5A84ABA14D4FFA3A1E /* Box.swift in Sources */,
-				BC04B703CF16707E7BD7003FCBEF142B /* Get.swift in Sources */,
-				A300834E352A3D8FF12001745CA8A6F0 /* GlobalResolver.swift in Sources */,
-				3BB2A0CD6B00F41AF5C87673A40771FD /* Resolver+Get.swift in Sources */,
-				A56F21D6C7C557DBBC3BBD95ECB29A2D /* Resolver+Register.swift in Sources */,
-				CF922A5A4CF566A0C3836E3911A72951 /* Resolver.swift in Sources */,
-				7358D27CAD7DD5FBE34169208723AA7A /* String+Extension.swift in Sources */,
-				C6EED4A0CFB83D2A70782B87435DAC4E /* SwiftResolverError.swift in Sources */,
-				638C181421F43EE2977A503FDD079253 /* Typealias.swift in Sources */,
-				62048E8C1E9AFCBA37FD933C20B84DCD /* Viper-dummy.m in Sources */,
+				07E2E75E7458A60EA7EA4E2C943219D4 /* Pods-Firebolt_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4703D168882415D2FA8ACE42DF87B4AB /* Sources */ = {
+		FA7A995397DDBF8FB1251264DED659AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CB918F4AB2EDA4FC31464E7CDD59063 /* Pods-Viper_Tests-dummy.m in Sources */,
+				16B11B6BBED501276F231499DFBE678A /* Box.swift in Sources */,
+				23BB54BB3C0DA45D9E4324BB129F38CE /* Firebolt-dummy.m in Sources */,
+				BFE713943B0C2000126C052E2FE39421 /* Get.swift in Sources */,
+				10E7A62DC87664B9597D292D972379BB /* GlobalResolver.swift in Sources */,
+				E5B8591B5E2A1586BA8B5B42CAF83F97 /* Resolver+Get.swift in Sources */,
+				4D8A1C7D9AE15EEF3F7AD2BE6A5404FD /* Resolver+Register.swift in Sources */,
+				A992E26565045DF3525EC37A85D28005 /* Resolver.swift in Sources */,
+				4CD934E86135CDF1E01E254874BA7589 /* String+Extension.swift in Sources */,
+				38783FBE216CB078AEAE2309A9F61A14 /* SwiftResolverError.swift in Sources */,
+				D35DDD6579EE9F01A2E3013325B38F58 /* Typealias.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		99662EA444EE8E9FCC43824C0A5305B6 /* PBXTargetDependency */ = {
+		FD44A930078CFA50CCBFBB79A00AEA41 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Viper;
-			target = 14C94274F1D2C3067C370AA60DAD0341 /* Viper */;
-			targetProxy = ECCE52C959F3B1219785CC9E762FE493 /* PBXContainerItemProxy */;
+			name = Firebolt;
+			target = 195EA343917B74A5ECFA267FD24E2674 /* Firebolt */;
+			targetProxy = 917D7AFF7A41D2A91C67299D883D8C57 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0A69F8F08ECC3AE0B044D98BC7FEFC1A /* Release */ = {
+		4A5EE436DAE9D929F709E0CD748B251B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56E9601E9D89519D01F72BCBBF956F76 /* Viper.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Viper/Viper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Viper/Viper-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Viper/Viper.modulemap";
-				PRODUCT_MODULE_NAME = Viper;
-				PRODUCT_NAME = Viper;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		15E90B13DD57321E4566B8F2F904F172 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9294CE35697360C2D5F3D2F6DB10D4D /* Pods-Viper_Tests.release.xcconfig */;
+			baseConfigurationReference = 5177682DD6550E7F3CF9913A75E294A1 /* Pods-Firebolt_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -417,12 +385,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Viper_Tests/Pods-Viper_Tests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Firebolt_Tests/Pods-Firebolt_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Viper_Tests/Pods-Viper_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-Firebolt_Tests/Pods-Firebolt_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -437,10 +405,11 @@
 			};
 			name = Release;
 		};
-		673698973CA63D670A241EA080BAC737 /* Debug */ = {
+		AC37DA342C75E52559C9A3900BA754B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A4948AE23476D8B8369A474CF70BBCC /* Viper.debug.xcconfig */;
+			baseConfigurationReference = B72E959C95F95E17FFCE0B3AE8A0A364 /* Pods-Firebolt_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -450,18 +419,19 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Viper/Viper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Viper/Viper-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Firebolt_Tests/Pods-Firebolt_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Viper/Viper.modulemap";
-				PRODUCT_MODULE_NAME = Viper;
-				PRODUCT_NAME = Viper;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Firebolt_Tests/Pods-Firebolt_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -528,6 +498,38 @@
 			};
 			name = Release;
 		};
+		B2635310E0B28BC387E7C624F51030E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92A011CF38B31DB09A1575B392F8C6BF /* Firebolt.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Firebolt/Firebolt-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Firebolt/Firebolt-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Firebolt/Firebolt.modulemap";
+				PRODUCT_MODULE_NAME = Firebolt;
+				PRODUCT_NAME = Firebolt;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -592,11 +594,11 @@
 			};
 			name = Debug;
 		};
-		F903EB454D9998544C111B37BCCB9A1C /* Debug */ = {
+		F97825C3F765FFB146D3335312AAAF63 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D21E1E8C25CC78F1D3120351F1DAD98 /* Pods-Viper_Tests.debug.xcconfig */;
+			baseConfigurationReference = 6F0D9803EDD40EA9BE529BDB8A434BE0 /* Firebolt.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -606,24 +608,24 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Viper_Tests/Pods-Viper_Tests-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Firebolt/Firebolt-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Firebolt/Firebolt-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Viper_Tests/Pods-Viper_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/Firebolt/Firebolt.modulemap";
+				PRODUCT_MODULE_NAME = Firebolt;
+				PRODUCT_NAME = Firebolt;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -637,20 +639,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E619AA79F7B8D08F994166DCEB292D3E /* Build configuration list for PBXNativeTarget "Pods-Viper_Tests" */ = {
+		908A3157FFC9654FC3ABB4A6DB2F3A56 /* Build configuration list for PBXNativeTarget "Pods-Firebolt_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F903EB454D9998544C111B37BCCB9A1C /* Debug */,
-				15E90B13DD57321E4566B8F2F904F172 /* Release */,
+				AC37DA342C75E52559C9A3900BA754B7 /* Debug */,
+				4A5EE436DAE9D929F709E0CD748B251B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F07DAD690F8612EFF239D0BBA141E809 /* Build configuration list for PBXNativeTarget "Viper" */ = {
+		F6FA735D628D91B80C352CA493F5BCA2 /* Build configuration list for PBXNativeTarget "Firebolt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				673698973CA63D670A241EA080BAC737 /* Debug */,
-				0A69F8F08ECC3AE0B044D98BC7FEFC1A /* Release */,
+				B2635310E0B28BC387E7C624F51030E7 /* Debug */,
+				F97825C3F765FFB146D3335312AAAF63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

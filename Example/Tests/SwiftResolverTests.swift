@@ -1,6 +1,6 @@
 
 import XCTest
-@testable import Viper
+@testable import Firebolt
 
 private let globalResolver = Resolver()
 
@@ -96,14 +96,14 @@ final class SwiftResolverTests: XCTestCase {
   func test_injection_1arg() {
     globalResolver.register(.single, arg1: String.self) { ClassA(name: $0) }
     let newName = "Hi"
-    let classA: ClassA? = get(arg1: newName)
+    let classA: ClassA? = get(newName)
     XCTAssertNotNil(classA)
     XCTAssertEqual(classA?.name, newName)
   }
   
   func test_injection_1arg_optional() {
     globalResolver.register(.single, arg1: Optional<String>.self) { ClassA(name: $0) }
-    let classA: ClassA? = get(arg1: Optional<String>.none)
+    let classA: ClassA? = get(Optional<String>.none)
     XCTAssertNotNil(classA)
     XCTAssertEqual(classA?.name, noName)
   }
@@ -115,8 +115,8 @@ final class SwiftResolverTests: XCTestCase {
     let arg1: String? = nil
     let arg2: Int? = nil
     let classA: ClassA? = get(
-      arg1: arg1,
-      arg2: arg2
+      arg1,
+      arg2
     )
     XCTAssertNotNil(classA)
     XCTAssertEqual(classA?.name, noName)
@@ -129,8 +129,8 @@ final class SwiftResolverTests: XCTestCase {
     let arg1: String = "New Name"
     let arg2: Int? = nil
     let classA: ClassA? = get(
-      arg1: arg1,
-      arg2: arg2
+      arg1,
+      arg2
     )
     XCTAssertNotNil(classA)
     XCTAssertEqual(classA?.name, arg1)
@@ -218,8 +218,8 @@ final class SwiftResolverTests: XCTestCase {
 
     newResolver1.register { ClassA() }
 
-    let classA: ClassA? = get(resolverId)
-    let classA2: ClassA? = get(resolverId2)
+    let classA: ClassA? = get(resolverId: resolverId)
+    let classA2: ClassA? = get(resolverId: resolverId2)
     let classA3: ClassA? = get()
     
     XCTAssertNotNil(classA)
@@ -233,7 +233,7 @@ final class SwiftResolverTests: XCTestCase {
 
     globalResolver.register { ClassA() }
 
-    let classA: ClassA? = get(resolverId)
+    let classA: ClassA? = get(resolverId: resolverId)
     let classA2: ClassA? = get()
     
     XCTAssertNil(classA)
@@ -246,10 +246,12 @@ final class SwiftResolverTests: XCTestCase {
     
     resolver.register { ClassA() }
 
-    let classA: ClassA? = get(resolverId)
+    let classA: ClassA? = get(resolverId: resolverId)
     let classA2: ClassA? = resolver.get()
+    let classA3: ClassA? = get()
     
     XCTAssertNotNil(classA)
     XCTAssertNotNil(classA2)
+    XCTAssertNil(classA3)
   }
 }
