@@ -2,7 +2,7 @@
 
 **Firebolt** is a dependency injection framework written for `Swift`. Inspired by `Kotlin` [Koin](https://insert-koin.io/). This framework is meant to be lightweight and unopinionated by design with resolutions working simply by good old functional programming.
 
-<!-- [![CI Status](https://img.shields.io/travis/drewkiino/Resolver.svg?style=flat)](https://travis-ci.org/drewkiino/Resolver) -->[![Version](https://img.shields.io/cocoapods/v/Resolver.svg?style=flat)](https://cocoapods.org/pods/Resolver) [![License](https://img.shields.io/cocoapods/l/Resolver.svg?style=flat)](https://cocoapods.org/pods/Resolver) [![Platform](https://img.shields.io/cocoapods/p/Resolver.svg?style=flat)](https://cocoapods.org/pods/Resolver)
+<!-- [![CI Status](https://img.shields.io/travis/drewkiino/Firebolt.svg?style=flat)](https://travis-ci.org/drewkiino/Firebolt) -->[![Version](https://img.shields.io/cocoapods/v/Firebolt.svg?style=flat)](https://cocoapods.org/pods/Firebolt) [![License](https://img.shields.io/cocoapods/l/Firebolt.svg?style=flat)](https://cocoapods.org/pods/Firebolt) [![Platform](https://img.shields.io/cocoapods/p/Firebolt.svg?style=flat)](https://cocoapods.org/pods/Firebolt)
 
 ## Documentation
 * [Usage](#usage)
