@@ -117,7 +117,7 @@ resolver
     }
 
 // Then call them like so
-let classA: ClassA = Class()
+let classA: ClassA = ClassA()
 let classC: ClassC = get(classA)
 ```
 
