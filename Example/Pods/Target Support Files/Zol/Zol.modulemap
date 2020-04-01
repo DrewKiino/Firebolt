@@ -1,6 +1,0 @@
-framework module Zol {
-  umbrella header "Zol-umbrella.h"
-
-  export *
-  module * { export * }
-}

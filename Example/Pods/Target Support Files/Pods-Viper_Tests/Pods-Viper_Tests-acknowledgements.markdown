@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## Zol
+## Viper
 
 Copyright (c) 2020 drewkiino <andrewaquino118@gmail.com>
 

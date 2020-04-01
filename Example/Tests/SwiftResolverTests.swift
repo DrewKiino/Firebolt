@@ -1,6 +1,6 @@
 
 import XCTest
-@testable import Zol
+@testable import Viper
 
 private let globalResolver = Resolver()
 
