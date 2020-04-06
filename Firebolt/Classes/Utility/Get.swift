@@ -11,7 +11,7 @@ public func get<T>(
   expect: T.Type = T.self,
   resolverId: String? = nil
 ) -> T! {
-  GlobalResolver.getResolver(
+  Resolver.getResolver(
     expect: expect,
     resolverId: resolverId ?? globalResolverId,
     arg1: (), arg2: (), arg3: (), arg4: ()
@@ -23,7 +23,7 @@ public func get<T, A>(
   resolverId: String? = nil,
   _ arg1: A
 ) -> T! {
-  GlobalResolver.getResolver(
+  Resolver.getResolver(
     expect: expect,
     resolverId: resolverId ?? globalResolverId,
     arg1: arg1, arg2: (), arg3: (), arg4: ()
@@ -36,7 +36,7 @@ public func get<T, A, B>(
   _ arg1: A,
   _ arg2: B
 ) -> T! {
-  GlobalResolver.getResolver(
+  Resolver.getResolver(
     expect: expect,
     resolverId: resolverId ?? globalResolverId,
     arg1: arg1, arg2: arg2, arg3: (), arg4: ()
@@ -50,7 +50,7 @@ public func get<T, A, B, C>(
   _ arg2: B,
   _ arg3: C
 ) -> T! {
-  GlobalResolver.getResolver(
+  Resolver.getResolver(
     expect: expect,
     resolverId: resolverId ?? globalResolverId,
     arg1: arg1, arg2: arg2, arg3: arg3, arg4: ()
@@ -65,7 +65,7 @@ public func get<T, A, B, C, D>(
   _ arg3: C,
   _ arg4: D
 ) -> T! {
-  GlobalResolver.getResolver(
+  Resolver.getResolver(
     expect: expect,
     resolverId: resolverId ?? globalResolverId,
     arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4
