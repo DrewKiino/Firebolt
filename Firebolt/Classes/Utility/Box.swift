@@ -20,10 +20,17 @@ class Box<T, A, B, C, D>: BoxProtocol {
     case args2(BoxClosure2Arg<T, A, B>)
     case args3(BoxClosure3Arg<T, A, B, C>)
     case args4(BoxClosure4Arg<T, A, B, C, D>)
+    
+    case noargsR(BoxClosureNoArgR<T>)
+    case arg1R(BoxClosure1ArgR<T, A>)
+    case args2R(BoxClosure2ArgR<T, A, B>)
+    case args3R(BoxClosure3ArgR<T, A, B, C>)
+    case args4R(BoxClosure4ArgR<T, A, B, C, D>)
   }
   
   private let _scope: Resolver.Scope
   private let closure: Closure
+  private let resolver: Resolver
   
   let stringValue = String(describing: T.self)
   let stringArgs = [A.self, B.self, C.self, D.self].map { String(describing: $0) }.filter { $0 != "()" }
@@ -31,11 +38,13 @@ class Box<T, A, B, C, D>: BoxProtocol {
   func scope() -> Resolver.Scope {
     _scope
   }
-  
+
   public init(
+    resolver: Resolver,
     scope: Resolver.Scope,
     closure: Closure
   ) {
+    self.resolver = resolver
     self._scope = scope
     self.closure = closure
   }
@@ -63,6 +72,23 @@ class Box<T, A, B, C, D>: BoxProtocol {
     case let .args4(closure):
       if let arg1 = arg1 as? A, let arg2 = arg2 as? B, let arg3 = arg3 as? C, let arg4 = arg4 as? D {
         return try closure(arg1, arg2, arg3, arg4) as? _T
+      }
+    case let .noargsR(closure): return try closure(resolver) as? _T
+    case let .arg1R(closure):
+      if let arg1 = arg1 as? A {
+        return try closure(resolver, arg1) as? _T
+      }
+    case let .args2R(closure):
+      if let arg1 = arg1 as? A, let arg2 = arg2 as? B {
+        return try closure(resolver,arg1, arg2) as? _T
+      }
+    case let .args3R(closure):
+      if let arg1 = arg1 as? A, let arg2 = arg2 as? B, let arg3 = arg3 as? C {
+        return try closure(resolver, arg1, arg2, arg3) as? _T
+      }
+    case let .args4R(closure):
+      if let arg1 = arg1 as? A, let arg2 = arg2 as? B, let arg3 = arg3 as? C, let arg4 = arg4 as? D {
+        return try closure(resolver, arg1, arg2, arg3, arg4) as? _T
       }
     }
     return nil

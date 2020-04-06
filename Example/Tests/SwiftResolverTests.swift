@@ -254,4 +254,20 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classA2)
     XCTAssertNil(classA3)
   }
+  
+  func test_resolver_multi_deps_register_no_resolver() {
+    let resolverId = "TEST_RESOLVER"
+    let resolver = Resolver(resolverId)
+    
+    resolver.register { ClassA() }
+    resolver.register { ClassB(classA: $0.get()) }
+    
+    let classA: ClassA? = get(resolverId: resolverId)
+    let classB: ClassB? = get()
+    let classB2: ClassB? = resolver.get()
+
+    XCTAssertNotNil(classA)
+    XCTAssertNil(classB)
+    XCTAssertNotNil(classB2)
+  }
 }
