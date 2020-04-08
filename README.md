@@ -5,19 +5,6 @@
 ## Contributions
 `Firebolt` is an open-source project, feel free to contact me if you want to help contribute to this codebase. You can also do a pull-request or open up issues.
 
-## Installation
-
-Resolver is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'Firebolt'
-```
-
-## Author
-
-Andrew Aquino, andrewaquino118@gmail.com
-
 ## Documentation
 * [Usage](#usage)
 * [Scope](#scope)
@@ -266,6 +253,19 @@ class AppDelegate {
   }
 }
 ```
+
+## Installation
+
+Resolver is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'Firebolt'
+```
+
+## Author
+
+Andrew Aquino, andrewaquino118@gmail.com
 
 ## License
 
