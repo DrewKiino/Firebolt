@@ -5,8 +5,6 @@
 ## Contributions
 `Firebolt` is an open-source project, feel free to contact me if you want to help contribute to this codebase. You can also do a pull-request or open up issues.
 
-___
-
 ## Installation
 
 `Firebolt` is available through [CocoaPods](https://cocoapods.org). To install
