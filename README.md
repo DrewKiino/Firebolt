@@ -74,14 +74,16 @@ let classA: ClassA = get()
 ### Arguments
 
 You can pass in arguments during registration like so.
+
 ```swift
 let resolver = Resolver()
 let environment: String = "stage"
 
-reasolver.register { ClassD(environment: environment, classA: get()) } ``` 
+reasolver.register { ClassD(environment: environment, classA: get()) }
+```
 If the arguments need to be passed in at the call site. You can specify the expected type during registration.
 ```swift
-reasolver.register(arg1: String.self) { ClassD(environment: $0) }
+resolver.register(arg1: String.self) { ClassD(environment: $0) }
 ```
 Then you can pass in the argument afterwards.
 ```swift
@@ -205,20 +207,16 @@ let classA: ClassA = get()
 ```
 However, if you want to keep dependencies separate you can instantiate multiple resolvers with each having their own scope.
 1. Instantiate a `Resolver` with a unique identifier.
-```swift
 
+```swift
 let resolver1 = Resolver("Resolver_1")
 resolver1.register { ClassA() }
 
 let resolver2 = Resolver("Resolver_2")
 resolver2.register { ClassA() }
 
-// `register` also returns the Resolver itself
-// make sure to use it when resolving Resolver specific instances
-// since those instances won't be available in the global scope 
-// for the standalone `get` qualifiers
-resolver2.register { resolver in ClassB(classA: resolver.get()) }
-resolver2.register { ClassC(classA: $0.get()) }
+// make sure to resolve using the Resolver itself using lamba
+resolver2.register { ClassB(classA: $0.get()) }
 ```
 
 2. Then inject by identifying the `Resolver` itself.
