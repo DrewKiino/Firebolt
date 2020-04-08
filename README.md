@@ -237,7 +237,7 @@ func viewDidLoad() {
     let classB: ClassB = resolver.get()
 }
 ```
-Objects not registered by the resolver won't be shared by other resolvers. This includes objects registered as `.single` as well unless the they are registered by the `GlobalResolver` itself in which they become a true `Singleton`.
+Objects not registered by the resolver won't be shared by other resolvers. This includes objects registered as `.single` as well unless they are registered by the `GlobalResolver` itself in which they become a true `Singleton`.
 
 ### Examples 
 **Application Architecture**
