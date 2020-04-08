@@ -26,6 +26,8 @@ pod 'Firebolt'
 
 Andrew Aquino, andrewaquino118@gmail.com
 
+## Documentation
+
 ### Usage
 
 1. Instantiate a `Resolver`
