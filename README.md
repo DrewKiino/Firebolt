@@ -1,14 +1,9 @@
 # Firebolt <img src="Firebolt/Assets/firebolt.png" width="32"> 
 
 **Firebolt** is a dependency injection framework written for `Swift`. Inspired by `Kotlin` [Koin](https://insert-koin.io/). This framework is meant to be lightweight and unopinionated by design with resolutions working simply by good old functional programming.
-
 ## Contributions
 `Firebolt` is an open-source project, feel free to contact me if you want to help contribute to this codebase. You can also do a pull-request or open up issues.
-
-## Author
-
-Andrew Aquino, andrewaquino118@gmail.com
-
+___
 ## Documentation
 * [Usage](#usage)
 * [Scope](#scope)
@@ -17,6 +12,14 @@ Andrew Aquino, andrewaquino118@gmail.com
 * [Multiple Resolvers](#multiple-resolvers)
 * [Examples](#examples)
 
+## Installation
+
+Resolver is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'Firebolt'
+```
 ### Usage
 
 1. Instantiate a `Resolver`
@@ -258,14 +261,9 @@ class AppDelegate {
 }
 ```
 
-## Installation
+## Author
 
-Resolver is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'Firebolt'
-```
+Andrew Aquino, andrewaquino118@gmail.com
 
 ## License
 
