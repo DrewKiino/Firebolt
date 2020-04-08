@@ -78,9 +78,7 @@ You can pass in arguments during registration like so.
 let resolver = Resolver()
 let environment: String = "stage"
 
-reasolver.register { ClassD(environment: environment, classA: get()) }
-```
-
+reasolver.register { ClassD(environment: environment, classA: get()) } ``` 
 If the arguments need to be passed in at the call site. You can specify the expected type during registration.
 ```swift
 reasolver.register(arg1: String.self) { ClassD(environment: $0) }
@@ -92,9 +90,7 @@ let classD: ClassD = get("stage")
 
 You can pass in multiple arguments as well.
 ```swift
-resolver.register(arg1: String.self, arg2: Int.self) { 
-    ClassD(environment: $0, timestamp: $1) 
-}
+resolver.register(arg1: String.self, arg2: Int.self) { ClassD(environment: $0, timestamp: $1) }
 
 let classD: ClassD = get("stage", 1200)
 ```
