@@ -1,4 +1,4 @@
-# Firebolt
+# Firebolt <img src="Firebolt/Assets/firebolt.png" width="32"> 
 
 **Firebolt** is a dependency injection framework written for `Swift`. Inspired by `Kotlin` [Koin](https://insert-koin.io/). This framework is meant to be lightweight and unopinionated by design with resolutions working simply by good old functional programming.
 
