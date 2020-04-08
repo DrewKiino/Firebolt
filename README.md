@@ -5,14 +5,6 @@
 ## Contributions
 `Firebolt` is an open-source project, feel free to contact me if you want to help contribute to this codebase. You can also do a pull-request or open up issues.
 
-## Documentation
-* [Usage](#usage)
-* [Scope](#scope)
-* [Arguments](#arguments)
-* [Protocol Conformance](#protocol-conformance)
-* [Multiple Resolvers](#multiple-resolvers)
-* [Examples](#examples)
-
 ## Installation
 
 Resolver is available through [CocoaPods](https://cocoapods.org). To install
@@ -27,6 +19,12 @@ pod 'Firebolt'
 Andrew Aquino, andrewaquino118@gmail.com
 
 ## Documentation
+* [Usage](#usage)
+* [Scope](#scope)
+* [Arguments](#arguments)
+* [Protocol Conformance](#protocol-conformance)
+* [Multiple Resolvers](#multiple-resolvers)
+* [Examples](#examples)
 
 ### Usage
 
