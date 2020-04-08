@@ -221,7 +221,7 @@ resolver2.register { ClassA() }
 
 // `register` also returns the Resolver itself
 // make sure to use it when resolving Resolver specific instances
-// since those instances won't be available in the Global scope 
+// since those instances won't be available in the global scope 
 // for the standalone `get` qualifiers
 resolver2.register { resolver in ClassB(classA: resolver.get()) }
 resolver2.register { ClassC(classA: $0.get()) }
