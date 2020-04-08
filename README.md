@@ -209,17 +209,25 @@ This means that you can inject dependencies without specifying the resolver iden
 ```swift
 let classA: ClassA = get()
 ```
-However, if you want to keep dependencies separate:
-1. You can instantiate multiple resolvers. Each having their own scope.
+However, if you want to keep dependencies separate you can instantiate multiple resolvers with each having their own scope.
+1. Instantiate a `Resolver` with a unique identifier.
 ```swift
+
 let resolver1 = Resolver("Resolver_1")
 resolver1.register { ClassA() }
 
 let resolver2 = Resolver("Resolver_2")
 resolver2.register { ClassA() }
-resolver2.register { ClassB() }
+
+// `register` also returns the Resolver itself
+// make sure to use it when resolving resolver specific instances
+// since those instances won't be available in the Global scope for the standalone `get` qualifiers
+resolver2.register { resolver in ClassB(classA: resolver.get()) }
+resolver2.register { ClassC(classA: $0.get()) }
 ```
-2. Then inject by identifying the resolver. 
+
+2. Then inject by identifying the `Resolver` itself.
+
 ```swift
 // resolves to `nil` because Resolver_1 never registered ClassB
 let classB: ClassB = get(resolverId: "Resolver_1") 
