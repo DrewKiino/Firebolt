@@ -47,6 +47,30 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNil(classA_2)
   }
   
+  func test_injection_double_protocol() {
+    globalResolver.register { ClassA() }
+    let classA: ClassAProtocol? = get(expect: ClassA.self)
+    let classA_B: ClassAProtocolB? = get(expect: ClassA.self)
+    XCTAssertNotNil(classA)
+    XCTAssertNotNil(classA_B)
+  }
+  
+  func test_injection_double_protocol_impl() {
+    globalResolver.register(expect: ClassE.self) { ClassEImpl() }
+    let classE: ClassEProtocol? = get(expect: ClassE.self)
+    let classE_B: ClassEProtocolB? = get(expect: ClassE.self)
+    XCTAssertNotNil(classE)
+    XCTAssertNotNil(classE_B)
+  }
+  
+  func test_injection_double_protocol_concrete() {
+    globalResolver.register { ClassA() }
+    let classA: ClassAProtocol? = get(expect: ClassA.self)
+    let classA_B: ClassAProtocolB? = get(expect: ClassA.self)
+    XCTAssertNotNil(classA)
+    XCTAssertNotNil(classA_B)
+  }
+
   func test_injection_protocol_impl() {
     let name = "Hello"
     globalResolver
@@ -87,10 +111,24 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNil(classB)
   }
   
-  func test_injection_1arg_optional_default() {
+  func test_injection_1arg_optional_default_singleton() {
     globalResolver.register(.single, arg1: Optional<String>.self) { ClassA(name: $0) }
+    let name = "hello"
     let classA: ClassA? = get()
-    XCTAssertNil(classA)
+    let classA_2: ClassA? = get(name)
+    XCTAssertNotNil(classA)
+    XCTAssertNotNil(classA_2)
+    XCTAssertNotEqual(classA_2?.name, name)
+  }
+  
+  func test_injection_1arg_optional_default() {
+    globalResolver.register(arg1: Optional<String>.self) { ClassA(name: $0) }
+    let name = "hello"
+    let classA: ClassA? = get()
+    let classA_2: ClassA? = get(name)
+    XCTAssertNotNil(classA)
+    XCTAssertNotNil(classA_2)
+    XCTAssertEqual(classA_2?.name, name)
   }
   
   func test_injection_1arg() {
@@ -255,7 +293,7 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNil(classA3)
   }
   
-  func test_resolver_multi_deps_register_no_resolver() {
+  func test_resolver_multi_deps_register_resolver_arg() {
     let resolverId = "TEST_RESOLVER"
     let resolver = Resolver(resolverId)
     
@@ -269,5 +307,51 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classA)
     XCTAssertNil(classB)
     XCTAssertNotNil(classB2)
+  }
+  
+  func test_multiple_expects_register() {
+    globalResolver.register(expects: [ClassAProtocol.self, ClassAProtocolB.self]) { ClassA() }
+    
+    let classA: ClassAProtocol? = get()
+    let classA_2: ClassAProtocolB? = get()
+
+    XCTAssertNotNil(classA)
+    XCTAssertNotNil(classA_2)
+  }
+  
+  func test_multiple_expects_register_arg() {
+    globalResolver.register(
+    expects: [ClassAProtocol.self, ClassAProtocolB.self],
+    arg1: String.self,
+    arg2: Int.self
+  ) { ClassA(name: $0, age: $1) }
+    
+    let name1 = "hello"
+    let name2 = "hi"
+    let age = 1
+    let classA: ClassAProtocol? = get(name1, age)
+    let classA_2: ClassAProtocolB? = get(name2, age)
+    
+    XCTAssertNotNil(classA)
+    XCTAssertNotNil(classA_2)
+    XCTAssertEqual(classA?.name, name1)
+    XCTAssertEqual(classA_2?.age, age)
+  }
+  
+  func test_optional_args() {
+    globalResolver.register(
+      arg1: String.self,
+      arg2: Optional<Int>.self
+    ) { ClassA(name: $0, age: $1) }
+    
+    let name1 = "hello"
+    let age1 = 1
+    let classA: ClassA? = get()
+    let classA_2: ClassA? = get(name1)
+    let classA_3: ClassA? = get(name1, age1)
+
+    XCTAssertNil(classA)
+    XCTAssertNotNil(classA_2)
+    XCTAssertNotNil(classA_3)
   }
 }

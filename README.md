@@ -100,6 +100,18 @@ resolver.register(arg1: String.self, arg2: Int.self) {
 let classD: ClassD = get("stage", 1200)
 ```
 
+You can also pass in optionals like so.
+```swift
+class ClassE { init(value: String?) {} }
+
+let resolver = Resolver()
+resolver.register(arg1: Optional<String>.self) { ClassE($0) }
+
+// no arguments tells the resolver to pass nil instead
+let classE: ClassE = get() 
+let classE: ClassE = get("SOME_VALUE")
+```
+
 For shared non-registered arguments between dependencies, you can pass in arguments from within the `register` block using the upstream argument themselves.
 ```swift
 let resolver = Resolver()
@@ -143,18 +155,28 @@ You are also able to have support for multiple protocols for the same concrete t
 protocol ClassAVariantA { func foo() }
 protocol ClassAVariantB { func bar() }
 
-class ClassAImpl: ClassAVariantA, ClassAVariantB { 
+class ClassA: ClassAVariantA, ClassAVariantB { 
     func foo() {} 
     func bar() {}
 }
 
 let resolver = Resolver()
 
-resolver.register(expect: ClassA.self) { ClassAImpl() }
+resolver.register { ClassA() }
 
-// mulitple resolutions using the same concrete type
-let variantA: ClassAVaraintA = get()
-let variantB: ClassAVaraintB = get()
+// multiple resolutions using the same concrete type with the expect qualifier
+let variantA: ClassAVaraintA = get(expect: ClassA.self)
+let variantB: ClassAVaraintB = get(expect: ClassA.self)
+```
+
+Or using a different method, passing multiple expects for the same concrete class.
+```swift
+let resolver = Resolver()
+
+resolver.register(expects: [ClassAVaraintA.self, ClassAVaraintB.self]) { ClassA() }
+
+let classA: ClassAVaraintA? = get()
+let classA: ClassAVaraintB? = get()
 ```
 
 If there are dependencies that require protocol conformance but you are only supporting a concrete class you can do the following:

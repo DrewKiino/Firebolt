@@ -87,7 +87,7 @@ internal extension Resolver {
           actualArgs: _box?.stringArgs ?? []
         )
       }
-
+      
       // Resolve by Scope
       switch box.scope() {
       case .factory:

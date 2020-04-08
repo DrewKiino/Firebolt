@@ -1,6 +1,8 @@
 
 import Foundation
 
+internal let null = Optional<()>.none
+
 public typealias BoxClosureNoArg<T> = () throws -> T
 public typealias BoxClosure1Arg<T, A> = (A) throws -> T
 public typealias BoxClosure2Arg<T, A, B> = (A, B) throws -> T

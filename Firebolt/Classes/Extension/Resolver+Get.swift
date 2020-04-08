@@ -14,7 +14,7 @@ extension Resolver {
     Resolver.getResolver(
       expect: expect,
       resolverId: resolverId,
-      arg1: (), arg2: (), arg3: (), arg4: ()
+      arg1: null, arg2: null, arg3: null, arg4: null
     )
   }
 
@@ -25,7 +25,7 @@ extension Resolver {
     Resolver.getResolver(
       expect: expect,
       resolverId: resolverId,
-      arg1: arg1, arg2: (), arg3: (), arg4: ()
+      arg1: arg1, arg2: null, arg3: null, arg4: null
     )
   }
 
@@ -37,7 +37,7 @@ extension Resolver {
     Resolver.getResolver(
       expect: expect,
       resolverId: resolverId,
-      arg1: arg1, arg2: arg2, arg3: (), arg4: ()
+      arg1: arg1, arg2: arg2, arg3: null, arg4: null
     )
   }
 
@@ -50,7 +50,7 @@ extension Resolver {
     Resolver.getResolver(
       expect: expect,
       resolverId: resolverId,
-      arg1: arg1, arg2: arg2, arg3: arg3, arg4: ()
+      arg1: arg1, arg2: arg2, arg3: arg3, arg4: null
     )
   }
 
