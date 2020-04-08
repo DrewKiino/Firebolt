@@ -2,6 +2,9 @@
 
 **Firebolt** is a dependency injection framework written for `Swift`. Inspired by `Kotlin` [Koin](https://insert-koin.io/). This framework is meant to be lightweight and unopinionated by design with resolutions working simply by good old functional programming.
 
+## Contributions
+`Firebolt` is an open-source project, feel free to contact me if you want to help contribute to this codebase. You can also do a pull-request or open up issues.
+
 ## Documentation
 * [Usage](#usage)
 * [Scope](#scope)
