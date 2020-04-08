@@ -2,5 +2,5 @@
 generate:
 	@swift package generate-xcodeproj --skip-extra-files
 
-pod_push:
+push_pod:
 	@pod trunk push Firebolt.podspec
