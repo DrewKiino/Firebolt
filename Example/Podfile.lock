@@ -1,5 +1,5 @@
 PODS:
-  - Firebolt (0.0.5)
+  - Firebolt (0.1.1)
 
 DEPENDENCIES:
   - Firebolt (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Firebolt: c039b67db4240f374eb8a9c83ff09caa6794079f
+  Firebolt: 4937b7be6a3daffb37921d90094620514cb9e583
 
 PODFILE CHECKSUM: 5781d2f27f11c7be14611685b4886f583871509b
 

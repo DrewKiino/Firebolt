@@ -1,6 +1,6 @@
 {
   "name": "Firebolt",
-  "version": "0.0.5",
+  "version": "0.1.1",
   "summary": "Firebolt is a dependency injection framework written for Swift",
   "description": "Firebolt is a dependency injection framework written for Swift. Inspired by Kotlin Koin. \nThis framework is meant to be lightweight and unopinionated by design with resolutions working \nsimply by good old functional programming.",
   "homepage": "https://github.com/drewkiino/Firebolt",
@@ -13,10 +13,10 @@
   },
   "source": {
     "git": "https://github.com/drewkiino/Firebolt.git",
-    "tag": "0.0.5"
+    "tag": "0.1.1"
   },
   "platforms": {
-    "ios": "11.0"
+    "ios": "10.0"
   },
   "source_files": "Firebolt/Classes/**/*",
   "swift_versions": "5.0",
