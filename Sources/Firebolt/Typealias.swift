@@ -1,7 +1,7 @@
 
 import Foundation
 
-internal let null = Optional<()>.none
+internal let null: Void? = Void?.none
 
 public typealias BoxClosureNoArg<T> = () throws -> T
 public typealias BoxClosure1Arg<T, A> = (A) throws -> T
