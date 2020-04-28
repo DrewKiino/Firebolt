@@ -1,0 +1,16 @@
+PODS:
+  - Firebolt (0.1.1)
+
+DEPENDENCIES:
+  - Firebolt (from `../`)
+
+EXTERNAL SOURCES:
+  Firebolt:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Firebolt: 4937b7be6a3daffb37921d90094620514cb9e583
+
+PODFILE CHECKSUM: 5781d2f27f11c7be14611685b4886f583871509b
+
+COCOAPODS: 1.9.1

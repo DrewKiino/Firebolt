@@ -1,0 +1,6 @@
+use_frameworks!
+target 'Firebolt_Tests' do
+  pod 'Firebolt', :path => '../'
+  
+  
+end
