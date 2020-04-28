@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Firebolt'
-  s.version          = '0.1.1'
+  s.version          = '0.1.7'
   s.summary          = 'Firebolt is a dependency injection framework written for Swift'
 
 # This description is used to generate tags and improve search results.
@@ -35,9 +35,9 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/**/*.swift'
   s.swift_version = '5.0'
 
-  s.resource_bundles = {
-    'Firebolt' => ['Assets/*.png']
-  }
+  # s.resource_bundles = {
+  #   'Firebolt' => ['Assets/*.png']
+  # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
