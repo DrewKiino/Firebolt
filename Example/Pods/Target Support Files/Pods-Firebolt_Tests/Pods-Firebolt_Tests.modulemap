@@ -1,6 +1,0 @@
-framework module Pods_Firebolt_Tests {
-  umbrella header "Pods-Firebolt_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}

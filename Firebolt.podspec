@@ -35,9 +35,9 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/**/*.swift'
   s.swift_version = '5.0'
 
-  # s.resource_bundles = {
-  #   'Firebolt' => ['Firebolt/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'Firebolt' => ['Assets/*.png']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
