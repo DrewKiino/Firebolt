@@ -272,7 +272,7 @@ Andrew Aquino, andrewaquino118@gmail.com
 
 ## License
 
-**Resolver** is available under the MIT license. See the LICENSE file for more info.
+**Firebolt** is available under the MIT license. See the LICENSE file for more info.
 
 
 
