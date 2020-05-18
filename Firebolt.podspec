@@ -34,9 +34,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Sources/**/*.swift'
   s.swift_version = '5.0'
-
-  s.user_target_xcconfig = { 'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES' }
-
   # s.resource_bundles = {
   #   'Firebolt' => ['Assets/*.png']
   # }
