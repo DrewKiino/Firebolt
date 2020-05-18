@@ -1,7 +1,7 @@
 
 import Foundation
 
-public class Resolver {
+open class Resolver {
   public enum Scope {
     case factory
     case single
