@@ -20,6 +20,7 @@ pod 'Firebolt'
 * [Arguments](#arguments)
 * [Protocol Conformance](#protocol-conformance)
 * [Multiple Resolvers](#multiple-resolvers)
+* [Storyboard Resolution](#storyboard-resolution)
 * [Examples](#examples)
 
 ### Usage
@@ -238,6 +239,32 @@ func viewDidLoad() {
 }
 ```
 Objects not registered by the resolver won't be shared by other resolvers. This includes objects registered as `.single` as well unless they are registered by the `GlobalResolver` itself in which they become a true `Singleton`.
+
+### storyboard-resolution
+
+`Firebolt` can be used to resolve storyboards as well. Given this example,
+
+```swift
+// There are multiple ways to initialize a storyboard view code but in this case
+// we will use a static initializer for the same of allowing external parameters
+class ViewController {
+    class func initialize(userManager: UserManager): SecondViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(identifier: "ViewController") as! ViewController 
+    }
+}
+
+// .. then register
+resolver
+  .register { UserManager() }
+  .register { ViewController.initialize(userManager: get()) }
+  
+// ... when resolving it
+let vc: ViewController = get()
+
+// ... or if you're using a container based approach
+let vc: ViewController = someResolver.get()
+```
 
 ### Examples 
 **Application Architecture**
