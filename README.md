@@ -240,7 +240,7 @@ func viewDidLoad() {
 ```
 Objects not registered by the resolver won't be shared by other resolvers. This includes objects registered as `.single` as well unless they are registered by the `GlobalResolver` itself in which they become a true `Singleton`.
 
-### storyboard-resolution
+### Storyboard Resolution
 
 `Firebolt` can be used to resolve storyboards as well. Given this example,
 
