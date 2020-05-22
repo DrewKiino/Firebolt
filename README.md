@@ -148,7 +148,7 @@ Then when calling it in the callsite.
 let classA: ClassA = get() // <- ClassAImpl will be returned
 ```
 
-You are also able to have support for multiple protocols for the sake concrete type.
+You are also able to have support for multiple protocols for the same concrete type.
 ```swift
 protocol ClassAVariantA { func foo() }
 protocol ClassAVariantB { func bar() }
@@ -246,7 +246,7 @@ Objects not registered by the resolver won't be shared by other resolvers. This 
 
 ```swift
 // There are multiple ways to initialize a storyboard view code but in this case
-// we will use a static initializer for the same of allowing external parameters
+// we will use a static initializer for the sake of allowing external parameters
 class ViewController {
     class func initialize(userManager: UserManager): SecondViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
