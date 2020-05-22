@@ -148,7 +148,7 @@ Then when calling it in the callsite.
 let classA: ClassA = get() // <- ClassAImpl will be returned
 ```
 
-You are also able to have support for multiple protocols for the same concrete type.
+You are also able to have support for multiple protocols for the sake concrete type.
 ```swift
 protocol ClassAVariantA { func foo() }
 protocol ClassAVariantB { func bar() }
