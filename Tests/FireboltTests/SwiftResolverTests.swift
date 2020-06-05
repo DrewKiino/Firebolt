@@ -2,8 +2,6 @@
 import XCTest
 @testable import Firebolt
 
-private let globalResolver = Resolver()
-
 final class SwiftResolverTests: XCTestCase {
   
   override func setUp() {
@@ -249,15 +247,15 @@ final class SwiftResolverTests: XCTestCase {
   }
 
   func test_two_resolvers_same_deps() {
-    let resolverId = "TEST_RESOLVER"
-    let resolverId2 = "TEST_RESOLVER_2"
+    let resolverId = UUID().uuidString
+    let resolverId2 = UUID().uuidString
     let newResolver1 = Resolver(resolverId)
-    let _ = Resolver(resolverId2)
+    let newResolver2 = Resolver(resolverId2)
 
     newResolver1.register { ClassA() }
 
-    let classA: ClassA? = get(resolverId: resolverId)
-    let classA2: ClassA? = get(resolverId: resolverId2)
+    let classA: ClassA? = newResolver1.get()
+    let classA2: ClassA? = newResolver2.get()
     let classA3: ClassA? = get()
 
     XCTAssertNotNil(classA)
@@ -267,11 +265,11 @@ final class SwiftResolverTests: XCTestCase {
 
   func test_two_resolvers_same_deps_one_global() {
     let resolverId = "TEST_RESOLVER"
-    _ = Resolver(resolverId)
+    let resolver = Resolver(resolverId)
 
     globalResolver.register { ClassA() }
 
-    let classA: ClassA? = get(resolverId: resolverId)
+    let classA: ClassA? = resolver.get()
     let classA2: ClassA? = get()
 
     XCTAssertNil(classA)
@@ -284,13 +282,11 @@ final class SwiftResolverTests: XCTestCase {
 
     resolver.register { ClassA() }
 
-    let classA: ClassA? = get(resolverId: resolverId)
-    let classA2: ClassA? = resolver.get()
-    let classA3: ClassA? = get()
+    let classA: ClassA? = resolver.get()
+    let classA2: ClassA? = get()
 
     XCTAssertNotNil(classA)
-    XCTAssertNotNil(classA2)
-    XCTAssertNil(classA3)
+    XCTAssertNil(classA2)
   }
 
   func test_resolver_multi_deps_register_resolver_arg() {
@@ -300,7 +296,7 @@ final class SwiftResolverTests: XCTestCase {
     resolver.register { ClassA() }
     resolver.register { ClassB(classA: $0.get()) }
 
-    let classA: ClassA? = get(resolverId: resolverId)
+    let classA: ClassA? = resolver.get()
     let classB: ClassB? = get()
     let classB2: ClassB? = resolver.get()
 

@@ -226,16 +226,18 @@ resolver2.register { ClassA() }
 resolver2.register { ClassB(classA: $0.get()) }
 ```
 
-2. Then inject by identifying the `Resolver` itself.
+2. Then inject by referencing by their respective resolvers.
 
 ```swift
 // resolves to `nil` because Resolver_1 never registered ClassB
-let classB: ClassB = get(resolverId: "Resolver_1") 
+let classB: ClassB = resolver1.get()
 
 // resolves to ClassB 
-let classB: ClassB = get(resolverId: "Resolver_2") 
+let classB: ClassB = resolver2.get()
 ```
-3. You can also call `get()` directly by the resolver if you want to go through an `Interface` like design.
+
+Here is an example of using a `Resolver` via an `Interface` like design.
+
 ```swift
 let resolver: Resolver
 init(resolver: Resolver) { self.resolver = resolver }

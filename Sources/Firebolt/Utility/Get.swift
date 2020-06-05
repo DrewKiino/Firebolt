@@ -8,66 +8,61 @@
 import Foundation
 
 public func get<T>(
-  expect: T.Type = T.self,
-  resolverId: String? = nil
+  expect: T.Type = T.self
 ) -> T! {
-  resolve(
+  globalResolver.resolve(
     expect: expect,
-    resolverId: resolverId ?? globalResolverId,
+    resolverId: globalResolverId,
     arg1: null, arg2: null, arg3: null, arg4: null
   )
 }
 
 public func get<T, A>(
   expect: T.Type = T.self,
-  resolverId: String? = nil,
   _ arg1: A
 ) -> T! {
-  resolve(
+  globalResolver.resolve(
     expect: expect,
-    resolverId: resolverId ?? globalResolverId,
+    resolverId: globalResolverId,
     arg1: arg1, arg2: null, arg3: null, arg4: null
   )
 }
 
 public func get<T, A, B>(
   expect: T.Type = T.self,
-  resolverId: String? = nil,
   _ arg1: A,
   _ arg2: B
 ) -> T! {
-  resolve(
+  globalResolver.resolve(
     expect: expect,
-    resolverId: resolverId ?? globalResolverId,
+    resolverId: globalResolverId,
     arg1: arg1, arg2: arg2, arg3: null, arg4: null
   )
 }
 
 public func get<T, A, B, C>(
   expect: T.Type = T.self,
-  resolverId: String? = nil,
   _ arg1: A,
   _ arg2: B,
   _ arg3: C
 ) -> T! {
-  resolve(
+  globalResolver.resolve(
     expect: expect,
-    resolverId: resolverId ?? globalResolverId,
+    resolverId: globalResolverId,
     arg1: arg1, arg2: arg2, arg3: arg3, arg4: null
   )
 }
 
 public func get<T, A, B, C, D>(
   expect: T.Type = T.self,
-  resolverId: String? = nil,
   _ arg1: A,
   _ arg2: B,
   _ arg3: C,
   _ arg4: D
 ) -> T! {
-  resolve(
+  globalResolver.resolve(
     expect: expect,
-    resolverId: resolverId ?? globalResolverId,
+    resolverId: globalResolverId,
     arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4
   )
 }
