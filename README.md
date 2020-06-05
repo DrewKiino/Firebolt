@@ -20,6 +20,7 @@ pod 'Firebolt'
 * [Arguments](#arguments)
 * [Protocol Conformance](#protocol-conformance)
 * [Multiple Resolvers](#multiple-resolvers)
+* [Subclassing Resolvers](#subclassing-resolvers)
 * [Storyboard Resolution](#storyboard-resolution)
 * [Examples](#examples)
 
@@ -239,6 +240,29 @@ func viewDidLoad() {
 }
 ```
 Objects not registered by the resolver won't be shared by other resolvers. This includes objects registered as `.single` as well unless they are registered by the `GlobalResolver` itself in which they become a true `Singleton`.
+
+### Subclassing Resolvers
+
+Resolvers are subclasses if you feel the need to create your own kind of a `Resolver` ex: `MyAppResolver`. You can do it like so -
+
+It is important that you pass in your own `resolverId` through an initializer witin your subclass. If you don't, your subclass will inheritely be a `GlobalResolver` since a standalone `Resolver` class with no identifier is essentially a singleton.
+
+```swift
+class MyAppResolver: Resolver {
+    init() {
+        super.init("MyAppResolver")
+    }
+}
+
+let myResolver = MyAppResolver()
+myResolver.register { ClassA() }
+
+// this will work
+let classA: ClassA = myResolver.get()
+
+// this will fail
+let classA: ClassA = get()
+```
 
 ### Storyboard Resolution
 
