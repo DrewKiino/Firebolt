@@ -19,6 +19,7 @@ pod 'Firebolt'
 * [Scope](#scope)
 * [Arguments](#arguments)
 * [Protocol Conformance](#protocol-conformance)
+* [Thread Safety](#thread-safety)
 * [Multiple Resolvers](#multiple-resolvers)
 * [Subclassing Resolvers](#subclassing-resolvers)
 * [Storyboard Resolution](#storyboard-resolution)
@@ -104,7 +105,7 @@ You can also pass in optionals like so.
 class ClassE { init(value: String?) {} }
 
 let resolver = Resolver()
-resolver.register(arg1: Optional<String>.self) { ClassE($0) }
+resolver.register(arg1: String?.self) { ClassE($0) }
 
 // no arguments tells the resolver to pass nil instead
 let classE: ClassE = get() 
@@ -197,6 +198,10 @@ let classB: ClassB = get()
 
 This works because `ClassA` is registered in the dependency scope
 but we are able to cast it to the expected type `ClassAVaraintA` by using the `get()` qualifier and the `expect` argument passed in during the callsite. 
+
+### Thread Safety
+
+`Firebolt` has a internal global queue that makes sure dependencies and resolvers are registered/deregistered in the same sequence. 
 
 ### Multiple Resolvers 
 Normally, if you initialze a `Resolver` without a resolver identifier passed in, you will get the `GlobalResolver`.
