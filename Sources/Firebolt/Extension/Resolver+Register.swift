@@ -11,12 +11,12 @@ extension Resolver {
     closure: @escaping BoxClosureNoArg<T>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    boxes[boxKey] = Box<T, Void, Void, Void, Void>(
+    setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .noargs(closure)
-    )
-    logger(.info, "registered \(boxKey)")
+    ))
+    logger(.info, "\(resolverId) - registered \(boxKey)")
     return self
   }
   
@@ -28,12 +28,12 @@ extension Resolver {
     closure: @escaping BoxClosure1Arg<T, A>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    boxes[boxKey] = Box<T?, A, Void, Void, Void>(
+    setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .arg1(closure)
-    )
-    logger(.info, "registered \(boxKey) with expected argument \(arg1)")
+    ))
+    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
     return self
   }
   
@@ -46,13 +46,12 @@ extension Resolver {
     closure: @escaping BoxClosure2Arg<T, A, B>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    let box = Box<T?, A, B, Void, Void>(
+    let box = setBox(boxKey, box: Box<T?, A, B, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .args2(closure)
-    )
-    boxes[boxKey] = box
-    logger(.info, "registered \(boxKey) with expected args \(box.stringArgs)")
+    ))
+    logger(.info, "\(resolverId) - registered \(boxKey) with expected args \(box.stringArgs)")
     return self
   }
   
@@ -66,12 +65,12 @@ extension Resolver {
     closure: @escaping BoxClosure3Arg<T, A, B, C>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    boxes[boxKey] = Box<T, A, B, C, Void>(
+    setBox(boxKey, box: Box<T, A, B, C, Void>(
       resolver: self,
       scope: scope,
       closure: .args3(closure)
-    )
-    logger(.info, "registered \(boxKey) with expected argument \(arg1)")
+    ))
+    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
     return self
   }
   
@@ -86,12 +85,12 @@ extension Resolver {
     closure: @escaping BoxClosure4Arg<T, A, B, C, D>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    boxes[boxKey] = Box<T, A, B, C, D>(
+    setBox(boxKey, box: Box<T, A, B, C, D>(
       resolver: self,
       scope: scope,
       closure: .args4(closure)
-    )
-    logger(.info, "registered \(boxKey) with expected argument \(arg1)")
+    ))
+    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
     return self
   }
 }
@@ -107,12 +106,12 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let boxKey = getBoxKey(object.self).clean()
-      boxes[boxKey] = Box<T, Void, Void, Void, Void>(
+      setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .noargs(closure)
-      )
-      logger(.info, "registered \(boxKey)")
+      ))
+      logger(.info, "\(resolverId) - registered \(boxKey)")
     }
     return self
   }
@@ -126,12 +125,12 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let boxKey = getBoxKey(object.self).clean()
-      boxes[boxKey] = Box<T?, A, Void, Void, Void>(
+      setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .arg1(closure)
-      )
-      logger(.info, "registered \(boxKey) with expected argument \(arg1)")
+      ))
+      logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
     }
     return self
   }
@@ -146,13 +145,12 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let boxKey = getBoxKey(object.self).clean()
-      let box = Box<T?, A, B, Void, Void>(
+      let box = setBox(boxKey, box: Box<T?, A, B, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .args2(closure)
-      )
-      boxes[boxKey] = box
-      logger(.info, "registered \(boxKey) with expected args \(box.stringArgs)")
+      ))
+      logger(.info, "\(resolverId) - registered \(boxKey) with expected args \(box.stringArgs)")
     }
     return self
   }
@@ -168,12 +166,12 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let boxKey = getBoxKey(object.self).clean()
-      boxes[boxKey] = Box<T, A, B, C, Void>(
+      setBox(boxKey, box: Box<T, A, B, C, Void>(
         resolver: self,
         scope: scope,
         closure: .args3(closure)
-      )
-      logger(.info, "registered \(boxKey) with expected argument \(arg1)")
+      ))
+      logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
     }
     return self
   }
@@ -190,12 +188,12 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let boxKey = getBoxKey(object.self).clean()
-      boxes[boxKey] = Box<T, A, B, C, D>(
+      setBox(boxKey, box: Box<T, A, B, C, D>(
         resolver: self,
         scope: scope,
         closure: .args4(closure)
-      )
-      logger(.info, "registered \(boxKey) with expected argument \(arg1)")
+      ))
+      logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
     }
     return self
   }
@@ -211,12 +209,12 @@ extension Resolver {
     closure: @escaping BoxClosureNoArgR<T>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    boxes[boxKey] = Box<T, Void, Void, Void, Void>(
+    setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .noargsR(closure)
-    )
-    logger(.info, "registered \(boxKey)")
+    ))
+    logger(.info, "\(resolverId) - registered \(boxKey)")
     return self
   }
   
@@ -228,12 +226,12 @@ extension Resolver {
     closure: @escaping BoxClosure1ArgR<T, A>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    boxes[boxKey] = Box<T?, A, Void, Void, Void>(
+    setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .arg1R(closure)
-    )
-    logger(.info, "registered \(boxKey) with expected argument \(arg1)")
+    ))
+    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
     return self
   }
   
@@ -246,13 +244,12 @@ extension Resolver {
     closure: @escaping BoxClosure2ArgR<T, A, B>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    let box = Box<T?, A, B, Void, Void>(
+    let box = setBox(boxKey, box: Box<T?, A, B, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .args2R(closure)
-    )
-    boxes[boxKey] = box
-    logger(.info, "registered \(boxKey) with expected args \(box.stringArgs)")
+    ))
+    logger(.info, "\(resolverId) - registered \(boxKey) with expected args \(box.stringArgs)")
     return self
   }
   
@@ -266,12 +263,12 @@ extension Resolver {
     closure: @escaping BoxClosure3ArgR<T, A, B, C>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    boxes[boxKey] = Box<T, A, B, C, Void>(
+    setBox(boxKey, box: Box<T, A, B, C, Void>(
       resolver: self,
       scope: scope,
       closure: .args3R(closure)
-    )
-    logger(.info, "registered \(boxKey) with expected argument \(arg1)")
+    ))
+    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
     return self
   }
   
@@ -286,12 +283,12 @@ extension Resolver {
     closure: @escaping BoxClosure4ArgR<T, A, B, C, D>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    boxes[boxKey] = Box<T, A, B, C, D>(
+    setBox(boxKey, box: Box<T, A, B, C, D>(
       resolver: self,
       scope: scope,
       closure: .args4R(closure)
-    )
-    logger(.info, "registered \(boxKey) with expected argument \(arg1)")
+    ))
+    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
     return self
   }
 }

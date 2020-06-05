@@ -21,24 +21,24 @@ final class SwiftResolverTests: XCTestCase {
     let classA: ClassA = get()
     XCTAssertEqual(a.id, classA.id)
   }
-  
+
   func test_injection_protocol_fail() {
     globalResolver.register { ClassA() }
     let classA: ClassAProtocol? = get()
     XCTAssertNil(classA)
   }
-  
+
   func test_injection_protocol_fail2() {
     let classA: ClassAProtocol? = get(expect: ClassA.self)
     XCTAssertNil(classA)
   }
-  
+
   func test_injection_protocol() {
     globalResolver.register { ClassA() }
     let classA: ClassAProtocol? = get(expect: ClassA.self)
     XCTAssertNotNil(classA)
   }
-  
+
   func test_injection_protocol_register() {
     globalResolver.register(expect: ClassAProtocol.self) { ClassA() }
     let classA: ClassAProtocol? = get()
@@ -46,7 +46,7 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classA)
     XCTAssertNil(classA_2)
   }
-  
+
   func test_injection_double_protocol() {
     globalResolver.register { ClassA() }
     let classA: ClassAProtocol? = get(expect: ClassA.self)
@@ -54,7 +54,7 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classA)
     XCTAssertNotNil(classA_B)
   }
-  
+
   func test_injection_double_protocol_impl() {
     globalResolver.register(expect: ClassE.self) { ClassEImpl() }
     let classE: ClassEProtocol? = get(expect: ClassE.self)
@@ -62,7 +62,7 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classE)
     XCTAssertNotNil(classE_B)
   }
-  
+
   func test_injection_double_protocol_concrete() {
     globalResolver.register { ClassA() }
     let classA: ClassAProtocol? = get(expect: ClassA.self)
@@ -82,10 +82,10 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classD)
     XCTAssertEqual(classD.name, name)
   }
-  
+
   func test_injection_protocol_multiple() {
     globalResolver.register { ClassA() }
-    
+
     let classA: ClassAProtocol = get(expect: ClassA.self)
     let classA_2: ClassAProtocolB = get(expect: ClassA.self)
     XCTAssertNotNil(classA)
@@ -98,7 +98,7 @@ final class SwiftResolverTests: XCTestCase {
     let classA: ClassA = get()
     XCTAssertEqual(a.id, classA.id)
   }
-  
+
   func test_injection_1arg_default() {
     globalResolver.register(.single, arg1: String.self) { ClassA(name: $0) }
     let classA: ClassA? = get()
@@ -110,7 +110,7 @@ final class SwiftResolverTests: XCTestCase {
     let classB: ClassB? = get()
     XCTAssertNil(classB)
   }
-  
+
   func test_injection_1arg_optional_default_singleton() {
     globalResolver.register(.single, arg1: Optional<String>.self) { ClassA(name: $0) }
     let name = "hello"
@@ -120,7 +120,7 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classA_2)
     XCTAssertNotEqual(classA_2?.name, name)
   }
-  
+
   func test_injection_1arg_optional_default() {
     globalResolver.register(arg1: Optional<String>.self) { ClassA(name: $0) }
     let name = "hello"
@@ -130,7 +130,7 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classA_2)
     XCTAssertEqual(classA_2?.name, name)
   }
-  
+
   func test_injection_1arg() {
     globalResolver.register(.single, arg1: String.self) { ClassA(name: $0) }
     let newName = "Hi"
@@ -138,14 +138,14 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classA)
     XCTAssertEqual(classA?.name, newName)
   }
-  
+
   func test_injection_1arg_optional() {
     globalResolver.register(.single, arg1: Optional<String>.self) { ClassA(name: $0) }
     let classA: ClassA? = get(Optional<String>.none)
     XCTAssertNotNil(classA)
     XCTAssertEqual(classA?.name, noName)
   }
-  
+
   func test_injection_2arg_optional() {
     globalResolver.register(arg1: Optional<String>.self, arg2: Optional<Int>.self) {
       ClassA(name: $0, age: $1)
@@ -159,7 +159,7 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classA)
     XCTAssertEqual(classA?.name, noName)
   }
-  
+
   func test_injection_2arg_partial_optional() {
     globalResolver.register(arg1: Optional<String>.self, arg2: Optional<Int>.self) {
       ClassA(name: $0, age: $1)
@@ -179,7 +179,7 @@ final class SwiftResolverTests: XCTestCase {
     globalResolver.register(.single) { ClassA() }
     let classA: ClassA = get()
     let classA_2: ClassA = get()
-    
+
     XCTAssertEqual(classA.id, classA_2.id)
   }
 
@@ -187,7 +187,7 @@ final class SwiftResolverTests: XCTestCase {
     globalResolver.register { ClassA() }
     let classA: ClassA = get()
     let classA_2: ClassA = get()
-    
+
     XCTAssertNotEqual(classA.id, classA_2.id)
   }
 
@@ -196,10 +196,10 @@ final class SwiftResolverTests: XCTestCase {
         .register { ClassB(classA: get()) }
     let classA: ClassA = get()
     let classB: ClassB = get()
-    
+
     XCTAssertNotEqual(classB.classA.id, classA.id)
   }
-  
+
   func test_1deps_singleton( ){
     globalResolver.register(.single) { ClassA() }
         .register { ClassB(classA: get()) }
@@ -208,7 +208,7 @@ final class SwiftResolverTests: XCTestCase {
 
     XCTAssertEqual(classA.id, classB.classA.id)
   }
-  
+
   func test_nested_singleton() {
     globalResolver
       .register(.single) { ClassA() }
@@ -217,7 +217,7 @@ final class SwiftResolverTests: XCTestCase {
     let classA: ClassA = get()
     let classB: ClassB = get()
     let classC: ClassC = get()
-    
+
     XCTAssertEqual(classC.classA.name, classA.name)
     XCTAssertEqual(classC.classB.classA.id, classA.id)
     XCTAssertNotEqual(classC.classB.id, classB.id)
@@ -226,28 +226,28 @@ final class SwiftResolverTests: XCTestCase {
   func test_resolver_init() {
     let resolverId = "TEST_RESOLVER"
     let newResolver = Resolver(resolverId)
-    let read = GlobalResolver.resolvers[resolverId]
+    let read = getResolver(resolverId)
     XCTAssertNotNil(read)
     XCTAssertEqual(read?.resolverId, resolverId)
     newResolver.dropCompletely()
-    let read2 = GlobalResolver.resolvers[resolverId]
+    let read2 = getResolver(resolverId)
     XCTAssertNil(read2)
   }
-  
+
   func test_two_resolvers() {
     let resolverId = "TEST_RESOLVER"
     let resolverId2 = "TEST_RESOLVER_2"
     _ = Resolver(resolverId)
     _ = Resolver(resolverId2)
-    
-    let read = GlobalResolver.resolvers[resolverId]
-    let read2 = GlobalResolver.resolvers[resolverId2]
+
+    let read = getResolver(resolverId)
+    let read2 = getResolver(resolverId2)
     XCTAssertNotNil(read)
     XCTAssertNotNil(read2)
     XCTAssertEqual(read?.resolverId, resolverId)
     XCTAssertEqual(read2?.resolverId, resolverId2)
   }
-  
+
   func test_two_resolvers_same_deps() {
     let resolverId = "TEST_RESOLVER"
     let resolverId2 = "TEST_RESOLVER_2"
@@ -259,12 +259,12 @@ final class SwiftResolverTests: XCTestCase {
     let classA: ClassA? = get(resolverId: resolverId)
     let classA2: ClassA? = get(resolverId: resolverId2)
     let classA3: ClassA? = get()
-    
+
     XCTAssertNotNil(classA)
     XCTAssertNil(classA2)
     XCTAssertNil(classA3)
   }
-  
+
   func test_two_resolvers_same_deps_one_global() {
     let resolverId = "TEST_RESOLVER"
     _ = Resolver(resolverId)
@@ -273,33 +273,33 @@ final class SwiftResolverTests: XCTestCase {
 
     let classA: ClassA? = get(resolverId: resolverId)
     let classA2: ClassA? = get()
-    
+
     XCTAssertNil(classA)
     XCTAssertNotNil(classA2)
   }
-  
+
   func test_resolver_get_by_instance() {
     let resolverId = "TEST_RESOLVER"
     let resolver = Resolver(resolverId)
-    
+
     resolver.register { ClassA() }
 
     let classA: ClassA? = get(resolverId: resolverId)
     let classA2: ClassA? = resolver.get()
     let classA3: ClassA? = get()
-    
+
     XCTAssertNotNil(classA)
     XCTAssertNotNil(classA2)
     XCTAssertNil(classA3)
   }
-  
+
   func test_resolver_multi_deps_register_resolver_arg() {
     let resolverId = "TEST_RESOLVER"
     let resolver = Resolver(resolverId)
-    
+
     resolver.register { ClassA() }
     resolver.register { ClassB(classA: $0.get()) }
-    
+
     let classA: ClassA? = get(resolverId: resolverId)
     let classB: ClassB? = get()
     let classB2: ClassB? = resolver.get()
@@ -308,42 +308,42 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNil(classB)
     XCTAssertNotNil(classB2)
   }
-  
+
   func test_multiple_expects_register() {
     globalResolver.register(expects: [ClassAProtocol.self, ClassAProtocolB.self]) { ClassA() }
-    
+
     let classA: ClassAProtocol? = get()
     let classA_2: ClassAProtocolB? = get()
 
     XCTAssertNotNil(classA)
     XCTAssertNotNil(classA_2)
   }
-  
+
   func test_multiple_expects_register_arg() {
     globalResolver.register(
-    expects: [ClassAProtocol.self, ClassAProtocolB.self],
-    arg1: String.self,
-    arg2: Int.self
-  ) { ClassA(name: $0, age: $1) }
-    
+      expects: [ClassAProtocol.self, ClassAProtocolB.self],
+      arg1: String.self,
+      arg2: Int.self
+    ) { ClassA(name: $0, age: $1) }
+
     let name1 = "hello"
     let name2 = "hi"
     let age = 1
     let classA: ClassAProtocol? = get(name1, age)
     let classA_2: ClassAProtocolB? = get(name2, age)
-    
+
     XCTAssertNotNil(classA)
     XCTAssertNotNil(classA_2)
     XCTAssertEqual(classA?.name, name1)
     XCTAssertEqual(classA_2?.age, age)
   }
-  
+
   func test_optional_args() {
     globalResolver.register(
       arg1: String.self,
       arg2: Optional<Int>.self
     ) { ClassA(name: $0, age: $1) }
-    
+
     let name1 = "hello"
     let age1 = 1
     let classA: ClassA? = get()
@@ -353,5 +353,24 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNil(classA)
     XCTAssertNotNil(classA_2)
     XCTAssertNotNil(classA_3)
+  }
+
+  func test_subclassing() {
+    let resolver = ResolverSubclass()
+      .register(.single) { ClassA() }
+      .register { ClassB(classA: $0.get()) }
+      .register { ClassC(classA: $0.get(expect: ClassA.self), classB: $0.get()) }
+
+    let classA: ClassA = resolver.get()
+    let classB: ClassB = resolver.get()
+    let classC: ClassC = resolver.get()
+
+    XCTAssertEqual(classC.classA.name, classA.name)
+    XCTAssertEqual(classC.classB.classA.id, classA.id)
+    XCTAssertNotEqual(classC.classB.id, classB.id)
+  }
+  
+  func test_quick_initailizer() {
+    XCTAssertNotNil(ResolverSubclassSelfRegister.shared.get(expect: ClassA.self))
   }
 }

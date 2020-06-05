@@ -11,7 +11,7 @@ extension Resolver {
   public func get<T>(
     expect: T.Type = T.self
   ) -> T! {
-    Resolver.getResolver(
+    resolve(
       expect: expect,
       resolverId: resolverId,
       arg1: null, arg2: null, arg3: null, arg4: null
@@ -22,7 +22,7 @@ extension Resolver {
     expect: T.Type = T.self,
     arg1: A
   ) -> T! {
-    Resolver.getResolver(
+    resolve(
       expect: expect,
       resolverId: resolverId,
       arg1: arg1, arg2: null, arg3: null, arg4: null
@@ -34,7 +34,7 @@ extension Resolver {
     arg1: A,
     arg2: B
   ) -> T! {
-    Resolver.getResolver(
+    resolve(
       expect: expect,
       resolverId: resolverId,
       arg1: arg1, arg2: arg2, arg3: null, arg4: null
@@ -47,7 +47,7 @@ extension Resolver {
     arg2: B,
     arg3: C
   ) -> T! {
-    Resolver.getResolver(
+    resolve(
       expect: expect,
       resolverId: resolverId,
       arg1: arg1, arg2: arg2, arg3: arg3, arg4: null
@@ -61,7 +61,7 @@ extension Resolver {
     arg3: C,
     arg4: D
   ) -> T! {
-    Resolver.getResolver(
+    resolve(
       expect: expect,
       resolverId: resolverId,
       arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4

@@ -1,5 +1,6 @@
 
 import Foundation
+@testable import Firebolt
 
 let noName = "no_name"
 let noAge = 0
@@ -74,5 +75,19 @@ class ClassEImpl: ClassE, ClassEProtocol, ClassEProtocolB {
   init(name: String? = nil, age: Int? = nil) {
     self.name = name ?? noName
     self.age = age ?? noAge
+  }
+}
+
+class ResolverSubclass: Resolver {
+  init() {
+    super.init("ResolverSubclass")
+  }
+}
+
+class ResolverSubclassSelfRegister: Resolver {
+  static let shared = ResolverSubclassSelfRegister()
+  init() {
+    super.init("ResolverSubclassSelfRegister")
+    register { ClassA() }
   }
 }
