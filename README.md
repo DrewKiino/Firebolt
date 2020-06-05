@@ -243,9 +243,11 @@ Objects not registered by the resolver won't be shared by other resolvers. This 
 
 ### Subclassing Resolvers
 
-Resolvers are subclasses if you feel the need to create your own kind of a `Resolver` ex: `MyAppResolver`. You can do it like so -
+Resolvers are subclassable if you feel the need to create your own kind of a `Resolver` ex: `MyAppResolver`. 
 
 It is important that you pass in your own `resolverId` through an initializer witin your subclass. If you don't, your subclass will inheritely be a `GlobalResolver` since a standalone `Resolver` class with no identifier is essentially a singleton.
+
+Example -
 
 ```swift
 class MyAppResolver: Resolver {
