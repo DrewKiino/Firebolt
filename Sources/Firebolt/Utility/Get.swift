@@ -11,6 +11,7 @@ public func get<T>(
   expect: T.Type = T.self
 ) -> T! {
   globalResolver.resolve(
+    scope: nil,
     expect: expect,
     resolverId: globalResolverId,
     arg1: null, arg2: null, arg3: null, arg4: null
@@ -22,6 +23,7 @@ public func get<T, A>(
   _ arg1: A
 ) -> T! {
   globalResolver.resolve(
+    scope: nil,
     expect: expect,
     resolverId: globalResolverId,
     arg1: arg1, arg2: null, arg3: null, arg4: null
@@ -34,6 +36,7 @@ public func get<T, A, B>(
   _ arg2: B
 ) -> T! {
   globalResolver.resolve(
+    scope: nil,
     expect: expect,
     resolverId: globalResolverId,
     arg1: arg1, arg2: arg2, arg3: null, arg4: null
@@ -47,6 +50,7 @@ public func get<T, A, B, C>(
   _ arg3: C
 ) -> T! {
   globalResolver.resolve(
+    scope: nil,
     expect: expect,
     resolverId: globalResolverId,
     arg1: arg1, arg2: arg2, arg3: arg3, arg4: null
@@ -61,6 +65,7 @@ public func get<T, A, B, C, D>(
   _ arg4: D
 ) -> T! {
   globalResolver.resolve(
+    scope: nil,
     expect: expect,
     resolverId: globalResolverId,
     arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4

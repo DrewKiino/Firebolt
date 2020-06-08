@@ -94,9 +94,40 @@ final class SwiftResolverTests: XCTestCase {
     let a = ClassA()
     globalResolver.register(.single) { a }
     let classA: ClassA = get()
+    let classA2: ClassA = get()
     XCTAssertEqual(a.id, classA.id)
+    XCTAssertEqual(a.id, classA2.id)
   }
+  
+  func test_injection_singleton_unique() {
 
+    let resolver = Resolver(UUID().uuidString)
+      .register(.single) { ClassA() }
+    
+    let classA: ClassA? = resolver.get()
+    let classA2: ClassA? = get()
+    let classA3: ClassA? = resolver.get()
+    
+    XCTAssertNotNil(classA)
+    XCTAssertNil(classA2)
+    XCTAssertNotNil(classA3)
+    XCTAssertEqual(classA?.id, classA3?.id)
+  }
+  
+  func test_injection_singleton_subclass() {
+    let resolver = ResolverSubclass()
+      .register(.single) { ClassA() }
+    
+    let classA: ClassA? = resolver.get()
+    let classA2: ClassA? = get()
+    let classA3: ClassA? = resolver.get()
+    
+    XCTAssertNotNil(classA)
+    XCTAssertNil(classA2)
+    XCTAssertNotNil(classA3)
+    XCTAssertEqual(classA?.id, classA3?.id)
+  }
+  
   func test_injection_1arg_default() {
     globalResolver.register(.single, arg1: String.self) { ClassA(name: $0) }
     let classA: ClassA? = get()
@@ -385,5 +416,27 @@ final class SwiftResolverTests: XCTestCase {
 
     XCTAssertNotNil(classA)
     XCTAssertNotNil(classB)
+  }
+  
+  func test_resolver_local_scope() {
+    let resolver = ResolverSubclass()
+    resolver.register(.factory) { ClassA() }
+    resolver.register(.single) { ClassB(classA: $0.get()) }
+    
+    let classA1: ClassA? = resolver.get(.single)
+    let classA2: ClassA? = resolver.get(.single)
+    let classA3: ClassA? = resolver.get(.factory)
+    let classA4: ClassA? = resolver.get()
+    let classB1: ClassB? = resolver.get()
+    let classB2: ClassB? = resolver.get()
+    let classB3: ClassB? = resolver.get(.factory)
+    
+    XCTAssertNotNil(classA2)
+    XCTAssertNotNil(classA2)
+    XCTAssertEqual(classA1?.id, classA2?.id)
+    XCTAssertNotEqual(classA3?.id, classA1?.id)
+    XCTAssertNotEqual(classA4?.id, classA1?.id)
+    XCTAssertEqual(classB1?.id, classB2?.id)
+    XCTAssertNotEqual(classB1?.id, classB3?.id)
   }
 }

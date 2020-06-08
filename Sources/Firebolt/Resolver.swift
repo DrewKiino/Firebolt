@@ -64,6 +64,7 @@ open class Resolver {
   }
   
   func resolve<T, A, B, C, D>(
+    scope: Resolver.Scope?,
     expect: T.Type,
     resolverId: String,
     arg1: A,
@@ -90,7 +91,7 @@ open class Resolver {
       }
       
       // Resolve by Scope
-      switch box.scope() {
+      switch scope ?? box.scope() {
       case .factory:
         return try box.value(arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4)
       case .single:

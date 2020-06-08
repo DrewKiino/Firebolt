@@ -9,9 +9,11 @@ import Foundation
 
 extension Resolver {
   public func get<T>(
+    _ scope: Resolver.Scope? = nil,
     expect: T.Type = T.self
   ) -> T! {
     resolve(
+      scope: scope,
       expect: expect,
       resolverId: resolverId,
       arg1: null, arg2: null, arg3: null, arg4: null
@@ -19,10 +21,12 @@ extension Resolver {
   }
 
   public func get<T, A>(
+    _ scope: Resolver.Scope? = nil,
     expect: T.Type = T.self,
     arg1: A
   ) -> T! {
     resolve(
+      scope: scope,
       expect: expect,
       resolverId: resolverId,
       arg1: arg1, arg2: null, arg3: null, arg4: null
@@ -30,11 +34,13 @@ extension Resolver {
   }
 
   public func get<T, A, B>(
+    _ scope: Resolver.Scope? = nil,
     expect: T.Type = T.self,
     arg1: A,
     arg2: B
   ) -> T! {
     resolve(
+      scope: scope,
       expect: expect,
       resolverId: resolverId,
       arg1: arg1, arg2: arg2, arg3: null, arg4: null
@@ -42,12 +48,14 @@ extension Resolver {
   }
 
   public func get<T, A, B, C>(
+    _ scope: Resolver.Scope? = nil,
     expect: T.Type = T.self,
     arg1: A,
     arg2: B,
     arg3: C
   ) -> T! {
     resolve(
+      scope: scope,
       expect: expect,
       resolverId: resolverId,
       arg1: arg1, arg2: arg2, arg3: arg3, arg4: null
@@ -55,6 +63,7 @@ extension Resolver {
   }
 
   public func get<T, A, B, C, D>(
+    _ scope: Resolver.Scope? = nil,
     expect: T.Type = T.self,
     arg1: A,
     arg2: B,
@@ -62,6 +71,7 @@ extension Resolver {
     arg4: D
   ) -> T! {
     resolve(
+      scope: scope,
       expect: expect,
       resolverId: resolverId,
       arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4
