@@ -7,11 +7,19 @@
 
 ## Installation
 
+### Cocoapods
+
 `Firebolt` is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'Firebolt'
+```
+### Swift Package Manager
+
+```yml
+url: https://github.com/DrewKiino/Firebolt.git
+from: 0.3.6
 ```
 
 ## Documentation
