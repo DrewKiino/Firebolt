@@ -418,6 +418,22 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classB)
   }
   
+  func test_multiple_singles_same_resolver() {
+    let resolver = ResolverSubclass()
+      .register(.single) { ClassA() }
+      .register(.single) { ClassB(classA: $0.get()) }
+
+    let classA1: ClassA? = resolver.get()
+    let classB1: ClassB? = resolver.get()
+    let classA2: ClassA? = resolver.get()
+    let classB2: ClassB? = resolver.get()
+    
+    XCTAssertNotNil(classA1)
+    XCTAssertNotNil(classB1)
+    XCTAssertNotNil(classA2)
+    XCTAssertNotNil(classB2)
+  }
+  
   func test_resolver_local_scope() {
     let resolver = ResolverSubclass()
     resolver.register(.factory) { ClassA() }

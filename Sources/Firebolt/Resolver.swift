@@ -30,7 +30,7 @@ open class Resolver {
     globalQueue.sync { cachedDependencies[dependencyId] = dependency }
   }
 
-  public init(_ resolverId: String) {
+  public init(_ resolverId: String = globalResolverId) {
     self.resolverId = resolverId
     registerResolver(self.resolverId, resolver: self)
     logger(.info, "\(self.resolverId) - registered")
