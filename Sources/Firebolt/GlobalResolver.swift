@@ -1,7 +1,7 @@
 
 import Foundation
 
-internal let globalResolverId: String = UUID().uuidString
+public let globalResolverId: String = UUID().uuidString
 internal let globalQueue = DispatchQueue.global(qos: .default)
 internal let globalResolver = Resolver(globalResolverId)
 internal var resolvers: [String: Resolver] = [:]
