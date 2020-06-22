@@ -12,7 +12,7 @@ extension Resolver {
     _ scope: Resolver.Scope? = nil,
     expect: T.Type = T.self
   ) -> T! {
-    resolve(
+    coreInstance.resolve(
       scope: scope,
       expect: expect,
       resolverId: resolverId,
@@ -25,7 +25,7 @@ extension Resolver {
     expect: T.Type = T.self,
     arg1: A
   ) -> T! {
-    resolve(
+    coreInstance.resolve(
       scope: scope,
       expect: expect,
       resolverId: resolverId,
@@ -39,7 +39,7 @@ extension Resolver {
     arg1: A,
     arg2: B
   ) -> T! {
-    resolve(
+    coreInstance.resolve(
       scope: scope,
       expect: expect,
       resolverId: resolverId,
@@ -54,7 +54,7 @@ extension Resolver {
     arg2: B,
     arg3: C
   ) -> T! {
-    resolve(
+    coreInstance.resolve(
       scope: scope,
       expect: expect,
       resolverId: resolverId,
@@ -70,7 +70,7 @@ extension Resolver {
     arg3: C,
     arg4: D
   ) -> T! {
-    resolve(
+    coreInstance.resolve(
       scope: scope,
       expect: expect,
       resolverId: resolverId,

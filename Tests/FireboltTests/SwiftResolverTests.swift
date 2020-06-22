@@ -4,13 +4,15 @@ import XCTest
 
 final class SwiftResolverTests: XCTestCase {
   
+  private let globalResolver = Resolver()
+
   override func setUp() {
     super.setUp()
   }
   
   override func tearDown() {
     super.tearDown()
-    globalResolver.drop()
+    globalResolver.unregisterAllDependencies()
   }
 
   func test_injection_factory() {
@@ -252,17 +254,6 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotEqual(classC.classB.id, classB.id)
   }
 
-  func test_resolver_init() {
-    let resolverId = "TEST_RESOLVER"
-    let newResolver = Resolver(resolverId)
-    let read = getResolver(resolverId)
-    XCTAssertNotNil(read)
-    XCTAssertEqual(read?.resolverId, resolverId)
-    newResolver.dropCompletely()
-    let read2 = getResolver(resolverId)
-    XCTAssertNil(read2)
-  }
-
   func test_two_resolvers() {
     let resolverId = "TEST_RESOLVER"
     let resolverId2 = "TEST_RESOLVER_2"
@@ -295,7 +286,7 @@ final class SwiftResolverTests: XCTestCase {
   }
 
   func test_two_resolvers_same_deps_one_global() {
-    let resolverId = "TEST_RESOLVER"
+    let resolverId = UUID().uuidString
     let resolver = Resolver(resolverId)
 
     globalResolver.register { ClassA() }
@@ -308,7 +299,7 @@ final class SwiftResolverTests: XCTestCase {
   }
 
   func test_resolver_get_by_instance() {
-    let resolverId = "TEST_RESOLVER"
+    let resolverId = UUID().uuidString
     let resolver = Resolver(resolverId)
 
     resolver.register { ClassA() }
@@ -446,7 +437,7 @@ final class SwiftResolverTests: XCTestCase {
     let classB1: ClassB? = resolver.get()
     let classB2: ClassB? = resolver.get()
     let classB3: ClassB? = resolver.get(.factory)
-    
+
     XCTAssertNotNil(classA2)
     XCTAssertNotNil(classA2)
     XCTAssertEqual(classA1?.id, classA2?.id)

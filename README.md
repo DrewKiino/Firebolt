@@ -28,8 +28,10 @@ from: 0.3.6
 * [Arguments](#arguments)
 * [Protocol Conformance](#protocol-conformance)
 * [Thread Safety](#thread-safety)
+* [Global Resolver](#global-resolver)
 * [Multiple Resolvers](#multiple-resolvers)
 * [Subclassing Resolvers](#subclassing-resolvers)
+* [Deregister Dependencies](#deregister-dependencies)
 * [Storyboard Resolution](#storyboard-resolution)
 * [Examples](#examples)
 
@@ -211,16 +213,33 @@ but we are able to cast it to the expected type `ClassAVaraintA` by using the `g
 
 `Firebolt` has a internal global queue that makes sure dependencies and resolvers are registered/deregistered in the same sequence. 
 
-### Multiple Resolvers 
-Normally, if you initialze a `Resolver` without a resolver identifier passed in, you will get the `GlobalResolver`.
+### Global Resolver
+
+Normally, if you initialze a `Resolver` without a resolver identifier passed in, you will get the `GlobalResolver`. You can register and unregister dependencies with this special resolver as well as having resolutions without much work for your application. 
 ```swift
-let resolver = Resolver() // <- GlobalResolver created
+let resolver = Resolver() // <-- GlobalResolver created
+
+resolver.register { ClassA() }
 ```
-This means that you can inject dependencies without specifying the resolver identifier.
+You can then globally inject dependencies without specifying a Resolver identifier.
 ```swift
+// property scoped in another instance of the application 
+// will resolve automatically for you.
 let classA: ClassA = get()
 ```
-However, if you want to keep dependencies separate you can instantiate multiple resolvers with each having their own scope.
+
+Although you can pass in a `resolverId` if you want global resolution to a specific `Resolver` regardless as the `GlobalResolver` is shared across all instances naturally.
+
+```swift
+let classA: ClassA = get("Resolver_1")
+```
+
+### Multiple Resolvers 
+
+If you want to keep dependencies separate you can instantiate multiple resolvers with each having their own scope.
+
+When you initialize a `Resolver` you have to pass in a `resolverId`, Firebolt then registers this resolver in a cache. 
+
 1. Instantiate a `Resolver` with a unique identifier.
 
 ```swift
@@ -256,11 +275,25 @@ func viewDidLoad() {
 ```
 Objects not registered by the resolver won't be shared by other resolvers. This includes objects registered as `.single` as well unless they are registered by the `GlobalResolver` itself in which they become a true `Singleton`.
 
+If you initailize two resolvers of the same identifier, they both will share the same cache of dependencies.
+
+```swift
+let resolverA = Resolver("SAME_IDENTIFIER")
+resolverA.register { ClassA() }
+
+let resolverB = Resolver("SAME_IDENTIFIER")
+
+// This will successfully resolve since ResolverB shares the same 
+// identifier as ResolverA - thus the same cache of dependencies.
+let classA: ClassA = resolverB.get() 
+
+```
+
 ### Subclassing Resolvers
 
 Resolvers are subclassable if you feel the need to create your own kind of a `Resolver` ex: `MyAppResolver`. 
 
-It is important that you pass in your own `resolverId` through an initializer witin your subclass. If you don't, your subclass will inheritely be a `GlobalResolver` since a standalone `Resolver` class with no identifier is essentially a singleton.
+It is important that you pass in your own `resolverId` through an initializer witin your subclass. If you don't, your subclass will inheritely be a `GlobalResolver` since a standalone `Resolver` class with no identifier will essentiually access the singleton itself.
 
 ```swift
 class MyAppResolver: Resolver {
@@ -275,8 +308,25 @@ myResolver.register { ClassA() }
 // this will work
 let classA: ClassA = myResolver.get()
 
+// this will also work
+let classA: ClassA = get(resolverId: "MyAppResolver")
+
 // this will fail
 let classA: ClassA = get()
+```
+
+### Deregister Dependencies
+
+You can deregister dependencies like so.
+
+```swift
+resolver.register { ClassA() }
+
+let classA: ClassA? = get() // will return ClassA
+
+resolver.deregister(ClassA.self)
+
+let classA: ClassA? = get() // will return nil
 ```
 
 ### Storyboard Resolution

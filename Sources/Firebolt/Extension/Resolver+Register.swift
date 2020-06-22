@@ -4,6 +4,11 @@ import Foundation
 // MARK: - EXPECT ARGS+
 
 extension Resolver {
+  public func deregister<T>(_ object: T.Type) {
+    let boxKey = getBoxKey(object.self).clean()
+    coreInstance.removeBox(boxKey)
+  }
+  
   @discardableResult
   public func register<T>(
     _ scope: Scope = .factory,
@@ -11,7 +16,7 @@ extension Resolver {
     closure: @escaping BoxClosureNoArg<T>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
+    coreInstance.setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .noargs(closure)
@@ -28,7 +33,7 @@ extension Resolver {
     closure: @escaping BoxClosure1Arg<T, A>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
+    coreInstance.setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .arg1(closure)
@@ -46,7 +51,7 @@ extension Resolver {
     closure: @escaping BoxClosure2Arg<T, A, B>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    let box = setBox(boxKey, box: Box<T?, A, B, Void, Void>(
+    let box = coreInstance.setBox(boxKey, box: Box<T?, A, B, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .args2(closure)
@@ -65,7 +70,7 @@ extension Resolver {
     closure: @escaping BoxClosure3Arg<T, A, B, C>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    setBox(boxKey, box: Box<T, A, B, C, Void>(
+    coreInstance.setBox(boxKey, box: Box<T, A, B, C, Void>(
       resolver: self,
       scope: scope,
       closure: .args3(closure)
@@ -85,7 +90,7 @@ extension Resolver {
     closure: @escaping BoxClosure4Arg<T, A, B, C, D>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    setBox(boxKey, box: Box<T, A, B, C, D>(
+    coreInstance.setBox(boxKey, box: Box<T, A, B, C, D>(
       resolver: self,
       scope: scope,
       closure: .args4(closure)
@@ -106,7 +111,7 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let boxKey = getBoxKey(object.self).clean()
-      setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
+      coreInstance.setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .noargs(closure)
@@ -125,7 +130,7 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let boxKey = getBoxKey(object.self).clean()
-      setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
+      coreInstance.setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .arg1(closure)
@@ -145,7 +150,7 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let boxKey = getBoxKey(object.self).clean()
-      let box = setBox(boxKey, box: Box<T?, A, B, Void, Void>(
+      let box = coreInstance.setBox(boxKey, box: Box<T?, A, B, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .args2(closure)
@@ -166,7 +171,7 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let boxKey = getBoxKey(object.self).clean()
-      setBox(boxKey, box: Box<T, A, B, C, Void>(
+      coreInstance.setBox(boxKey, box: Box<T, A, B, C, Void>(
         resolver: self,
         scope: scope,
         closure: .args3(closure)
@@ -188,7 +193,7 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let boxKey = getBoxKey(object.self).clean()
-      setBox(boxKey, box: Box<T, A, B, C, D>(
+      coreInstance.setBox(boxKey, box: Box<T, A, B, C, D>(
         resolver: self,
         scope: scope,
         closure: .args4(closure)
@@ -209,7 +214,7 @@ extension Resolver {
     closure: @escaping BoxClosureNoArgR<T>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
+    coreInstance.setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .noargsR(closure)
@@ -226,7 +231,7 @@ extension Resolver {
     closure: @escaping BoxClosure1ArgR<T, A>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
+    coreInstance.setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .arg1R(closure)
@@ -244,7 +249,7 @@ extension Resolver {
     closure: @escaping BoxClosure2ArgR<T, A, B>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    let box = setBox(boxKey, box: Box<T?, A, B, Void, Void>(
+    let box = coreInstance.setBox(boxKey, box: Box<T?, A, B, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .args2R(closure)
@@ -263,7 +268,7 @@ extension Resolver {
     closure: @escaping BoxClosure3ArgR<T, A, B, C>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    setBox(boxKey, box: Box<T, A, B, C, Void>(
+    coreInstance.setBox(boxKey, box: Box<T, A, B, C, Void>(
       resolver: self,
       scope: scope,
       closure: .args3R(closure)
@@ -283,7 +288,7 @@ extension Resolver {
     closure: @escaping BoxClosure4ArgR<T, A, B, C, D>
   ) -> Self {
     let boxKey = getBoxKey(object.self).clean()
-    setBox(boxKey, box: Box<T, A, B, C, D>(
+    coreInstance.setBox(boxKey, box: Box<T, A, B, C, D>(
       resolver: self,
       scope: scope,
       closure: .args4R(closure)
