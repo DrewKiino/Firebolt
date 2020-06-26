@@ -96,6 +96,6 @@ class Box<T, A, B, C, D>: BoxProtocol {
 
 }
 
-func getBoxKey(_ any: Any) -> String {
-  return String(describing: type(of: any))
+func getDependencyId(_ any: Any) -> String {
+  return String(describing: type(of: any)).clean()
 }

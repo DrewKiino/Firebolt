@@ -5,8 +5,8 @@ import Foundation
 
 extension Resolver {
   public func deregister<T>(_ object: T.Type) {
-    let boxKey = getBoxKey(object.self).clean()
-    coreInstance.removeBox(boxKey)
+    let dependencyId = getDependencyId(object.self).clean()
+    coreInstance.removeBox(dependencyId)
   }
   
   @discardableResult
@@ -15,13 +15,13 @@ extension Resolver {
     expect object: T.Type = T.self,
     closure: @escaping BoxClosureNoArg<T>
   ) -> Self {
-    let boxKey = getBoxKey(object.self).clean()
-    coreInstance.setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
+    let dependencyId = getDependencyId(object.self).clean()
+    coreInstance.setBox(dependencyId, box: Box<T, Void, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .noargs(closure)
     ))
-    logger(.info, "\(resolverId) - registered \(boxKey)")
+    logger(.info, "\(resolverId) - registered \(dependencyId)")
     return self
   }
   
@@ -32,13 +32,13 @@ extension Resolver {
     arg1: A.Type,
     closure: @escaping BoxClosure1Arg<T, A>
   ) -> Self {
-    let boxKey = getBoxKey(object.self).clean()
-    coreInstance.setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
+    let dependencyId = getDependencyId(object.self).clean()
+    coreInstance.setBox(dependencyId, box: Box<T?, A, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .arg1(closure)
     ))
-    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
+    logger(.info, "\(resolverId) - registered \(dependencyId) with expected argument \(arg1)")
     return self
   }
   
@@ -50,13 +50,13 @@ extension Resolver {
     arg2: B.Type,
     closure: @escaping BoxClosure2Arg<T, A, B>
   ) -> Self {
-    let boxKey = getBoxKey(object.self).clean()
-    let box = coreInstance.setBox(boxKey, box: Box<T?, A, B, Void, Void>(
+    let dependencyId = getDependencyId(object.self).clean()
+    let box = coreInstance.setBox(dependencyId, box: Box<T?, A, B, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .args2(closure)
     ))
-    logger(.info, "\(resolverId) - registered \(boxKey) with expected args \(box.stringArgs)")
+    logger(.info, "\(resolverId) - registered \(dependencyId) with expected args \(box.stringArgs)")
     return self
   }
   
@@ -69,13 +69,13 @@ extension Resolver {
     arg3: C.Type,
     closure: @escaping BoxClosure3Arg<T, A, B, C>
   ) -> Self {
-    let boxKey = getBoxKey(object.self).clean()
-    coreInstance.setBox(boxKey, box: Box<T, A, B, C, Void>(
+    let dependencyId = getDependencyId(object.self).clean()
+    coreInstance.setBox(dependencyId, box: Box<T, A, B, C, Void>(
       resolver: self,
       scope: scope,
       closure: .args3(closure)
     ))
-    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
+    logger(.info, "\(resolverId) - registered \(dependencyId) with expected argument \(arg1)")
     return self
   }
   
@@ -89,13 +89,13 @@ extension Resolver {
     arg4: D.Type,
     closure: @escaping BoxClosure4Arg<T, A, B, C, D>
   ) -> Self {
-    let boxKey = getBoxKey(object.self).clean()
-    coreInstance.setBox(boxKey, box: Box<T, A, B, C, D>(
+    let dependencyId = getDependencyId(object.self).clean()
+    coreInstance.setBox(dependencyId, box: Box<T, A, B, C, D>(
       resolver: self,
       scope: scope,
       closure: .args4(closure)
     ))
-    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
+    logger(.info, "\(resolverId) - registered \(dependencyId) with expected argument \(arg1)")
     return self
   }
 }
@@ -110,13 +110,13 @@ extension Resolver {
     closure: @escaping BoxClosureNoArg<T>
   ) -> Self {
     for object in objects {
-      let boxKey = getBoxKey(object.self).clean()
-      coreInstance.setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
+      let dependencyId = getDependencyId(object.self).clean()
+      coreInstance.setBox(dependencyId, box: Box<T, Void, Void, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .noargs(closure)
       ))
-      logger(.info, "\(resolverId) - registered \(boxKey)")
+      logger(.info, "\(resolverId) - registered \(dependencyId)")
     }
     return self
   }
@@ -129,13 +129,13 @@ extension Resolver {
     closure: @escaping BoxClosure1Arg<T, A>
   ) -> Self {
     for object in objects {
-      let boxKey = getBoxKey(object.self).clean()
-      coreInstance.setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
+      let dependencyId = getDependencyId(object.self).clean()
+      coreInstance.setBox(dependencyId, box: Box<T?, A, Void, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .arg1(closure)
       ))
-      logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
+      logger(.info, "\(resolverId) - registered \(dependencyId) with expected argument \(arg1)")
     }
     return self
   }
@@ -149,13 +149,13 @@ extension Resolver {
     closure: @escaping BoxClosure2Arg<T, A, B>
   ) -> Self {
     for object in objects {
-      let boxKey = getBoxKey(object.self).clean()
-      let box = coreInstance.setBox(boxKey, box: Box<T?, A, B, Void, Void>(
+      let dependencyId = getDependencyId(object.self).clean()
+      let box = coreInstance.setBox(dependencyId, box: Box<T?, A, B, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .args2(closure)
       ))
-      logger(.info, "\(resolverId) - registered \(boxKey) with expected args \(box.stringArgs)")
+      logger(.info, "\(resolverId) - registered \(dependencyId) with expected args \(box.stringArgs)")
     }
     return self
   }
@@ -170,13 +170,13 @@ extension Resolver {
     closure: @escaping BoxClosure3Arg<T, A, B, C>
   ) -> Self {
     for object in objects {
-      let boxKey = getBoxKey(object.self).clean()
-      coreInstance.setBox(boxKey, box: Box<T, A, B, C, Void>(
+      let dependencyId = getDependencyId(object.self).clean()
+      coreInstance.setBox(dependencyId, box: Box<T, A, B, C, Void>(
         resolver: self,
         scope: scope,
         closure: .args3(closure)
       ))
-      logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
+      logger(.info, "\(resolverId) - registered \(dependencyId) with expected argument \(arg1)")
     }
     return self
   }
@@ -192,13 +192,13 @@ extension Resolver {
     closure: @escaping BoxClosure4Arg<T, A, B, C, D>
   ) -> Self {
     for object in objects {
-      let boxKey = getBoxKey(object.self).clean()
-      coreInstance.setBox(boxKey, box: Box<T, A, B, C, D>(
+      let dependencyId = getDependencyId(object.self).clean()
+      coreInstance.setBox(dependencyId, box: Box<T, A, B, C, D>(
         resolver: self,
         scope: scope,
         closure: .args4(closure)
       ))
-      logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
+      logger(.info, "\(resolverId) - registered \(dependencyId) with expected argument \(arg1)")
     }
     return self
   }
@@ -213,13 +213,13 @@ extension Resolver {
     expect object: T.Type = T.self,
     closure: @escaping BoxClosureNoArgR<T>
   ) -> Self {
-    let boxKey = getBoxKey(object.self).clean()
-    coreInstance.setBox(boxKey, box: Box<T, Void, Void, Void, Void>(
+    let dependencyId = getDependencyId(object.self).clean()
+    coreInstance.setBox(dependencyId, box: Box<T, Void, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .noargsR(closure)
     ))
-    logger(.info, "\(resolverId) - registered \(boxKey)")
+    logger(.info, "\(resolverId) - registered \(dependencyId)")
     return self
   }
   
@@ -230,13 +230,13 @@ extension Resolver {
     arg1: A.Type,
     closure: @escaping BoxClosure1ArgR<T, A>
   ) -> Self {
-    let boxKey = getBoxKey(object.self).clean()
-    coreInstance.setBox(boxKey, box: Box<T?, A, Void, Void, Void>(
+    let dependencyId = getDependencyId(object.self).clean()
+    coreInstance.setBox(dependencyId, box: Box<T?, A, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .arg1R(closure)
     ))
-    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
+    logger(.info, "\(resolverId) - registered \(dependencyId) with expected argument \(arg1)")
     return self
   }
   
@@ -248,13 +248,13 @@ extension Resolver {
     arg2: B.Type,
     closure: @escaping BoxClosure2ArgR<T, A, B>
   ) -> Self {
-    let boxKey = getBoxKey(object.self).clean()
-    let box = coreInstance.setBox(boxKey, box: Box<T?, A, B, Void, Void>(
+    let dependencyId = getDependencyId(object.self).clean()
+    let box = coreInstance.setBox(dependencyId, box: Box<T?, A, B, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .args2R(closure)
     ))
-    logger(.info, "\(resolverId) - registered \(boxKey) with expected args \(box.stringArgs)")
+    logger(.info, "\(resolverId) - registered \(dependencyId) with expected args \(box.stringArgs)")
     return self
   }
   
@@ -267,13 +267,13 @@ extension Resolver {
     arg3: C.Type,
     closure: @escaping BoxClosure3ArgR<T, A, B, C>
   ) -> Self {
-    let boxKey = getBoxKey(object.self).clean()
-    coreInstance.setBox(boxKey, box: Box<T, A, B, C, Void>(
+    let dependencyId = getDependencyId(object.self).clean()
+    coreInstance.setBox(dependencyId, box: Box<T, A, B, C, Void>(
       resolver: self,
       scope: scope,
       closure: .args3R(closure)
     ))
-    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
+    logger(.info, "\(resolverId) - registered \(dependencyId) with expected argument \(arg1)")
     return self
   }
   
@@ -287,13 +287,13 @@ extension Resolver {
     arg4: D.Type,
     closure: @escaping BoxClosure4ArgR<T, A, B, C, D>
   ) -> Self {
-    let boxKey = getBoxKey(object.self).clean()
-    coreInstance.setBox(boxKey, box: Box<T, A, B, C, D>(
+    let dependencyId = getDependencyId(object.self).clean()
+    coreInstance.setBox(dependencyId, box: Box<T, A, B, C, D>(
       resolver: self,
       scope: scope,
       closure: .args4R(closure)
     ))
-    logger(.info, "\(resolverId) - registered \(boxKey) with expected argument \(arg1)")
+    logger(.info, "\(resolverId) - registered \(dependencyId) with expected argument \(arg1)")
     return self
   }
 }

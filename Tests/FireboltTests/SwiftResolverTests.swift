@@ -13,6 +13,7 @@ final class SwiftResolverTests: XCTestCase {
   override func tearDown() {
     super.tearDown()
     globalResolver.unregisterAllDependencies()
+    globalResolver.dropAllCachedDependencies()
   }
 
   func test_injection_factory() {
@@ -445,5 +446,76 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotEqual(classA4?.id, classA1?.id)
     XCTAssertEqual(classB1?.id, classB2?.id)
     XCTAssertNotEqual(classB1?.id, classB3?.id)
+  }
+  
+  func test_uregistering_deps() {
+    let resolver = ResolverSubclass()
+    resolver.register { ClassA() }
+    
+    let classA1: ClassA? = resolver.get()
+    XCTAssertNotNil(classA1)
+    
+    resolver.unregisterDependencies([ClassA.self])
+    
+    let classA2: ClassA? = resolver.get()
+    XCTAssertNil(classA2)
+  }
+  
+  func test_uregistering_deps_with_cache() {
+    let resolver = ResolverSubclass()
+    resolver.register(.single) { ClassA() }
+    
+    let classA1: ClassA? = resolver.get()
+    XCTAssertNotNil(classA1)
+    
+    resolver.unregisterDependencies([ClassA.self])
+    
+    let classA2: ClassA? = resolver.get()
+    XCTAssertNil(classA2)
+    
+    resolver.register(.single) { ClassA() }
+    
+    let classA3: ClassA? = resolver.get()
+    XCTAssertNotNil(classA3)
+    XCTAssertEqual(classA1?.id, classA3?.id)
+    XCTAssertNotEqual(classA1?.id, classA2?.id)
+  }
+  
+  func test_dropping_deps_cached() {
+    let resolver = ResolverSubclass()
+    resolver.register(.single) { ClassA() }
+    
+    let classA1: ClassA? = resolver.get()
+    
+    XCTAssertNotNil(classA1)
+    
+    resolver.dropCachedDependencies([ClassA.self])
+    
+    let classA2: ClassA? = resolver.get()
+    
+    XCTAssertNotNil(classA1)
+    XCTAssertNotEqual(classA1?.id, classA2?.id)
+  }
+  
+  func test_multi_dropping_deps_cached() {
+    let resolver = ResolverSubclass()
+    resolver.register(.single) { ClassA() }
+    resolver.register { ClassB(classA: $0.get()) }
+    
+    let classA1: ClassA? = resolver.get()
+    let classB1: ClassB? = resolver.get()
+    
+    XCTAssertNotNil(classA1)
+    XCTAssertNotNil(classB1)
+    
+    resolver.dropCachedDependencies([ClassB.self])
+    
+    let classA2: ClassA? = resolver.get()
+    let classB2: ClassB? = resolver.get()
+    
+    XCTAssertNotNil(classA1)
+    XCTAssertEqual(classA1?.id, classA2?.id)
+    XCTAssertNotEqual(classB1?.id, classB2?.id)
+    XCTAssertEqual(classB1?.classA.id, classB2?.classA.id)
   }
 }

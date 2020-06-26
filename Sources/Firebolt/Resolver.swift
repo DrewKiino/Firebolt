@@ -50,13 +50,13 @@ open class Resolver {
     ) -> T! {
       do {
         // Get Key
-        let boxKey = getBoxKey(expect).clean()
+        let dependencyId = getDependencyId(expect).clean()
         
         // Get Resolver
         let resolver = self
         
         // Get Box
-        let _box = resolver.getBox(boxKey)
+        let _box = resolver.getBox(dependencyId)
         guard let box = _box else {
           throw SwiftResolverError.classNotRegistered(
             resolverId: resolverId, expectedObject: String(describing: T.self),
@@ -71,11 +71,11 @@ open class Resolver {
         case .factory:
           return try box.value(arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4)
         case .single:
-          if let value = resolver.getCachedDependencies(boxKey) as? T {
+          if let value = resolver.getCachedDependencies(dependencyId) as? T {
             return value
-          } else if resolver.getCachedDependencies(boxKey) == nil {
+          } else if resolver.getCachedDependencies(dependencyId) == nil {
             let value: T? = try box.value(arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4)
-            resolver.setCachedDependencies(boxKey, dependency: value)
+            resolver.setCachedDependencies(dependencyId, dependency: value)
             return value
           }
         }
@@ -108,11 +108,60 @@ open class Resolver {
   }
 
   @discardableResult
-  public func unregisterAllDependencies() -> Self {
+  public func unregisterDependencies(_ dependencies: [Any]) -> Self {
     globalQueue.sync {
-      coreInstance.boxes.removeAll()
-      coreInstance.cachedDependencies.removeAll()
-      logger(.info, "\(resolverId) - dependencies dropped")
+      if dependencies.isEmpty { return }
+      let dependencyIds = Set(dependencies.map { getDependencyId($0) })
+      coreInstance.boxes = coreInstance.boxes
+        .filter { key, _ in !dependencyIds.contains(key) }
+      logger(.info, "\(resolverId) - unregistered dependencies \(dependencies)")
+    }
+    return self
+  }
+
+  @discardableResult
+  public func unregisterAllDependencies(except dependencies: [Any] = []) -> Self {
+    globalQueue.sync {
+      let dependencyIds = Set(dependencies.map { getDependencyId($0) })
+      if dependencyIds.isEmpty {
+        coreInstance.boxes.removeAll()
+      } else {
+        coreInstance.boxes = coreInstance.boxes
+          .filter { key, _ in dependencyIds.contains(key) }
+      }
+      let exceptString = dependencies.isEmpty
+        ? ""
+        : " except \(dependencyIds)"
+      logger(.info, "\(resolverId) - unregistered all dependencies\(exceptString)")
+    }
+    return self
+  }
+  
+  @discardableResult
+  public func dropCachedDependencies(_ dependencies: [Any]) -> Self {
+    globalQueue.sync {
+      let dependencyIds = Set(dependencies.map { getDependencyId($0) })
+      coreInstance.cachedDependencies = coreInstance.cachedDependencies
+        .filter { key, _ in !dependencyIds.contains(key) }
+      logger(.info, "\(resolverId) - dropped cached dependencies \(dependencies)")
+    }
+    return self
+  }
+  
+  @discardableResult
+  public func dropAllCachedDependencies(except dependencies: [Any] = []) -> Self {
+    globalQueue.sync {
+      let dependencyIds = Set(dependencies.map { getDependencyId($0) })
+      if dependencyIds.isEmpty {
+        coreInstance.cachedDependencies.removeAll()
+      } else {
+        coreInstance.cachedDependencies = coreInstance.cachedDependencies
+          .filter { key, _ in dependencyIds.contains(key) }
+      }
+      let exceptString = dependencies.isEmpty
+        ? ""
+        : " except \(dependencyIds)"
+      logger(.info, "\(resolverId) - dropped cached all dependencies\(exceptString)")
     }
     return self
   }
