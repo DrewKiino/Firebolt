@@ -455,7 +455,7 @@ final class SwiftResolverTests: XCTestCase {
     let classA1: ClassA? = resolver.get()
     XCTAssertNotNil(classA1)
     
-    resolver.unregisterDependencies([ClassA.self])
+    resolver.unregister([ClassA.self])
     
     let classA2: ClassA? = resolver.get()
     XCTAssertNil(classA2)
@@ -468,7 +468,7 @@ final class SwiftResolverTests: XCTestCase {
     let classA1: ClassA? = resolver.get()
     XCTAssertNotNil(classA1)
     
-    resolver.unregisterDependencies([ClassA.self])
+    resolver.unregister([ClassA.self])
     
     let classA2: ClassA? = resolver.get()
     XCTAssertNil(classA2)
@@ -489,7 +489,7 @@ final class SwiftResolverTests: XCTestCase {
     
     XCTAssertNotNil(classA1)
     
-    resolver.dropCachedDependencies([ClassA.self])
+    resolver.dropCached([ClassA.self])
     
     let classA2: ClassA? = resolver.get()
     
@@ -508,7 +508,7 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classA1)
     XCTAssertNotNil(classB1)
     
-    resolver.dropCachedDependencies([ClassB.self])
+    resolver.dropCached([ClassB.self])
     
     let classA2: ClassA? = resolver.get()
     let classB2: ClassB? = resolver.get()

@@ -107,8 +107,13 @@ open class Resolver {
     logger(.info, "\(resolverId) - deinit")
   }
 
+  public func unregister<T>(_ object: T.Type) {
+    let dependencyId = getDependencyId(object.self).clean()
+    coreInstance.removeBox(dependencyId)
+  }
+  
   @discardableResult
-  public func unregisterDependencies(_ dependencies: [Any]) -> Self {
+  public func unregister(_ dependencies: [Any]) -> Self {
     globalQueue.sync {
       if dependencies.isEmpty { return }
       let dependencyIds = Set(dependencies.map { getDependencyId($0) })
@@ -138,7 +143,7 @@ open class Resolver {
   }
   
   @discardableResult
-  public func dropCachedDependencies(_ dependencies: [Any]) -> Self {
+  public func dropCached(_ dependencies: [Any]) -> Self {
     globalQueue.sync {
       let dependencyIds = Set(dependencies.map { getDependencyId($0) })
       coreInstance.cachedDependencies = coreInstance.cachedDependencies

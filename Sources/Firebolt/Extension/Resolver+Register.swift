@@ -4,11 +4,6 @@ import Foundation
 // MARK: - EXPECT ARGS+
 
 extension Resolver {
-  public func deregister<T>(_ object: T.Type) {
-    let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.removeBox(dependencyId)
-  }
-  
   @discardableResult
   public func register<T>(
     _ scope: Scope = .factory,

@@ -31,7 +31,7 @@ from: 0.3.6
 * [Global Resolver](#global-resolver)
 * [Multiple Resolvers](#multiple-resolvers)
 * [Subclassing Resolvers](#subclassing-resolvers)
-* [Deregister Dependencies](#deregister-dependencies)
+* [Unregister Dependencies](#unregister-dependencies)
 * [Storyboard Resolution](#storyboard-resolution)
 * [Examples](#examples)
 
@@ -211,7 +211,7 @@ but we are able to cast it to the expected type `ClassAVaraintA` by using the `g
 
 ### Thread Safety
 
-`Firebolt` has a internal global queue that makes sure dependencies and resolvers are registered/deregistered in the same sequence. 
+`Firebolt` has a internal global queue that makes sure dependencies and resolvers are registered/unregistered in the same sequence. 
 
 ### Global Resolver
 
@@ -315,16 +315,16 @@ let classA: ClassA = get(resolverId: "MyAppResolver")
 let classA: ClassA = get()
 ```
 
-### Deregister Dependencies
+### Unregister Dependencies
 
-You can deregister dependencies like so.
+You can unregister dependencies like so.
 
 ```swift
 resolver.register { ClassA() }
 
 let classA: ClassA? = get() // will return ClassA
 
-resolver.deregister(ClassA.self)
+resolver.unregister(ClassA.self)
 
 let classA: ClassA? = get() // will return nil
 ```

@@ -9,7 +9,7 @@ func getResolver(_ resolverId: String) -> Resolver.CoreInstance? {
   globalQueue.sync { resolvers[resolverId] }
 }
 
-func deregisterResolver(_ resolverId: String) {
+func unregisterResolver(_ resolverId: String) {
   globalQueue.sync { resolvers[resolverId] = nil }
 }
 
