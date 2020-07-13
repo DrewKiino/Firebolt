@@ -84,6 +84,17 @@ let classA: ClassA = get()
 let classA: ClassA = get()
 ```
 
+Singleton resolutions also apply to protocols of concrete classes as well.
+```swift
+resolver.register(.single, expect: ClassAProtocol.self) { ClassA() }
+
+let classA1: ClassAProtocol = get()
+let classA2: ClassAProtocol = get()
+
+// Both ClassA1 and ClassA2 are resolved from the same concrete instance
+```
+
+
 ### Arguments
 
 You can pass in arguments during registration like so.
