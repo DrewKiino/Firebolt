@@ -13,6 +13,7 @@ protocol ClassD {
 }
 
 protocol ClassAProtocol {
+  var id: String { get }
   var name: String { get }
 }
 

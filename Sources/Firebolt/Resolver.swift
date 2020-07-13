@@ -11,7 +11,7 @@ open class Resolver {
     let resolverId: String
     
     var boxes: [String: BoxProtocol] = [:]
-    var cachedDependencies: [String: Any] = [:]
+    var cachedDependencies: [String: InstanceProtocol] = [:]
     
     init(resolverId: String) {
       self.resolverId = resolverId
@@ -31,12 +31,12 @@ open class Resolver {
       return box
     }
     
-    func getCachedDependencies(_ dependencyId: String) -> Any? {
+    func getCachedDependencies(_ dependencyId: String) -> InstanceProtocol? {
       globalQueue.sync { cachedDependencies[dependencyId] }
     }
     
     func setCachedDependencies<T: Any>(_ dependencyId: String, dependency: T) {
-      globalQueue.sync { cachedDependencies[dependencyId] = dependency }
+      globalQueue.sync { cachedDependencies[dependencyId] = Instance(dependency) }
     }
     
     func resolve<T, A, B, C, D>(
@@ -71,7 +71,8 @@ open class Resolver {
         case .factory:
           return try box.value(arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4)
         case .single:
-          if let value = resolver.getCachedDependencies(dependencyId) as? T {
+          if let _value = resolver.getCachedDependencies(dependencyId) {
+            let value: T? = _value.getInstance()
             return value
           } else if resolver.getCachedDependencies(dependencyId) == nil {
             let value: T? = try box.value(arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4)
