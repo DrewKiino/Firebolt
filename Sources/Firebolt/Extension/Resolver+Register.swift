@@ -6,7 +6,7 @@ import Foundation
 extension Resolver {
   @discardableResult
   public func register<T>(
-    _ scope: Scope = .factory,
+    _ scope: Scope = .single,
     expect object: T.Type = T.self,
     closure: @escaping BoxClosureNoArg<T>
   ) -> Self {
@@ -22,7 +22,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A>(
-    _ scope: Scope = .factory,
+    _ scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     closure: @escaping BoxClosure1Arg<T, A>
@@ -39,7 +39,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A, B>(
-    scope: Scope = .factory,
+    scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     arg2: B.Type,
@@ -57,7 +57,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A, B, C>(
-    scope: Scope = .factory,
+    scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     arg2: B.Type,
@@ -76,7 +76,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A, B, C, D>(
-    scope: Scope = .factory,
+    scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     arg2: B.Type,
@@ -100,7 +100,7 @@ extension Resolver {
 extension Resolver {
   @discardableResult
   public func register<T>(
-    _ scope: Scope = .factory,
+    _ scope: Scope = .single,
     expects objects: [Any.Type],
     closure: @escaping BoxClosureNoArg<T>
   ) -> Self {
@@ -118,7 +118,7 @@ extension Resolver {
 
   @discardableResult
   public func register<T, A>(
-    _ scope: Scope = .factory,
+    _ scope: Scope = .single,
     expects objects: [Any.Type],
     arg1: A.Type,
     closure: @escaping BoxClosure1Arg<T, A>
@@ -137,7 +137,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A, B>(
-    scope: Scope = .factory,
+    scope: Scope = .single,
     expects objects: [Any.Type],
     arg1: A.Type,
     arg2: B.Type,
@@ -157,7 +157,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A, B, C>(
-    scope: Scope = .factory,
+    scope: Scope = .single,
     expects objects: [Any.Type],
     arg1: A.Type,
     arg2: B.Type,
@@ -178,7 +178,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A, B, C, D>(
-    scope: Scope = .factory,
+    scope: Scope = .single,
     expects objects: [Any.Type],
     arg1: A.Type,
     arg2: B.Type,
@@ -204,7 +204,7 @@ extension Resolver {
 extension Resolver {
   @discardableResult
   public func register<T>(
-    _ scope: Scope = .factory,
+    _ scope: Scope = .single,
     expect object: T.Type = T.self,
     closure: @escaping BoxClosureNoArgR<T>
   ) -> Self {
@@ -220,7 +220,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A>(
-    _ scope: Scope = .factory,
+    _ scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     closure: @escaping BoxClosure1ArgR<T, A>
@@ -237,7 +237,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A, B>(
-    scope: Scope = .factory,
+    scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     arg2: B.Type,
@@ -255,7 +255,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A, B, C>(
-    scope: Scope = .factory,
+    scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     arg2: B.Type,
@@ -274,7 +274,7 @@ extension Resolver {
   
   @discardableResult
   public func register<T, A, B, C, D>(
-    scope: Scope = .factory,
+    scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     arg2: B.Type,

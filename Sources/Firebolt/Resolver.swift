@@ -1,13 +1,13 @@
 
 import Foundation
 
-open class Resolver {
+open class Resolver: ResolverProtocol {
   public enum Scope {
     case factory
     case single
   }
   
-  internal class CoreInstance {
+  public class CoreInstance {
     let resolverId: String
     
     var boxes: [String: BoxProtocol] = [:]
@@ -92,7 +92,7 @@ open class Resolver {
     }
   }
 
-  internal let coreInstance: Resolver.CoreInstance
+  public let coreInstance: Resolver.CoreInstance
   public var resolverId: String { coreInstance.resolverId }
 
   public init(_ resolverId: String = globalResolverId) {

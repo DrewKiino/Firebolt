@@ -153,8 +153,8 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotEqual(classA_2?.name, name)
   }
 
-  func test_injection_1arg_optional_default() {
-    globalResolver.register(arg1: String?.self) { ClassA(name: $0) }
+  func test_injection_1arg_optional_factory() {
+    globalResolver.register(.factory, arg1: String?.self) { ClassA(name: $0) }
     let name = "hello"
     let classA: ClassA? = get()
     let classA_2: ClassA? = get(name)
@@ -216,7 +216,7 @@ final class SwiftResolverTests: XCTestCase {
   }
 
   func test_2injection_factory() {
-    globalResolver.register { ClassA() }
+    globalResolver.register(.factory) { ClassA() }
     let classA: ClassA = get()
     let classA_2: ClassA = get()
 
@@ -224,7 +224,7 @@ final class SwiftResolverTests: XCTestCase {
   }
 
   func test_1deps_factory() {
-    globalResolver.register { ClassA() }
+    globalResolver.register(.factory) { ClassA() }
         .register { ClassB(classA: get()) }
     let classA: ClassA = get()
     let classB: ClassB = get()
@@ -243,9 +243,9 @@ final class SwiftResolverTests: XCTestCase {
 
   func test_nested_singleton() {
     globalResolver
-      .register(.single) { ClassA() }
-      .register { ClassB(classA: get()) }
-      .register { ClassC(classA: get(expect: ClassA.self), classB: get()) }
+      .register { ClassA() }
+      .register(.factory) { ClassB(classA: get()) }
+      .register(.factory) { ClassC(classA: get(expect: ClassA.self), classB: get()) }
     let classA: ClassA = get()
     let classB: ClassB = get()
     let classC: ClassC = get()
@@ -357,8 +357,9 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertEqual(classA_2?.age, age)
   }
 
-  func test_optional_args() {
+  func test_optional_args_factory() {
     globalResolver.register(
+      scope: .factory,
       arg1: String.self,
       arg2: Int?.self
     ) { ClassA(name: $0, age: $1) }
@@ -374,11 +375,11 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotNil(classA_3)
   }
 
-  func test_subclassing() {
+  func test_subclassing_factory() {
     let resolver = ResolverSubclass()
-      .register(.single) { ClassA() }
-      .register { ClassB(classA: $0.get()) }
-      .register { ClassC(classA: $0.get(expect: ClassA.self), classB: $0.get()) }
+      .register { ClassA() }
+      .register(.factory) { ClassB(classA: $0.get()) }
+      .register(.factory) { ClassC(classA: $0.get(expect: ClassA.self), classB: $0.get()) }
 
     let classA: ClassA = resolver.get()
     let classB: ClassB = resolver.get()
@@ -500,7 +501,7 @@ final class SwiftResolverTests: XCTestCase {
   func test_multi_dropping_deps_cached() {
     let resolver = ResolverSubclass()
     resolver.register(.single) { ClassA() }
-    resolver.register { ClassB(classA: $0.get()) }
+    resolver.register(.factory) { ClassB(classA: $0.get()) }
     
     let classA1: ClassA? = resolver.get()
     let classB1: ClassB? = resolver.get()
@@ -521,6 +522,16 @@ final class SwiftResolverTests: XCTestCase {
   
   func test_subclass_with_protocol() {
     let resolver = ResolverSubclass()
+    resolver.register(.single, expect: ClassAProtocol.self) { ClassA() }
+    let classA: ClassAProtocol? = resolver.get()
+    let classA2: ClassAProtocol? = resolver.get()
+    XCTAssertNotNil(classA)
+    XCTAssertNotNil(classA2)
+    XCTAssertEqual(classA?.id, classA2?.id)
+  }
+  
+  func test_protocol_subclass_with_protocol() {
+    let resolver: ResolverProtocol = ResolverSubclass()
     resolver.register(.single, expect: ClassAProtocol.self) { ClassA() }
     let classA: ClassAProtocol? = resolver.get()
     let classA2: ClassAProtocol? = resolver.get()

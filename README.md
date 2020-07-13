@@ -73,11 +73,11 @@ enum Scope {
 }
 ```
 
-You can set scope like this.
+You can set scope like this. `.single` is the default scope setting.
 ```swift
-resolver.register(.single) { ClassA() } // scope is now .single
-resolver.register(.factory) { ClassA() } 
-resolver.register { ClassA() } // .factory is also the default
+resolver.register(.single) { ClassA() } /// only a single instance will be created and shared when resolved
+resolver.register(.factory) { ClassA() }  /// multiple instances are created each time when resolved
+resolver.register { ClassA() } /// .single is the default
 
 // now these two are of the same instances 
 let classA: ClassA = get() 
