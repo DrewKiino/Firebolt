@@ -11,7 +11,7 @@ open class Resolver {
     let resolverId: String
     
     var boxes: [String: BoxProtocol] = [:]
-    var cachedDependencies: [String: InstanceProtocol] = [:]
+    var cachedInstances: [String: InstanceProtocol] = [:]
     
     init(resolverId: String) {
       self.resolverId = resolverId
@@ -31,12 +31,12 @@ open class Resolver {
       return box
     }
     
-    func getCachedDependencies(_ dependencyId: String) -> InstanceProtocol? {
-      globalQueue.sync { cachedDependencies[dependencyId] }
+    func getCachedInstance(_ dependencyId: String) -> InstanceProtocol? {
+      globalQueue.sync { cachedInstances[dependencyId] }
     }
     
-    func setCachedDependencies<T: Any>(_ dependencyId: String, dependency: T) {
-      globalQueue.sync { cachedDependencies[dependencyId] = Instance(dependency) }
+    func setCachedInstance<T: Any>(_ dependencyId: String, dependency: T) {
+      globalQueue.sync { cachedInstances[dependencyId] = Instance(dependency) }
     }
     
     func resolve<T, A, B, C, D>(
@@ -71,12 +71,12 @@ open class Resolver {
         case .factory:
           return try box.value(arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4)
         case .single:
-          if let _value = resolver.getCachedDependencies(dependencyId) {
-            let value: T? = _value.getInstance()
+          if let instance = resolver.getCachedInstance(dependencyId) {
+            let value: T? = instance.getInstance()
             return value
-          } else if resolver.getCachedDependencies(dependencyId) == nil {
+          } else if resolver.getCachedInstance(dependencyId) == nil {
             let value: T? = try box.value(arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4)
-            resolver.setCachedDependencies(dependencyId, dependency: value)
+            resolver.setCachedInstance(dependencyId, dependency: value)
             return value
           }
         }
@@ -147,7 +147,7 @@ open class Resolver {
   public func dropCached(_ dependencies: [Any]) -> Self {
     globalQueue.sync {
       let dependencyIds = Set(dependencies.map { getDependencyId($0) })
-      coreInstance.cachedDependencies = coreInstance.cachedDependencies
+      coreInstance.cachedInstances = coreInstance.cachedInstances
         .filter { key, _ in !dependencyIds.contains(key) }
       logger(.info, "\(resolverId) - dropped cached dependencies \(dependencies)")
     }
@@ -159,9 +159,9 @@ open class Resolver {
     globalQueue.sync {
       let dependencyIds = Set(dependencies.map { getDependencyId($0) })
       if dependencyIds.isEmpty {
-        coreInstance.cachedDependencies.removeAll()
+        coreInstance.cachedInstances.removeAll()
       } else {
-        coreInstance.cachedDependencies = coreInstance.cachedDependencies
+        coreInstance.cachedInstances = coreInstance.cachedInstances
           .filter { key, _ in dependencyIds.contains(key) }
       }
       let exceptString = dependencies.isEmpty

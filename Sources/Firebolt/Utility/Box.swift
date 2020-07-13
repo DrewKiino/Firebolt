@@ -13,7 +13,7 @@ protocol BoxProtocol {
   ) throws -> _T!
 }
 
-class Box<T, A, B, C, D>: BoxProtocol {
+struct Box<T, A, B, C, D>: BoxProtocol {
   enum Closure {
     case noargs(BoxClosureNoArg<T>)
     case arg1(BoxClosure1Arg<T, A>)
