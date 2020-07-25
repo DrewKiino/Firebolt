@@ -277,7 +277,7 @@ Normally, when you initalize a `Resolver` you can optionally pass in a `resolver
 
 If you want a globally scoped resolver, there is a special resolver that resides in the global scope which you can access by using the `global` static property of the `Resolver` class.
 ```swift
-let resolver = Resolver.global // <-- resolvers the GlobalResolver
+let resolver = Resolver.global // <-- resolves the GlobalResolver
 
 resolver.register { ClassA() }
 ```
