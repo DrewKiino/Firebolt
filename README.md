@@ -117,7 +117,7 @@ resolver.register(arg1: String.self) { ClassD(environment: $0) }
 ```
 Then you can pass in the argument afterwards.
 ```swift
-let classD: ClassD = resolver.get("stage")
+let classD: ClassD = resolver..get("stage")
 ```
 
 You can pass in multiple arguments as well.
@@ -227,27 +227,6 @@ let classB: ClassB = get()
 This works because `ClassA` is registered in the dependency scope
 but we are able to cast it to the expected type `ClassAVaraintA` by using the `get()` qualifier and the `expect` argument passed in during the callsite. 
 
-### Thread Safety
-
-`Firebolt` has a internal global queue that makes sure dependencies and resolvers are registered/unregistered in the same sequence. 
-
-### Global Resolver
-
-Normally, when you initalize a `Resolver` you can optionally pass in a `resolverId` or a `UUID().uuidString` will be gererated for you, this ensures that all dependencies registered in that resolver are unique to that resolver's instance, they can never be shared amonst other resolvers. 
-
-If you want a globally scoped resolver, there is a special resolver that resides in the global scope which you can access by using the `global` static property of the `Resolver` class.
-```swift
-let resolver = Resolver.global // <-- resolvers the GlobalResolver
-
-resolver.register { ClassA() }
-```
-You can then globally inject dependencies without specifying a Resolver identifier.
-```swift
-// property scoped in another instance of the application 
-// will resolve automatically for you.
-let classA: ClassA = get()
-```
-
 ### Opaque Conformance 
 
 With the `some` keyword, protocols with associative types can be generified.
@@ -286,6 +265,27 @@ let classB: OpaqueClassB = resolver.get()
 
 // will print `true`
 print(someClassA == classA)
+```
+
+### Thread Safety
+
+`Firebolt` has a internal global queue that makes sure dependencies and resolvers are registered/unregistered in the same sequence. 
+
+### Global Resolver
+
+Normally, when you initalize a `Resolver` you can optionally pass in a `resolverId` or a `UUID().uuidString` will be gererated for you, this ensures that all dependencies registered in that resolver are unique to that resolver's instance, they can never be shared amonst other resolvers. 
+
+If you want a globally scoped resolver, there is a special resolver that resides in the global scope which you can access by using the `global` static property of the `Resolver` class.
+```swift
+let resolver = Resolver.global // <-- resolvers the GlobalResolver
+
+resolver.register { ClassA() }
+```
+You can then globally inject dependencies without specifying a Resolver identifier.
+```swift
+// property scoped in another instance of the application 
+// will resolve automatically for you.
+let classA: ClassA = get()
 ```
 
 ### Multiple Resolvers 
