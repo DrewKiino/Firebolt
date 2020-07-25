@@ -34,7 +34,6 @@ from: 0.3.6
 * [Subclassing Resolvers](#subclassing-resolvers)
 * [Unregister Dependencies](#unregister-dependencies)
 * [Drop Cached Dependencies](#drop-cached-dependencies)
-* [Storyboard Resolution](#storyboard-resolution)
 * [Examples](#examples)
 
 ### Usage
@@ -485,8 +484,9 @@ print(classA1.id == classA3.id) // will print false
 print(classB1.id == classB3.id) // will print true
 ```
 
-### Storyboard Resolution
+### Examples 
 
+**Storyboard Resolution**
 `Firebolt` can be used to resolve storyboards as well. Given this example,
 
 ```swift
@@ -515,7 +515,6 @@ resolver.global
 let vc: ViewController = get()
 ```
 
-### Examples 
 **Application Architecture**
 ```swift
 // UserManager.swift
