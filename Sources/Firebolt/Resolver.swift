@@ -95,7 +95,7 @@ open class Resolver: ResolverProtocol {
   public let coreInstance: Resolver.CoreInstance
   public var resolverId: String { coreInstance.resolverId }
 
-  public init(_ resolverId: String = globalResolverId) {
+  public init(_ resolverId: String) {
     if let coreInstance = getResolver(resolverId) {
       self.coreInstance = coreInstance
     } else {

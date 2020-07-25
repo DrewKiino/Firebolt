@@ -92,3 +92,26 @@ class ResolverSubclassSelfRegister: Resolver {
     register { ClassA() }
   }
 }
+
+protocol AssociativeProtocol {
+  associatedtype Value
+  func getValue() -> Value
+  var id: String { get }
+}
+
+class UniqueClassA: BaseClass, AssociativeProtocol {
+  func getValue() -> String {
+    "hello"
+  }
+}
+
+class UniqueClassB: BaseClass, AssociativeProtocol {
+  let classA: UniqueClassA
+  init(classA: UniqueClassA) {
+    self.classA = classA
+  }
+  
+  func getValue() -> Int {
+    1
+  }
+}

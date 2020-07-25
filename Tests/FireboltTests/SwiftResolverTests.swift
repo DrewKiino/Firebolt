@@ -4,7 +4,7 @@ import XCTest
 
 final class SwiftResolverTests: XCTestCase {
   
-  private let globalResolver = Resolver()
+  private let globalResolver = Resolver.global
 
   override func setUp() {
     super.setUp()
@@ -532,11 +532,38 @@ final class SwiftResolverTests: XCTestCase {
   
   func test_protocol_subclass_with_protocol() {
     let resolver: ResolverProtocol = ResolverSubclass()
-    resolver.register(.single, expect: ClassAProtocol.self) { ClassA() }
     let classA: ClassAProtocol? = resolver.get()
     let classA2: ClassAProtocol? = resolver.get()
     XCTAssertNotNil(classA)
     XCTAssertNotNil(classA2)
     XCTAssertEqual(classA?.id, classA2?.id)
+  }
+  
+  func test_associative_protocol_deps() {
+    let resolver = ResolverSubclass()
+    resolver.register { UniqueClassA() }
+    resolver.register(.factory) { UniqueClassB(classA: $0.get()) }
+    
+    let someClass1: some AssociativeProtocol = resolver.get(expect: UniqueClassA.self)
+    let someClass2: some AssociativeProtocol = resolver.get(expect: UniqueClassB.self)
+
+    XCTAssertNotNil(someClass1)
+    XCTAssertNotNil(someClass2)
+
+    let valueA: String? = someClass1.getValue() as? String
+    let valueB: Int? = someClass2.getValue() as? Int
+    
+    XCTAssertEqual(valueA, "hello")
+    XCTAssertEqual(valueB, 1)
+    
+    let classA: UniqueClassA? = resolver.get(expect: UniqueClassA.self)
+    let classB: UniqueClassB? = resolver.get(expect: UniqueClassB.self)
+
+    XCTAssertNotNil(classA)
+    XCTAssertNotNil(classB)
+    
+    XCTAssertEqual(someClass1.id, classA?.id)
+    XCTAssertNotEqual(someClass2.id, classB?.id)
+    XCTAssertEqual(someClass1.id, classB?.classA.id)
   }
 }

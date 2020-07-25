@@ -5,6 +5,10 @@ public let globalResolverId: String = "GLOBAL_RESOLVER"
 internal let globalQueue = DispatchQueue.global(qos: .default)
 internal var resolvers: [String: Resolver.CoreInstance] = [:]
 
+public extension Resolver {
+  static let global = Resolver(globalResolverId)
+}
+
 func getResolver(_ resolverId: String) -> Resolver.CoreInstance? {
   globalQueue.sync { resolvers[resolverId] }
 }

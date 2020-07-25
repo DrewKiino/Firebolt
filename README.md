@@ -27,6 +27,7 @@ from: 0.3.6
 * [Scope](#scope)
 * [Arguments](#arguments)
 * [Protocol Conformance](#protocol-conformance)
+* [Opaque Conformance](#opaque-conformance)
 * [Thread Safety](#thread-safety)
 * [Global Resolver](#global-resolver)
 * [Multiple Resolvers](#multiple-resolvers)
@@ -55,7 +56,7 @@ class ClassB { init(classA: ClassA) }
  
 resolver
     .register { ClassA() }
-    .register { ClassB(classA: get()) } // <-- get() qualifier
+    .register { ClassB(classA: $0.get()) } // <-- get() qualifier
 ```
 4. Start coding with dependency injection using the `get()` keyword.
 ```swift
@@ -85,16 +86,16 @@ resolver.register(.factory) { ClassA() }  /// multiple instances are created eac
 resolver.register { ClassA() } /// .single is the default
 
 // now these two are of the same instances 
-let classA: ClassA = get() 
-let classA: ClassA = get()
+let classA: ClassA = resolver.get() 
+let classA: ClassA = resolver.get()
 ```
 
 Singleton resolutions also apply to protocols of concrete classes as well.
 ```swift
 resolver.register(.single, expect: ClassAProtocol.self) { ClassA() }
 
-let classA1: ClassAProtocol = get()
-let classA2: ClassAProtocol = get()
+let classA1: ClassAProtocol = resolver.get()
+let classA2: ClassAProtocol = resolver.get()
 
 // Both ClassA1 and ClassA2 are resolved from the same concrete instance
 ```
@@ -108,7 +109,7 @@ You can pass in arguments during registration like so.
 let resolver = Resolver()
 let environment: String = "stage"
 
-reasolver.register { ClassD(environment: environment, classA: get()) }
+reasolver.register { ClassD(environment: environment, classA: $0.get()) }
 ```
 If the arguments need to be passed in at the call site. You can specify the expected type during registration.
 ```swift
@@ -116,14 +117,14 @@ resolver.register(arg1: String.self) { ClassD(environment: $0) }
 ```
 Then you can pass in the argument afterwards.
 ```swift
-let classD: ClassD = get("stage")
+let classD: ClassD = resolver..get("stage")
 ```
 
 You can pass in multiple arguments as well.
 ```swift
 resolver.register(arg1: String.self, arg2: Int.self) { ClassD(environment: $0, timestamp: $1) }
 
-let classD: ClassD = get("stage", 1200)
+let classD: ClassD = resolver.get("stage", 1200)
 ```
 
 You can also pass in optionals like so.
@@ -134,8 +135,8 @@ let resolver = Resolver()
 resolver.register(arg1: String?.self) { ClassE($0) }
 
 // no arguments tells the resolver to pass nil instead
-let classE: ClassE = get() 
-let classE: ClassE = get("SOME_VALUE")
+let classE: ClassE = resolver.get() 
+let classE: ClassE = resolver.get("SOME_VALUE")
 ```
 
 For shared non-registered arguments between dependencies, you can pass in arguments from within the `register` block using the upstream argument themselves.
@@ -151,7 +152,7 @@ resolver
     .register(arg1: ClassA.self) { 
         // ClassA is now shared between ClassB and ClassC
         // without registration
-        ClassC(classA: $0, classB: get($0)) 
+        ClassC(classA: $0, classB: $0.get($0)) 
     }
 
 // Then call them like so
@@ -160,6 +161,7 @@ let classC: ClassC = get(classA)
 ```
 
 ### Protocol Conformance 
+
 Protocol conformance is also supported by the `Resolver`. Let's say you want to have a `ClassA` protocol and a `ClassAImpl` concrete type registered, you can use the `expect` argument.
 
 ```swift
@@ -231,9 +233,11 @@ but we are able to cast it to the expected type `ClassAVaraintA` by using the `g
 
 ### Global Resolver
 
-Normally, if you initialze a `Resolver` without a resolver identifier passed in, you will get the `GlobalResolver`. You can register and unregister dependencies with this special resolver as well as having resolutions without much work for your application. 
+Normally, when you initalize a `Resolver` you can optionally pass in a `resolverId` or a `UUID().uuidString` will be gererated for you, this ensures that all dependencies registered in that resolver are unique to that resolver's instance, they can never be shared amonst other resolvers. 
+
+If you want a globally scoped resolver, there is a special resolver that resides in the global scope which you can access by using the `global` static property of the `Resolver` class.
 ```swift
-let resolver = Resolver() // <-- GlobalResolver created
+let resolver = Resolver.global // <-- resolvers the GlobalResolver
 
 resolver.register { ClassA() }
 ```
@@ -244,15 +248,49 @@ You can then globally inject dependencies without specifying a Resolver identifi
 let classA: ClassA = get()
 ```
 
-Although you can pass in a `resolverId` if you want global resolution to a specific `Resolver` regardless as the `GlobalResolver` is shared across all instances naturally.
+### Opaque Conformance 
+
+With the `some` keyword, protocols with associative types can be generified.
+
+Consider this example:
 
 ```swift
-let classA: ClassA = get("Resolver_1")
+protocol OpaqueProtocol {
+  associatedtype Value
+  func getValue() -> Value
+}
+
+class OpaqueClassA: OpaqueProtocol {
+  func getValue() -> String { "hello" }
+}
+
+class OpaqueClassAB: OpaqueProtocol {
+  init(classA: OpaqueClassA) {}
+  func getValue() -> Int { 1 }
+}
+```
+
+With `Firebolt`, you are able to resolve opaque types.
+```swift
+let resolver = Resolver()
+    .register(.single) { OpaqueClassA() }
+    .register(.factory) { OpaqueClassB(classA: $0.get()) }
+
+// this will work
+let someClassA: some OpaqueProtocol = resolver.get(expect: OpaqueClassA.self)
+let someClassB: some OpaqueProtocol = resolver.get(expect: OpaqueClassB.self)
+
+// this will also work
+let classA: OpaqueClassA = resolver.get()
+let classB: OpaqueClassB = resolver.get()
+
+// will print `true`
+print(someClassA == classA)
 ```
 
 ### Multiple Resolvers 
 
-If you want to keep dependencies separate you can instantiate multiple resolvers with each having their own scope.
+If you want to keep dependencies separate you can instantiate multiple resolvers with each having their own scope. When you deallocate these resolvers, the instances tied to the dependencies will deallocate as well.
 
 When you initialize a `Resolver` you have to pass in a `resolverId`, Firebolt then registers this resolver in a cache. 
 
@@ -327,7 +365,7 @@ let classA: ClassA = myResolver.get()
 // this will also work
 let classA: ClassA = get(resolverId: "MyAppResolver")
 
-// this will fail
+// this will fail because it is accessing the Global Resolver
 let classA: ClassA = get()
 ```
 
@@ -338,11 +376,11 @@ You can unregister dependencies like so.
 ```swift
 resolver.register { ClassA() }
 
-let classA: ClassA? = get() // will return ClassA
+let classA: ClassA? = resolver.get() // will return ClassA
 
 resolver.unregister(ClassA.self)
 
-let classA: ClassA? = get() // will return nil
+let classA: ClassA? = resolver.get() // will return nil
 ```
 
 Unregsiter all dependencies.
@@ -352,13 +390,13 @@ resolver
     .register { ClassA() }
     .register { ClassB() }
 
-let classA: ClassA? = get() // will return ClassA
-let classB: ClassB? = get() // will return ClassB
+let classA: ClassA? = resolver.get() // will return ClassA
+let classB: ClassB? = resolver.get() // will return ClassB
 
 resolver.unregisterAllDependencies()
 
-let classA: ClassA? = get() // will return nil
-let classB: ClassB? = get() // will return nil
+let classA: ClassA? = resolver.get() // will return nil
+let classB: ClassB? = resolver.get() // will return nil
 ```
 
 Unregister all dependencies except these types.
@@ -367,13 +405,13 @@ resolver
     .register { ClassA() }
     .register { ClassB() }
 
-let classA: ClassA? = get() // will return ClassA
-let classB: ClassB? = get() // will return ClassB
+let classA: ClassA? = resolver.get() // will return ClassA
+let classB: ClassB? = resolver.get() // will return ClassB
 
 resolver.unregisterAllDependencies(except: [ClassB.self])
 
-let classA: ClassA? = get() // will return nil
-let classB: ClassB? = get() // will return ClassB!
+let classA: ClassA? = resolver.get() // will return nil
+let classB: ClassB? = resolver.get() // will return ClassB!
 ```
 
 ### Drop Cached Dependencies
@@ -385,14 +423,14 @@ You can drop that cache like so.
 resolver
     .register(.single) { ClassA() }
 
-let classA1: ClassA? = get() 
-let classA2: ClassA? = get() 
+let classA1: ClassA? = resolver.get() 
+let classA2: ClassA? = resolver.get() 
 
 print(classA1.id == classA2.id) // will print true
 
 resolver.dropCached([ClassA.self])
 
-let classA3: ClassA? = get() 
+let classA3: ClassA? = resolver.get() 
 
 print(classA1.id == classA3.id) // will print false
 ```
@@ -403,20 +441,20 @@ resolver
     .register(.single) { ClassA() }
     .register(.single) { ClassB() }
 
-let classA1: ClassA? = get() 
-let classA2: ClassA? = get() 
+let classA1: ClassA? = resolver.get() 
+let classA2: ClassA? = resolver.get() 
 
 print(classA1.id == classA2.id) // will print true
 
-let classB1: ClassB? = get() 
-let classB2: ClassB? = get() 
+let classB1: ClassB? = resolver.get() 
+let classB2: ClassB? = resolver.get() 
 
 print(classB1.id == classB2.id) // will print true
 
 resolver.dropAllCachedDependencies()
 
-let classA3: ClassA? = get() 
-let classB4: ClassA? = get() 
+let classA3: ClassA? = resolver.get() 
+let classB4: ClassA? = resolver.get() 
 
 print(classA1.id == classA3.id) // will print false
 print(classB1.id == classB3.id) // will print false
@@ -428,20 +466,20 @@ resolver
     .register(.single) { ClassA() }
     .register(.single) { ClassB() }
 
-let classA1: ClassA? = get() 
-let classA2: ClassA? = get() 
+let classA1: ClassA? = resolver.get() 
+let classA2: ClassA? = resolver.get() 
 
 print(classA1.id == classA2.id) // will print true
 
-let classB1: ClassB? = get() 
-let classB2: ClassB? = get() 
+let classB1: ClassB? = resolver.get() 
+let classB2: ClassB? = resolver.get() 
 
 print(classB1.id == classB2.id) // will print true
 
 resolver.dropAllCachedDependencies(except: [ClassB.self])
 
-let classA3: ClassA? = get() 
-let classB4: ClassA? = get() 
+let classA3: ClassA? = resolver.get() 
+let classB4: ClassA? = resolver.get() 
 
 print(classA1.id == classA3.id) // will print false
 print(classB1.id == classB3.id) // will print true
@@ -455,7 +493,7 @@ print(classB1.id == classB3.id) // will print true
 // There are multiple ways to initialize a storyboard view code but in this case
 // we will use a static initializer for the sake of allowing external parameters
 class ViewController {
-    class func initialize(userManager: UserManager): SecondViewController {
+    class func initialize(userManager: UserManager): ViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return storyboard.instantiateViewController(identifier: "ViewController") as! ViewController 
     }
@@ -464,13 +502,17 @@ class ViewController {
 // .. then register
 resolver
   .register { UserManager() }
-  .register { ViewController.initialize(userManager: get()) }
+  .register { ViewController.initialize(userManager: $0.get()) }
   
 // ... when resolving it
-let vc: ViewController = get()
+let vc: ViewController = resolver.get()
 
-// ... or if you're using a container based approach
-let vc: ViewController = someResolver.get()
+// ... or if you're using the Global Resolver
+resolver.global
+  .register { UserManager() }
+  .register { ViewController.initialize(userManager: $0.get()) }
+
+let vc: ViewController = get()
 ```
 
 ### Examples 
@@ -492,9 +534,9 @@ class AppDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     resolver.register { UserManager() }
-    resolver.register { ViewController(userManager: get()) }
+    resolver.register { ViewController(userManager: $0.get()) }
 
-    let viewController: ViewController = get()
+    let viewController: ViewController = resolver.get()
     window?.rootViewController = viewController
   }
 }
