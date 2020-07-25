@@ -273,7 +273,7 @@ print(someClassA == classA)
 
 ### Global Resolver
 
-Normally, when you initalize a `Resolver` you can optionally pass in a `resolverId` or a `UUID().uuidString` will be gererated for you, this ensures that all dependencies registered in that resolver are unique to that resolver's instance, they can never be shared amonst other resolvers. 
+Normally, when you initalize a `Resolver` you can optionally pass in a `resolverId` or a `UUID().uuidString` will be gererated for you, this ensures that all dependencies registered in that resolver are unique to that resolver's instance, they can never be shared amongst other resolvers. 
 
 If you want a globally scoped resolver, there is a special resolver that resides in the global scope which you can access by using the `global` static property of the `Resolver` class.
 ```swift
