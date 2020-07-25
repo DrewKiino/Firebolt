@@ -487,6 +487,7 @@ print(classB1.id == classB3.id) // will print true
 ### Examples 
 
 **Storyboard Resolution**
+
 `Firebolt` can be used to resolve storyboards as well. Given this example,
 
 ```swift
