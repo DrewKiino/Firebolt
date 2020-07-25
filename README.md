@@ -32,6 +32,7 @@ from: 0.3.6
 * [Multiple Resolvers](#multiple-resolvers)
 * [Subclassing Resolvers](#subclassing-resolvers)
 * [Unregister Dependencies](#unregister-dependencies)
+* [Drop Cached Dependencies](#drop-cached-dependencies)
 * [Storyboard Resolution](#storyboard-resolution)
 * [Examples](#examples)
 
@@ -52,14 +53,18 @@ resolver.register { ClassA() }
 class ClassA {}
 class ClassB { init(classA: ClassA) }
  
-try resolver
+resolver
     .register { ClassA() }
     .register { ClassB(classA: get()) } // <-- get() qualifier
 ```
 4. Start coding with dependency injection using the `get()` keyword.
 ```swift
-let classA: ClassA = get()
-let classB: ClassB = get()
+let classA: ClassA = resolver.get()
+let classB: ClassB = resolver.get()
+
+// Or if you don't care about having more than one system
+// you can access the global scope.
+let classA: CLassA: = get()
 ```
 
 ### Scope
@@ -338,6 +343,108 @@ let classA: ClassA? = get() // will return ClassA
 resolver.unregister(ClassA.self)
 
 let classA: ClassA? = get() // will return nil
+```
+
+Unregsiter all dependencies.
+
+```swift
+resolver
+    .register { ClassA() }
+    .register { ClassB() }
+
+let classA: ClassA? = get() // will return ClassA
+let classB: ClassB? = get() // will return ClassB
+
+resolver.unregisterAllDependencies()
+
+let classA: ClassA? = get() // will return nil
+let classB: ClassB? = get() // will return nil
+```
+
+Unregister all dependencies except these types.
+```swift
+resolver
+    .register { ClassA() }
+    .register { ClassB() }
+
+let classA: ClassA? = get() // will return ClassA
+let classB: ClassB? = get() // will return ClassB
+
+resolver.unregisterAllDependencies(except: [ClassB.self])
+
+let classA: ClassA? = get() // will return nil
+let classB: ClassB? = get() // will return ClassB!
+```
+
+### Drop Cached Dependencies
+
+When a dependency is created via the `.single` scope, it is stored in it's respective Resolver's cache. 
+
+You can drop that cache like so.
+```swift
+resolver
+    .register(.single) { ClassA() }
+
+let classA1: ClassA? = get() 
+let classA2: ClassA? = get() 
+
+print(classA1.id == classA2.id) // will print true
+
+resolver.dropCached([ClassA.self])
+
+let classA3: ClassA? = get() 
+
+print(classA1.id == classA3.id) // will print false
+```
+
+Drop all cached dependencies.
+```swift
+resolver
+    .register(.single) { ClassA() }
+    .register(.single) { ClassB() }
+
+let classA1: ClassA? = get() 
+let classA2: ClassA? = get() 
+
+print(classA1.id == classA2.id) // will print true
+
+let classB1: ClassB? = get() 
+let classB2: ClassB? = get() 
+
+print(classB1.id == classB2.id) // will print true
+
+resolver.dropAllCachedDependencies()
+
+let classA3: ClassA? = get() 
+let classB4: ClassA? = get() 
+
+print(classA1.id == classA3.id) // will print false
+print(classB1.id == classB3.id) // will print false
+```
+
+Or drop all excluding some types.
+```swift
+resolver
+    .register(.single) { ClassA() }
+    .register(.single) { ClassB() }
+
+let classA1: ClassA? = get() 
+let classA2: ClassA? = get() 
+
+print(classA1.id == classA2.id) // will print true
+
+let classB1: ClassB? = get() 
+let classB2: ClassB? = get() 
+
+print(classB1.id == classB2.id) // will print true
+
+resolver.dropAllCachedDependencies(except: [ClassB.self])
+
+let classA3: ClassA? = get() 
+let classB4: ClassA? = get() 
+
+print(classA1.id == classA3.id) // will print false
+print(classB1.id == classB3.id) // will print true
 ```
 
 ### Storyboard Resolution
