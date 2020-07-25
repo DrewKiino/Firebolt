@@ -117,7 +117,7 @@ resolver.register(arg1: String.self) { ClassD(environment: $0) }
 ```
 Then you can pass in the argument afterwards.
 ```swift
-let classD: ClassD = resolver..get("stage")
+let classD: ClassD = resolver.get("stage")
 ```
 
 You can pass in multiple arguments as well.
