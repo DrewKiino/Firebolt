@@ -15,8 +15,10 @@ enum SwiftResolverError: Error {
   var localizedDescription: String {
     switch self {
     case let .classNotRegistered(resolverId,  expectedObject, expectedArgs, actualObject, actualArgs):
-      let exArgs = expectedArgs.filter { $0 != "()" }
-      let acArgs = actualArgs.filter { $0 != "()" }
+      let exArgs = expectedArgs
+        .filter { $0 != "()" || $0 != "Optional<()>" }
+      let acArgs = actualArgs
+        .filter { $0 != "()" || $0 != "Optional<()>" }
       return "\(resolverId) - resolution failed - expected \(expectedObject)"
         + (exArgs.isEmpty ? "" : " with args \(exArgs)")
         + " but found \(actualObject)"

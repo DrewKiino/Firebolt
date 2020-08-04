@@ -13,6 +13,6 @@ internal enum LogLevel: String {
 }
 
 internal func logger(_ logLevel: LogLevel, _ value: Any) {
-  guard FireboltConfig.shared.isLoggingEnabled else { return }
+  guard Firebolt.Config.shared.isLoggingEnabled else { return }
   print("[Firebolt] \(logLevel.rawValue) - \(value)")
 }

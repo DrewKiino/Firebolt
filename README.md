@@ -30,6 +30,7 @@ from: 0.3.6
 * [Opaque Conformance](#opaque-conformance)
 * [Thread Safety](#thread-safety)
 * [Global Resolver](#global-resolver)
+* [Mock Resolver](#mock-resolver)
 * [Multiple Resolvers](#multiple-resolvers)
 * [Subclassing Resolvers](#subclassing-resolvers)
 * [Unregister Dependencies](#unregister-dependencies)
@@ -285,6 +286,18 @@ You can then globally inject dependencies without specifying a Resolver identifi
 // property scoped in another instance of the application 
 // will resolve automatically for you.
 let classA: ClassA = get()
+```
+
+### Mock Resolver
+
+There is another special `Resolver` subclass called the `MockResolver`, it is essentially a convenience
+class for creating quick dependency graphs for smaller scoped projects.
+
+```swift
+let mockResolver = MockResolver { resolver in
+  resolver.register { ClassA() }
+  resolver.register { ClassB(classA: $0.get()) }
+}
 ```
 
 ### Multiple Resolvers 

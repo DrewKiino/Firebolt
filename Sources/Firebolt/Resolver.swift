@@ -60,7 +60,10 @@ open class Resolver: ResolverProtocol {
         guard let box = _box else {
           throw SwiftResolverError.classNotRegistered(
             resolverId: resolverId, expectedObject: String(describing: T.self),
-            expectedArgs: [A.self, B.self, C.self, D.self].map { String(describing: $0) },
+            expectedArgs: [A.self, B.self, C.self, D.self]
+              .map { String(describing: $0) }
+              .filter { $0 != "Optional<()>" }
+            ,
             actualObject: _box?.stringValue ?? "nil",
             actualArgs: _box?.stringArgs ?? []
           )
@@ -94,8 +97,8 @@ open class Resolver: ResolverProtocol {
 
   public let coreInstance: Resolver.CoreInstance
   public var resolverId: String { coreInstance.resolverId }
-
-  public init(_ resolverId: String) {
+  
+  public init(_ resolverId: String = UUID().uuidString) {
     if let coreInstance = getResolver(resolverId) {
       self.coreInstance = coreInstance
     } else {

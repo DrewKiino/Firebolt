@@ -153,6 +153,17 @@ public protocol ResolverProtocol {
 }
 
 public extension ResolverProtocol {
+  @discardableResult
+  func register<T>(
+    _ scope: Resolver.Scope = .single,
+    expect object: T.Type = T.self,
+    closure: @escaping BoxClosureNoArg<T>
+  ) -> Self {
+    register(scope, expect: object, closure: closure)
+  }
+}
+
+public extension ResolverProtocol {
   func get<T>(
     _ scope: Resolver.Scope? = nil,
     expect: T.Type = T.self

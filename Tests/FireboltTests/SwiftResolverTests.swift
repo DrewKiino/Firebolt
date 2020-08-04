@@ -532,8 +532,9 @@ final class SwiftResolverTests: XCTestCase {
   
   func test_protocol_subclass_with_protocol() {
     let resolver: ResolverProtocol = ResolverSubclass()
+    resolver.register(expect: ClassAProtocol.self) { ClassA( )}
     let classA: ClassAProtocol? = resolver.get()
-    let classA2: ClassAProtocol? = resolver.get()
+    let classA2: ClassAProtocol? = resolver.get(expect: ClassAProtocol.self)
     XCTAssertNotNil(classA)
     XCTAssertNotNil(classA2)
     XCTAssertEqual(classA?.id, classA2?.id)
