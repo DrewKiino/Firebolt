@@ -64,7 +64,7 @@ let classB: ClassB = resolver.get()
 
 // Or if you don't care about having more than one system
 // you can access the global scope.
-let classA: CLassA: = get()
+let classA: ClassA: = get()
 ```
 
 ### Scope
