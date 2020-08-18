@@ -18,8 +18,7 @@ pod 'Firebolt'
 ### Swift Package Manager
 
 ```yml
-url: https://github.com/DrewKiino/Firebolt.git
-from: 0.3.6
+https://github.com/DrewKiino/Firebolt.git
 ```
 
 ## Documentation
