@@ -295,7 +295,7 @@ class for creating quick dependency graphs for smaller scoped projects.
 ```swift
 let mockResolver = MockResolver { resolver in
   resolver.register { ClassA() }
-  resolver.register { ClassB(classA: $0.get()) }
+  resolver.register { ClassB(classA: resolver.get()) }
 }
 ```
 
