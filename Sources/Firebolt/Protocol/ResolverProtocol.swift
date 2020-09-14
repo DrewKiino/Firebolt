@@ -74,48 +74,48 @@ public protocol ResolverProtocol {
   @discardableResult
   func register<T>(
     _ scope: Resolver.Scope,
-    expects objects: [Any.Type],
-    closure: @escaping BoxClosureNoArg<T>
+    expect object: T.Type,
+    closure: @escaping BoxClosureNoArgR<T>
   ) -> Self
-  
+
   @discardableResult
   func register<T, A>(
     _ scope: Resolver.Scope,
-    expects objects: [Any.Type],
+    expect object: T.Type,
     arg1: A.Type,
-    closure: @escaping BoxClosure1Arg<T, A>
+    closure: @escaping BoxClosure1ArgR<T, A>
   ) -> Self
-  
+
   @discardableResult
   func register<T, A, B>(
     scope: Resolver.Scope,
-    expects objects: [Any.Type],
+    expect object: T.Type,
     arg1: A.Type,
     arg2: B.Type,
-    closure: @escaping BoxClosure2Arg<T, A, B>
+    closure: @escaping BoxClosure2ArgR<T, A, B>
   ) -> Self
-  
+
   @discardableResult
   func register<T, A, B, C>(
     scope: Resolver.Scope,
-    expects objects: [Any.Type],
+    expect object: T.Type,
     arg1: A.Type,
     arg2: B.Type,
     arg3: C.Type,
-    closure: @escaping BoxClosure3Arg<T, A, B, C>
+    closure: @escaping BoxClosure3ArgR<T, A, B, C>
   ) -> Self
-  
+
   @discardableResult
   func register<T, A, B, C, D>(
     scope: Resolver.Scope,
-    expects objects: [Any.Type],
+    expect object: T.Type,
     arg1: A.Type,
     arg2: B.Type,
     arg3: C.Type,
     arg4: D.Type,
-    closure: @escaping BoxClosure4Arg<T, A, B, C, D>
+    closure: @escaping BoxClosure4ArgR<T, A, B, C, D>
   ) -> Self
-  
+
   func get<T>(
     _ scope: Resolver.Scope?,
     expect: T.Type
@@ -156,14 +156,19 @@ public extension ResolverProtocol {
   @discardableResult
   func register<T>(
     _ scope: Resolver.Scope = .single,
-    expect object: T.Type = T.self,
     closure: @escaping BoxClosureNoArg<T>
   ) -> Self {
-    register(scope, expect: object, closure: closure)
+    register(scope, expect: T.self, closure: closure)
   }
-}
-
-public extension ResolverProtocol {
+  
+  @discardableResult
+  func register<T>(
+    _ scope: Resolver.Scope = .single,
+    closure: @escaping BoxClosureNoArgR<T>
+  ) -> Self {
+    register(scope, expect: T.self, closure: closure)
+  }
+  
   func get<T>(
     _ scope: Resolver.Scope? = nil,
     expect: T.Type = T.self

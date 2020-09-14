@@ -81,7 +81,7 @@ class ClassEImpl: ClassE, ClassEProtocol, ClassEProtocolB {
 
 class ResolverSubclass: Resolver {
   init() {
-    super.init("ResolverSubclass")
+    super.init(UUID().uuidString)
   }
 }
 
