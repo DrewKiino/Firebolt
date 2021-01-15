@@ -11,7 +11,7 @@ extension Resolver {
     closure: @escaping BoxClosureNoArg<T>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, Void, Void, Void, Void>(
+    coreInstance.setBox(dependencyId, box: Box<T, Self, Void, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .noargs(closure)
@@ -28,7 +28,7 @@ extension Resolver {
     closure: @escaping BoxClosure1Arg<T, A>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T?, A, Void, Void, Void>(
+    coreInstance.setBox(dependencyId, box: Box<T?, Self, A, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .arg1(closure)
@@ -46,7 +46,7 @@ extension Resolver {
     closure: @escaping BoxClosure2Arg<T, A, B>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    let box = coreInstance.setBox(dependencyId, box: Box<T?, A, B, Void, Void>(
+    let box = coreInstance.setBox(dependencyId, box: Box<T?, Self, A, B, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .args2(closure)
@@ -65,7 +65,7 @@ extension Resolver {
     closure: @escaping BoxClosure3Arg<T, A, B, C>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, A, B, C, Void>(
+    coreInstance.setBox(dependencyId, box: Box<T, Self, A, B, C, Void>(
       resolver: self,
       scope: scope,
       closure: .args3(closure)
@@ -85,7 +85,7 @@ extension Resolver {
     closure: @escaping BoxClosure4Arg<T, A, B, C, D>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, A, B, C, D>(
+    coreInstance.setBox(dependencyId, box: Box<T, Self, A, B, C, D>(
       resolver: self,
       scope: scope,
       closure: .args4(closure)
@@ -106,7 +106,7 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let dependencyId = getDependencyId(object.self).clean()
-      coreInstance.setBox(dependencyId, box: Box<T, Void, Void, Void, Void>(
+      coreInstance.setBox(dependencyId, box: Box<T, Self, Void, Void, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .noargs(closure)
@@ -125,7 +125,7 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let dependencyId = getDependencyId(object.self).clean()
-      coreInstance.setBox(dependencyId, box: Box<T?, A, Void, Void, Void>(
+      coreInstance.setBox(dependencyId, box: Box<T?, Self, A, Void, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .arg1(closure)
@@ -145,7 +145,7 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let dependencyId = getDependencyId(object.self).clean()
-      let box = coreInstance.setBox(dependencyId, box: Box<T?, A, B, Void, Void>(
+      let box = coreInstance.setBox(dependencyId, box: Box<T?, Self, A, B, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .args2(closure)
@@ -166,7 +166,7 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let dependencyId = getDependencyId(object.self).clean()
-      coreInstance.setBox(dependencyId, box: Box<T, A, B, C, Void>(
+      coreInstance.setBox(dependencyId, box: Box<T, Self, A, B, C, Void>(
         resolver: self,
         scope: scope,
         closure: .args3(closure)
@@ -188,7 +188,7 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let dependencyId = getDependencyId(object.self).clean()
-      coreInstance.setBox(dependencyId, box: Box<T, A, B, C, D>(
+      coreInstance.setBox(dependencyId, box: Box<T, Self, A, B, C, D>(
         resolver: self,
         scope: scope,
         closure: .args4(closure)
@@ -203,13 +203,13 @@ extension Resolver {
 
 extension Resolver {
   @discardableResult
-  public func register<T>(
+  public func register<T, R: ResolverProtocol>(
     _ scope: Scope = .single,
     expect object: T.Type = T.self,
-    closure: @escaping BoxClosureNoArgR<T>
+    closure: @escaping BoxClosureNoArgR<T, R>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, Void, Void, Void, Void>(
+    coreInstance.setBox(dependencyId, box: Box<T, R, Void, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .noargsR(closure)
@@ -219,14 +219,14 @@ extension Resolver {
   }
   
   @discardableResult
-  public func register<T, A>(
+  public func register<T, R: ResolverProtocol, A>(
     _ scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
-    closure: @escaping BoxClosure1ArgR<T, A>
+    closure: @escaping BoxClosure1ArgR<T, R, A>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T?, A, Void, Void, Void>(
+    coreInstance.setBox(dependencyId, box: Box<T?, R, A, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .arg1R(closure)
@@ -236,15 +236,15 @@ extension Resolver {
   }
   
   @discardableResult
-  public func register<T, A, B>(
+  public func register<T, R: ResolverProtocol, A, B>(
     scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     arg2: B.Type,
-    closure: @escaping BoxClosure2ArgR<T, A, B>
+    closure: @escaping BoxClosure2ArgR<T, R, A, B>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    let box = coreInstance.setBox(dependencyId, box: Box<T?, A, B, Void, Void>(
+    let box = coreInstance.setBox(dependencyId, box: Box<T?, R, A, B, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .args2R(closure)
@@ -254,16 +254,16 @@ extension Resolver {
   }
   
   @discardableResult
-  public func register<T, A, B, C>(
+  public func register<T, R: ResolverProtocol, A, B, C>(
     scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     arg2: B.Type,
     arg3: C.Type,
-    closure: @escaping BoxClosure3ArgR<T, A, B, C>
+    closure: @escaping BoxClosure3ArgR<T, R, A, B, C>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, A, B, C, Void>(
+    coreInstance.setBox(dependencyId, box: Box<T, R, A, B, C, Void>(
       resolver: self,
       scope: scope,
       closure: .args3R(closure)
@@ -273,17 +273,17 @@ extension Resolver {
   }
   
   @discardableResult
-  public func register<T, A, B, C, D>(
+  public func register<T, R: ResolverProtocol, A, B, C, D>(
     scope: Scope = .single,
     expect object: T.Type = T.self,
     arg1: A.Type,
     arg2: B.Type,
     arg3: C.Type,
     arg4: D.Type,
-    closure: @escaping BoxClosure4ArgR<T, A, B, C, D>
+    closure: @escaping BoxClosure4ArgR<T, R, A, B, C, D>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, A, B, C, D>(
+    coreInstance.setBox(dependencyId, box: Box<T, R, A, B, C, D>(
       resolver: self,
       scope: scope,
       closure: .args4R(closure)

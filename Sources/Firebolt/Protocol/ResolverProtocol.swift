@@ -72,48 +72,48 @@ public protocol ResolverProtocol {
   ) -> Self
   
   @discardableResult
-  func register<T>(
+  func register<T, R: ResolverProtocol>(
     _ scope: Resolver.Scope,
     expect object: T.Type,
-    closure: @escaping BoxClosureNoArgR<T>
+    closure: @escaping BoxClosureNoArgR<T, R>
   ) -> Self
 
   @discardableResult
-  func register<T, A>(
+  func register<T, R: ResolverProtocol, A>(
     _ scope: Resolver.Scope,
     expect object: T.Type,
     arg1: A.Type,
-    closure: @escaping BoxClosure1ArgR<T, A>
+    closure: @escaping BoxClosure1ArgR<T, R, A>
   ) -> Self
 
   @discardableResult
-  func register<T, A, B>(
+  func register<T, R: ResolverProtocol, A, B>(
     scope: Resolver.Scope,
     expect object: T.Type,
     arg1: A.Type,
     arg2: B.Type,
-    closure: @escaping BoxClosure2ArgR<T, A, B>
+    closure: @escaping BoxClosure2ArgR<T, R, A, B>
   ) -> Self
 
   @discardableResult
-  func register<T, A, B, C>(
+  func register<T, R: ResolverProtocol, A, B, C>(
     scope: Resolver.Scope,
     expect object: T.Type,
     arg1: A.Type,
     arg2: B.Type,
     arg3: C.Type,
-    closure: @escaping BoxClosure3ArgR<T, A, B, C>
+    closure: @escaping BoxClosure3ArgR<T, R, A, B, C>
   ) -> Self
 
   @discardableResult
-  func register<T, A, B, C, D>(
+  func register<T, R: ResolverProtocol, A, B, C, D>(
     scope: Resolver.Scope,
     expect object: T.Type,
     arg1: A.Type,
     arg2: B.Type,
     arg3: C.Type,
     arg4: D.Type,
-    closure: @escaping BoxClosure4ArgR<T, A, B, C, D>
+    closure: @escaping BoxClosure4ArgR<T, R, A, B, C, D>
   ) -> Self
 
   func get<T>(
@@ -162,9 +162,9 @@ public extension ResolverProtocol {
   }
   
   @discardableResult
-  func register<T>(
+  func register<T, R>(
     _ scope: Resolver.Scope = .single,
-    closure: @escaping BoxClosureNoArgR<T>
+    closure: @escaping BoxClosureNoArgR<T, R>
   ) -> Self {
     register(scope, expect: T.self, closure: closure)
   }

@@ -324,7 +324,7 @@ final class SwiftResolverTests: XCTestCase {
     let resolver = Resolver(resolverId)
 
     resolver.register { ClassA() }
-    resolver.register { ClassB(classA: $0.get()) }
+    resolver.register { (r: Resolver) in ClassB(classA: r.get()) }
 
     let classA: ClassA? = resolver.get()
     let classB: ClassB? = get()
@@ -385,8 +385,8 @@ final class SwiftResolverTests: XCTestCase {
   func test_subclassing_factory() {
     let resolver = ResolverSubclass()
       .register { ClassA() }
-      .register(.factory) { ClassB(classA: $0.get()) }
-      .register(.factory) { ClassC(classA: $0.get(expect: ClassA.self), classB: $0.get()) }
+      .register(.factory) { (r: ResolverSubclass) in ClassB(classA: r.get()) }
+      .register(.factory) { (r: ResolverSubclass) in ClassC(classA: r.get(expect: ClassA.self), classB: r.get()) }
 
     let classA: ClassA = resolver.get()
     let classB: ClassB = resolver.get()
@@ -408,7 +408,7 @@ final class SwiftResolverTests: XCTestCase {
       resolver.register { ClassA() }
     }
     _ = DispatchQueue(label: "thread2").sync {
-      resolver.register { ClassB(classA: $0.get()) }
+      resolver.register { (r: ResolverSubclass) in ClassB(classA: r.get()) }
     }
 
     let classA: ClassA? = resolver.get()
@@ -421,7 +421,7 @@ final class SwiftResolverTests: XCTestCase {
   func test_multiple_singles_same_resolver() {
     let resolver = ResolverSubclass()
       .register(.single) { ClassA() }
-      .register(.single) { ClassB(classA: $0.get()) }
+      .register(.single) { (r: ResolverSubclass) in ClassB(classA: r.get()) }
 
     let classA1: ClassA? = resolver.get()
     let classB1: ClassB? = resolver.get()
@@ -437,7 +437,7 @@ final class SwiftResolverTests: XCTestCase {
   func test_resolver_local_scope() {
     let resolver = ResolverSubclass()
     resolver.register(.factory) { ClassA() }
-    resolver.register(.single) { ClassB(classA: $0.get()) }
+    resolver.register(.single) { (r: ResolverSubclass) in ClassB(classA: r.get()) }
     
     let classA1: ClassA? = resolver.get(.single)
     let classA2: ClassA? = resolver.get(.single)
@@ -508,7 +508,7 @@ final class SwiftResolverTests: XCTestCase {
   func test_multi_dropping_deps_cached() {
     let resolver = ResolverSubclass()
     resolver.register(.single) { ClassA() }
-    resolver.register(.factory) { ClassB(classA: $0.get()) }
+    resolver.register(.factory) { (r: ResolverSubclass) in ClassB(classA: r.get()) }
     
     let classA1: ClassA? = resolver.get()
     let classB1: ClassB? = resolver.get()
@@ -547,10 +547,11 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertEqual(classA?.id, classA2?.id)
   }
   
+  @available(OSX 10.15.0, *)
   func test_associative_protocol_deps() {
     let resolver = ResolverSubclass()
     resolver.register { UniqueClassA() }
-    resolver.register(.factory) { UniqueClassB(classA: $0.get()) }
+    resolver.register(.factory) { (r: ResolverSubclass) in UniqueClassB(classA: r.get()) }
     
     let someClass1: some AssociativeProtocol = resolver.get(expect: UniqueClassA.self)
     let someClass2: some AssociativeProtocol = resolver.get(expect: UniqueClassB.self)

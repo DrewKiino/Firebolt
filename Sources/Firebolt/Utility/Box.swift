@@ -13,7 +13,7 @@ protocol BoxProtocol {
   ) throws -> _T!
 }
 
-struct Box<T, A, B, C, D>: BoxProtocol {
+struct Box<T, R: ResolverProtocol, A, B, C, D>: BoxProtocol {
   enum Closure {
     case noargs(BoxClosureNoArg<T>)
     case arg1(BoxClosure1Arg<T, A>)
@@ -21,16 +21,16 @@ struct Box<T, A, B, C, D>: BoxProtocol {
     case args3(BoxClosure3Arg<T, A, B, C>)
     case args4(BoxClosure4Arg<T, A, B, C, D>)
     
-    case noargsR(BoxClosureNoArgR<T>)
-    case arg1R(BoxClosure1ArgR<T, A>)
-    case args2R(BoxClosure2ArgR<T, A, B>)
-    case args3R(BoxClosure3ArgR<T, A, B, C>)
-    case args4R(BoxClosure4ArgR<T, A, B, C, D>)
+    case noargsR(BoxClosureNoArgR<T, R>)
+    case arg1R(BoxClosure1ArgR<T, R, A>)
+    case args2R(BoxClosure2ArgR<T, R, A, B>)
+    case args3R(BoxClosure3ArgR<T, R, A, B, C>)
+    case args4R(BoxClosure4ArgR<T, R, A, B, C, D>)
   }
   
   private let _scope: Resolver.Scope
   private let closure: Closure
-  private let resolver: Resolver
+  private let resolver: ResolverProtocol
   
   let stringValue = String(describing: T.self)
   let stringArgs = [A.self, B.self, C.self, D.self].map { String(describing: $0) }.filter { $0 != "()" }
@@ -40,7 +40,7 @@ struct Box<T, A, B, C, D>: BoxProtocol {
   }
 
   public init(
-    resolver: Resolver,
+    resolver: ResolverProtocol,
     scope: Resolver.Scope,
     closure: Closure
   ) {
@@ -73,21 +73,24 @@ struct Box<T, A, B, C, D>: BoxProtocol {
       if let arg1 = arg1 as? A, let arg2 = arg2 as? B, let arg3 = arg3 as? C, let arg4 = arg4 as? D {
         return try closure(arg1, arg2, arg3, arg4) as? _T
       }
-    case let .noargsR(closure): return try closure(resolver) as? _T
+    case let .noargsR(closure):
+      if let resolver = resolver as? R {
+        return try closure(resolver) as? _T
+      }
     case let .arg1R(closure):
-      if let arg1 = arg1 as? A {
+      if let resolver = resolver as? R, let arg1 = arg1 as? A {
         return try closure(resolver, arg1) as? _T
       }
     case let .args2R(closure):
-      if let arg1 = arg1 as? A, let arg2 = arg2 as? B {
+      if let resolver = resolver as? R, let arg1 = arg1 as? A, let arg2 = arg2 as? B {
         return try closure(resolver,arg1, arg2) as? _T
       }
     case let .args3R(closure):
-      if let arg1 = arg1 as? A, let arg2 = arg2 as? B, let arg3 = arg3 as? C {
+      if let resolver = resolver as? R, let arg1 = arg1 as? A, let arg2 = arg2 as? B, let arg3 = arg3 as? C {
         return try closure(resolver, arg1, arg2, arg3) as? _T
       }
     case let .args4R(closure):
-      if let arg1 = arg1 as? A, let arg2 = arg2 as? B, let arg3 = arg3 as? C, let arg4 = arg4 as? D {
+      if let resolver = resolver as? R, let arg1 = arg1 as? A, let arg2 = arg2 as? B, let arg3 = arg3 as? C, let arg4 = arg4 as? D {
         return try closure(resolver, arg1, arg2, arg3, arg4) as? _T
       }
     }

@@ -15,8 +15,8 @@ public typealias BoxClosure8Arg<T, A, B, C, D, E, F, G, H> = (A, B, C, D, E, F, 
 public typealias BoxClosure9Arg<T, A, B, C, D, E, F, G, H, I> = (A, B, C, D, E, F, G, H, I) throws -> T
 public typealias BoxClosure10Arg<T, A, B, C, D, E, F, G, H, I, J> = (A, B, C, D, E, F, G, H, I, J) throws -> T
 
-public typealias BoxClosureNoArgR<T> = (ResolverProtocol) throws -> T
-public typealias BoxClosure1ArgR<T, A> = (ResolverProtocol, A) throws -> T
-public typealias BoxClosure2ArgR<T, A, B> = (ResolverProtocol, A, B) throws -> T
-public typealias BoxClosure3ArgR<T, A, B, C> = (ResolverProtocol, A, B, C) throws -> T
-public typealias BoxClosure4ArgR<T, A, B, C, D> = (ResolverProtocol, A, B, C, D) throws -> T
+public typealias BoxClosureNoArgR<T, R: ResolverProtocol> = (R) throws -> T
+public typealias BoxClosure1ArgR<T, R: ResolverProtocol, A> = (R, A) throws -> T
+public typealias BoxClosure2ArgR<T, R: ResolverProtocol, A, B> = (R, A, B) throws -> T
+public typealias BoxClosure3ArgR<T, R: ResolverProtocol, A, B, C> = (R, A, B, C) throws -> T
+public typealias BoxClosure4ArgR<T, R: ResolverProtocol, A, B, C, D> = (R, A, B, C, D) throws -> T
