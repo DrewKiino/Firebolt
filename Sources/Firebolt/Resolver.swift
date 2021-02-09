@@ -9,34 +9,46 @@ open class Resolver: ResolverProtocol {
   
   public class CoreInstance {
     let resolverId: String
+    private(set) lazy var memoryAddress: String = MemoryAddress(of: self).description
     
-    var boxes: [String: BoxProtocol] = [:]
+    var dependencyIdToResolutionId: [String: String] = [:]
+    var resolutionIdToBox: [String: BoxProtocol] = [:]
     var cachedInstances: [String: InstanceProtocol] = [:]
     
     init(resolverId: String) {
       self.resolverId = resolverId
     }
     
-    func getBox(_ boxId: String) -> BoxProtocol? {
-      globalQueue.sync { boxes[boxId] }
+    func getBox(_ dependencyId: String) -> BoxProtocol? {
+      globalQueue.sync {
+        if let resolutionId = dependencyIdToResolutionId[dependencyId] {
+          return resolutionIdToBox[resolutionId]
+        }
+        return nil
+      }
     }
     
-    func removeBox(_ boxId: String) {
-      globalQueue.sync { boxes[boxId] = nil }
+    func removeBox(_ dependencyId: String) {
+      globalQueue.sync {
+        dependencyIdToResolutionId[dependencyId] = nil
+      }
     }
     
     @discardableResult
-    func setBox(_ boxId: String, box: BoxProtocol) -> BoxProtocol {
-      globalQueue.sync { boxes[boxId] =  box }
+    func setBox(dependencyId: String, resolutionId: String, box: BoxProtocol) -> BoxProtocol {
+      globalQueue.sync {
+        dependencyIdToResolutionId[dependencyId] = resolutionId
+        resolutionIdToBox[resolutionId] = box
+      }
       return box
     }
     
-    func getCachedInstance(_ dependencyId: String) -> InstanceProtocol? {
-      globalQueue.sync { cachedInstances[dependencyId] }
+    func getCachedInstance(_ resolutionId: String) -> InstanceProtocol? {
+      globalQueue.sync { cachedInstances[resolutionId] }
     }
     
-    func setCachedInstance<T: Any>(_ dependencyId: String, dependency: T) {
-      globalQueue.sync { cachedInstances[dependencyId] = Instance(dependency) }
+    func setCachedInstance<T: Any>(_ resolutionId: String, dependency: T) {
+      globalQueue.sync { cachedInstances[resolutionId] = Instance(dependency) }
     }
     
     func resolve<T, A, B, C, D>(
@@ -49,9 +61,12 @@ open class Resolver: ResolverProtocol {
       arg4: D
     ) -> T! {
       do {
-        // Get Key
+        // Get Keys
         let dependencyId = getDependencyId(expect).clean()
-        
+        guard let resolutionId = dependencyIdToResolutionId[dependencyId] else {
+          throw SwiftResolverError.resolutionNotRegistered(resolverId: resolverId)
+        }
+
         // Get Resolver
         let resolver = self
         
@@ -74,12 +89,12 @@ open class Resolver: ResolverProtocol {
         case .factory:
           return try box.value(arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4)
         case .single:
-          if let instance = resolver.getCachedInstance(dependencyId) {
+          if let instance = resolver.getCachedInstance(resolutionId) {
             let value: T? = instance.getInstance()
             return value
-          } else if resolver.getCachedInstance(dependencyId) == nil {
+          } else if resolver.getCachedInstance(resolutionId) == nil {
             let value: T? = try box.value(arg1: arg1, arg2: arg2, arg3: arg3, arg4: arg4)
-            resolver.setCachedInstance(dependencyId, dependency: value)
+            resolver.setCachedInstance(resolutionId, dependency: value)
             return value
           }
         }
@@ -97,7 +112,8 @@ open class Resolver: ResolverProtocol {
 
   public let coreInstance: Resolver.CoreInstance
   public var resolverId: String { coreInstance.resolverId }
-  
+  public var memoryAddress: String { coreInstance.memoryAddress }
+
   public init(_ resolverId: String = UUID().uuidString) {
     if let coreInstance = getResolver(resolverId) {
       self.coreInstance = coreInstance
@@ -121,7 +137,7 @@ open class Resolver: ResolverProtocol {
     globalQueue.sync {
       if dependencies.isEmpty { return }
       let dependencyIds = Set(dependencies.map { getDependencyId($0) })
-      coreInstance.boxes = coreInstance.boxes
+      coreInstance.dependencyIdToResolutionId = coreInstance.dependencyIdToResolutionId
         .filter { key, _ in !dependencyIds.contains(key) }
       logger(.info, "\(resolverId) - unregistered dependencies \(dependencies)")
     }
@@ -133,9 +149,10 @@ open class Resolver: ResolverProtocol {
     globalQueue.sync {
       let dependencyIds = Set(dependencies.map { getDependencyId($0) })
       if dependencyIds.isEmpty {
-        coreInstance.boxes.removeAll()
+        coreInstance.dependencyIdToResolutionId.removeAll()
+        coreInstance.resolutionIdToBox.removeAll()
       } else {
-        coreInstance.boxes = coreInstance.boxes
+        coreInstance.dependencyIdToResolutionId = coreInstance.dependencyIdToResolutionId
           .filter { key, _ in dependencyIds.contains(key) }
       }
       let exceptString = dependencies.isEmpty
@@ -177,7 +194,7 @@ open class Resolver: ResolverProtocol {
 
   public func printAllDependencies() {
     globalQueue.sync {
-      logger(.info,  "\(resolverId) - registered dependencies - \(coreInstance.boxes.map { $0.key }.joined(separator: ", "))")
+      logger(.info,  "\(resolverId) - registered dependencies - \(coreInstance.dependencyIdToResolutionId.map { $0.key }.joined(separator: ", "))")
     }
   }
 }

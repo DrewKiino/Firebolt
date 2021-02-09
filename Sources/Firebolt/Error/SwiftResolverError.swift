@@ -1,6 +1,9 @@
 import Foundation
 
 enum SwiftResolverError: Error {
+  case resolutionNotRegistered(
+    resolverId: String
+  )
   case classNotRegistered(
     resolverId: String,
     expectedObject: String,
@@ -23,6 +26,8 @@ enum SwiftResolverError: Error {
         + (exArgs.isEmpty ? "" : " with args \(exArgs)")
         + " but found \(actualObject)"
         + (acArgs.isEmpty ? "" : " with args \(acArgs)")
+    case let .resolutionNotRegistered(resolverId):
+      return "\(resolverId) - resolution failed"
     case  let .resolverDoesNotExist(resolverId):
       return "\(resolverId) - does not exist"
     }

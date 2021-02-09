@@ -13,8 +13,12 @@ public extension ResolverProtocol {
   func mergeDependencies(
     with otherResolver: ResolverProtocol
   ) {
-    otherResolver.coreInstance.boxes.merge(
-      otherResolver.coreInstance.boxes,
+    otherResolver.coreInstance.dependencyIdToResolutionId.merge(
+      otherResolver.coreInstance.dependencyIdToResolutionId,
+      uniquingKeysWith: { $1 }
+    )
+    otherResolver.coreInstance.resolutionIdToBox.merge(
+      otherResolver.coreInstance.resolutionIdToBox,
       uniquingKeysWith: { $1 }
     )
   }

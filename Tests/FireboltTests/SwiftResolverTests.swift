@@ -334,15 +334,31 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNil(classB)
     XCTAssertNotNil(classB2)
   }
-
-  func test_multiple_expects_register() {
-    Resolver.global.register(expects: [ClassAProtocol.self, ClassAProtocolB.self]) { ClassA() }
-
-    let classA: ClassAProtocol? = get()
-    let classA_2: ClassAProtocolB? = get()
+  
+  func test_multiple_expects_register_single() {
+    let resolver = MockResolver {
+      $0.register(.single, expects: [ClassAProtocol.self, ClassAProtocolB.self]) { ClassA() }
+    }
+    
+    let classA: ClassAProtocol? = resolver.get()
+    let classA_2: ClassAProtocolB? = resolver.get()
 
     XCTAssertNotNil(classA)
     XCTAssertNotNil(classA_2)
+    XCTAssertEqual(classA?.id, classA_2?.id)
+  }
+
+  func test_multiple_expects_register_factory() {
+    let resolver = MockResolver {
+      $0.register(.factory, expects: [ClassAProtocol.self, ClassAProtocolB.self]) { ClassA() }
+    }
+
+    let classA: ClassAProtocol? = resolver.get()
+    let classA_2: ClassAProtocolB? = resolver.get()
+
+    XCTAssertNotNil(classA)
+    XCTAssertNotNil(classA_2)
+    XCTAssertNotEqual(classA?.id, classA_2?.id)
   }
 
   func test_multiple_expects_register_arg() {

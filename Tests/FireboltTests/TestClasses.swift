@@ -6,7 +6,9 @@ let noName = "no_name"
 let noAge = 0
 
 protocol BaseClassProtocol {}
-class BaseClass: BaseClassProtocol { let id: String = UUID().uuidString }
+class BaseClass: BaseClassProtocol {
+  private(set) lazy var id: String = MemoryAddress(of: self).description
+}
 
 protocol ClassD {
   var name: String { get }
@@ -18,6 +20,7 @@ protocol ClassAProtocol {
 }
 
 protocol ClassAProtocolB {
+  var id: String { get }
   var age: Int { get }
 }
 

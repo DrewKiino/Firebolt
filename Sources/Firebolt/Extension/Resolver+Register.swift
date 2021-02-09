@@ -11,7 +11,11 @@ extension Resolver {
     closure: @escaping BoxClosureNoArg<T>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, Self, Void, Void, Void, Void>(
+    let resolutionId = getResolutionId(closure)
+    coreInstance.setBox(
+      dependencyId: dependencyId,
+      resolutionId: resolutionId,
+      box: Box<T, Self, Void, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .noargs(closure)
@@ -28,7 +32,11 @@ extension Resolver {
     closure: @escaping BoxClosure1Arg<T, A>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T?, Self, A, Void, Void, Void>(
+    let resolutionId = getResolutionId(closure)
+    coreInstance.setBox(
+      dependencyId: dependencyId,
+      resolutionId: resolutionId,
+      box: Box<T?, Self, A, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .arg1(closure)
@@ -46,7 +54,11 @@ extension Resolver {
     closure: @escaping BoxClosure2Arg<T, A, B>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    let box = coreInstance.setBox(dependencyId, box: Box<T?, Self, A, B, Void, Void>(
+    let resolutionId = getResolutionId(closure)
+    let box = coreInstance.setBox(
+      dependencyId: dependencyId,
+      resolutionId: resolutionId,
+      box: Box<T?, Self, A, B, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .args2(closure)
@@ -65,7 +77,11 @@ extension Resolver {
     closure: @escaping BoxClosure3Arg<T, A, B, C>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, Self, A, B, C, Void>(
+    let resolutionId = getResolutionId(closure)
+    coreInstance.setBox(
+      dependencyId: dependencyId,
+      resolutionId: resolutionId,
+      box: Box<T, Self, A, B, C, Void>(
       resolver: self,
       scope: scope,
       closure: .args3(closure)
@@ -85,7 +101,11 @@ extension Resolver {
     closure: @escaping BoxClosure4Arg<T, A, B, C, D>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, Self, A, B, C, D>(
+    let resolutionId = getResolutionId(closure)
+    coreInstance.setBox(
+      dependencyId: dependencyId,
+      resolutionId: resolutionId,
+      box: Box<T, Self, A, B, C, D>(
       resolver: self,
       scope: scope,
       closure: .args4(closure)
@@ -106,7 +126,11 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let dependencyId = getDependencyId(object.self).clean()
-      coreInstance.setBox(dependencyId, box: Box<T, Self, Void, Void, Void, Void>(
+      let resolutionId = getResolutionId(closure)
+      coreInstance.setBox(
+        dependencyId: dependencyId,
+        resolutionId: resolutionId,
+        box: Box<T, Self, Void, Void, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .noargs(closure)
@@ -125,7 +149,11 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let dependencyId = getDependencyId(object.self).clean()
-      coreInstance.setBox(dependencyId, box: Box<T?, Self, A, Void, Void, Void>(
+      let resolutionId = getResolutionId(closure)
+      coreInstance.setBox(
+        dependencyId: dependencyId,
+        resolutionId: resolutionId,
+        box: Box<T?, Self, A, Void, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .arg1(closure)
@@ -145,7 +173,11 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let dependencyId = getDependencyId(object.self).clean()
-      let box = coreInstance.setBox(dependencyId, box: Box<T?, Self, A, B, Void, Void>(
+      let resolutionId = getResolutionId(closure)
+      let box = coreInstance.setBox(
+        dependencyId: dependencyId,
+        resolutionId: resolutionId,
+        box: Box<T?, Self, A, B, Void, Void>(
         resolver: self,
         scope: scope,
         closure: .args2(closure)
@@ -166,7 +198,11 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let dependencyId = getDependencyId(object.self).clean()
-      coreInstance.setBox(dependencyId, box: Box<T, Self, A, B, C, Void>(
+      let resolutionId = getResolutionId(closure)
+      coreInstance.setBox(
+        dependencyId: dependencyId,
+        resolutionId: resolutionId,
+        box: Box<T, Self, A, B, C, Void>(
         resolver: self,
         scope: scope,
         closure: .args3(closure)
@@ -188,7 +224,11 @@ extension Resolver {
   ) -> Self {
     for object in objects {
       let dependencyId = getDependencyId(object.self).clean()
-      coreInstance.setBox(dependencyId, box: Box<T, Self, A, B, C, D>(
+      let resolutionId = getResolutionId(closure)
+      coreInstance.setBox(
+        dependencyId: dependencyId,
+        resolutionId: resolutionId,
+        box: Box<T, Self, A, B, C, D>(
         resolver: self,
         scope: scope,
         closure: .args4(closure)
@@ -209,7 +249,11 @@ extension Resolver {
     closure: @escaping BoxClosureNoArgR<T, R>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, R, Void, Void, Void, Void>(
+    let resolutionId = getResolutionId(closure)
+    coreInstance.setBox(
+      dependencyId: dependencyId,
+      resolutionId: resolutionId,
+      box: Box<T, R, Void, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .noargsR(closure)
@@ -226,7 +270,11 @@ extension Resolver {
     closure: @escaping BoxClosure1ArgR<T, R, A>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T?, R, A, Void, Void, Void>(
+    let resolutionId = getResolutionId(closure)
+    coreInstance.setBox(
+      dependencyId: dependencyId,
+      resolutionId: resolutionId,
+      box: Box<T?, R, A, Void, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .arg1R(closure)
@@ -244,7 +292,11 @@ extension Resolver {
     closure: @escaping BoxClosure2ArgR<T, R, A, B>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    let box = coreInstance.setBox(dependencyId, box: Box<T?, R, A, B, Void, Void>(
+    let resolutionId = getResolutionId(closure)
+    let box = coreInstance.setBox(
+      dependencyId: dependencyId,
+      resolutionId: resolutionId,
+      box: Box<T?, R, A, B, Void, Void>(
       resolver: self,
       scope: scope,
       closure: .args2R(closure)
@@ -263,7 +315,11 @@ extension Resolver {
     closure: @escaping BoxClosure3ArgR<T, R, A, B, C>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, R, A, B, C, Void>(
+    let resolutionId = getResolutionId(closure)
+    coreInstance.setBox(
+      dependencyId: dependencyId,
+      resolutionId: resolutionId,
+      box: Box<T, R, A, B, C, Void>(
       resolver: self,
       scope: scope,
       closure: .args3R(closure)
@@ -283,7 +339,11 @@ extension Resolver {
     closure: @escaping BoxClosure4ArgR<T, R, A, B, C, D>
   ) -> Self {
     let dependencyId = getDependencyId(object.self).clean()
-    coreInstance.setBox(dependencyId, box: Box<T, R, A, B, C, D>(
+    let resolutionId = getResolutionId(closure)
+    coreInstance.setBox(
+      dependencyId: dependencyId,
+      resolutionId: resolutionId,
+      box: Box<T, R, A, B, C, D>(
       resolver: self,
       scope: scope,
       closure: .args4R(closure)

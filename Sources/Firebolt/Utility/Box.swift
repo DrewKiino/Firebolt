@@ -102,3 +102,8 @@ struct Box<T, R: ResolverProtocol, A, B, C, D>: BoxProtocol {
 func getDependencyId(_ any: Any) -> String {
   return String(describing: type(of: any)).clean()
 }
+
+func getResolutionId(_ any: Any) -> String {
+  return String(describing: type(of: any))
+    .split(separator: " ").last.flatMap(String.init) ?? ""
+}
