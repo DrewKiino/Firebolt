@@ -7,11 +7,11 @@
 To put it simply, **Firebolt** is nothing more than a [Service Locator](https://en.wikipedia.org/wiki/Service_locator_pattern) tool. It allows you to encapsulate
 layers of abstractions and exposes modules that are both easily testable and composable.
 
-1. **Composability**
+1. **Composability**✅
 
 **Firebolt** is designed to truly allow infinite composability with your dependency graph. Since each dependency can be made with multiple dependencies, and those dependencies can also be made with other dependencies, and so forth. You essentially have a inverted tree graph which ultimately can be accessed as simply as doing `resolver.get()` and _not have to worry about **how**_ those dependencies are made. This is especially useful when architecting domain specific designs into your application which include `Managers`, `Services`, `Repositories`, etc.
 
-2. **Testability**
+2. **Testability**✅
 
 **Firebolt** is especially useful when trying to take control of the scope of your unit tests. Since each `Resolver` is the container of its dependencies, creating a new `Resolver` or better yet deallocating that `Resolver` will create an entire separate or completely remove those dependencies all together.
 
