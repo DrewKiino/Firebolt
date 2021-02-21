@@ -13,7 +13,7 @@ layers of abstractions and exposes modules that are both easily testable and com
 
 2. **Testability**
 
-**Firebolt** is especially useful when trying to take control of the scope of your unit tests. Since each `Resolver` is the container of it's dependencies, creating a new `Resolver` or better yet deallocating that `Resolver` will create an entire separate or completely remove those dependencies all together.
+**Firebolt** is especially useful when trying to take control of the scope of your unit tests. Since each `Resolver` is the container of its dependencies, creating a new `Resolver` or better yet deallocating that `Resolver` will create an entire separate or completely remove those dependencies all together.
 
 What does this mean? This means that you can scope out specific dependencies for **each** test suite, file, or method entirely and never have to share any state in between. Using the `MockResolver`, you are able to register dependencies that are really only needed by that test suite and then deallocate it once you're finished.
 
