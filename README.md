@@ -572,6 +572,7 @@ class AppDelegate {
 
 **Unit Tests**
 
+```swift
 func testMe() {
   let resolver = MockResolver { resolver in
     resolver.register(expect: ClassA) { ClassAImpl() }
