@@ -2,6 +2,24 @@
 
 **Firebolt** is a dependency injection framework written for `Swift`. Inspired by `Kotlin` [Koin](https://insert-koin.io/). This framework is meant to be lightweight and unopinionated by design with resolutions working simply by good old functional programming.
 
+[How to do clean dependency injection using Firebolt — Swift.](https://medium.com/@andrewaquino118/clean-dependency-injection-with-firebolt-swift-95db68662a87)
+
+## Why use Firebolt?
+
+To put it simply, **Firebolt** is nothing more than a [Service Locator](https://en.wikipedia.org/wiki/Service_locator_pattern) tool. It allows you to encapsulate
+layers of abstractions and exposes modules that are both easily testable and composable.
+
+1. **Composability** ✅
+
+**Firebolt** is designed to truly allow infinite composability with your dependency graph. Since each dependency can be made with multiple dependencies, and those dependencies can also be made with other dependencies, and so forth. You essentially have a inverted tree graph which ultimately can be accessed as simply as doing `resolver.get()` and _not have to worry about **how**_ those dependencies are made. This is especially useful when architecting domain specific designs into your application which include `Managers`, `Services`, `Repositories`, etc.
+
+2. **Testability** ✅
+
+**Firebolt** is especially useful when trying to take control of the scope of your unit tests. Since each `Resolver` is the container of its dependencies, creating a new `Resolver` or better yet deallocating that `Resolver` will create an entire separate or completely remove those dependencies all together.
+
+What does this mean? This means that you can scope out specific dependencies for **each** test suite, file, or method entirely and never have to share any state in between. Using the `MockResolver`, you are able to register dependencies that are really only needed by that test suite and then deallocate it once you're finished.
+
+
 ## Contributions
 `Firebolt` is an open-source project, feel free to contact me if you want to help contribute to this codebase. You can also do a pull-request or open up issues.
 
@@ -551,6 +569,34 @@ class AppDelegate {
     let viewController: ViewController = resolver.get()
     window?.rootViewController = viewController
   }
+}
+```
+
+**Unit Tests**
+
+```swift
+func testMe() {
+  let resolver = MockResolver { resolver in
+    resolver.register(expect: ClassA) { ClassAImpl() }
+    resolver.register(expect: ClassB) { ClassBImpl(classA: $0.get()) }
+  }
+
+  /// GIVEN
+
+  let classB: ClassB = resolver.get()
+  let userId = 1
+
+  classB.onCallHandler = { userId in
+    return "\(userId)"
+  }
+
+  /// WHEN
+
+  let result = classB.stringifyUserId(userId)
+
+  /// THEN
+
+  xcAssertEquals("\(userId"), result)
 }
 ```
 
