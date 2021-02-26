@@ -2,6 +2,8 @@
 
 **Firebolt** is a dependency injection framework written for `Swift`. Inspired by `Kotlin` [Koin](https://insert-koin.io/). This framework is meant to be lightweight and unopinionated by design with resolutions working simply by good old functional programming.
 
+[How to do clean dependency injection using Firebolt — Swift.](https://medium.com/@andrewaquino118/clean-dependency-injection-with-firebolt-swift-95db68662a87)
+
 ## Why use Firebolt?
 
 To put it simply, **Firebolt** is nothing more than a [Service Locator](https://en.wikipedia.org/wiki/Service_locator_pattern) tool. It allows you to encapsulate
