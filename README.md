@@ -33,6 +33,14 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'Firebolt'
 ```
+
+### Carthage
+
+Add this to your `Cartfile`
+```
+github "DrewKiino/Firebolt" "0.4.9"
+```
+
 ### Swift Package Manager
 
 ```yml
