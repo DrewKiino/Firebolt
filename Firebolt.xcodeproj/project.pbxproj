@@ -22,7 +22,6 @@
 
 /* Begin PBXBuildFile section */
 		2A9C5FB825D26D5500FBBB68 /* MemoryAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9C5FB725D26D5500FBBB68 /* MemoryAddress.swift */; };
-		2A9C5FBE25D2786D00FBBB68 /* FireboltMocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9C5FBD25D2786D00FBBB68 /* FireboltMocker.swift */; };
 		OBJ_42 /* SwiftResolverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* SwiftResolverError.swift */; };
 		OBJ_43 /* Resolver+Composable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Resolver+Composable.swift */; };
 		OBJ_44 /* Resolver+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Resolver+Get.swift */; };
@@ -65,7 +64,6 @@
 		2A57F3032600A31100D0DD34 /* Firebolt_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Firebolt_Framework.h; sourceTree = "<group>"; };
 		2A57F3042600A31100D0DD34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A9C5FB725D26D5500FBBB68 /* MemoryAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAddress.swift; sourceTree = "<group>"; };
-		2A9C5FBD25D2786D00FBBB68 /* FireboltMocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireboltMocker.swift; sourceTree = "<group>"; };
 		"Firebolt::Firebolt::Product" /* Firebolt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebolt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Firebolt::FireboltTests::Product" /* FireboltTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FireboltTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* SwiftResolverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftResolverError.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_32 /* SwiftResolverTests.swift */,
-				2A9C5FBD25D2786D00FBBB68 /* FireboltMocker.swift */,
 				OBJ_33 /* TestClasses.swift */,
 			);
 			name = FireboltTests;
@@ -351,7 +348,6 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_74 /* SwiftResolverTests.swift in Sources */,
-				2A9C5FBE25D2786D00FBBB68 /* FireboltMocker.swift in Sources */,
 				OBJ_75 /* TestClasses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +383,7 @@
 					"SWIFT_PACKAGE=1",
 					"DEBUG=1",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
@@ -436,6 +433,7 @@
 					"$(inherited)",
 					"SWIFT_PACKAGE=1",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
