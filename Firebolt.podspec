@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Firebolt'
-  s.version          = '0.4.8'
+  s.version          = '0.4.9'
   s.summary          = 'Firebolt is a dependency injection framework written for Swift'
 
 # This description is used to generate tags and improve search results.
@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
+
 
   s.description      = <<-DESC
   Firebolt is a dependency injection framework written for Swift. Inspired by Kotlin Koin. 
