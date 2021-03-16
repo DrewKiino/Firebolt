@@ -304,8 +304,8 @@
       "OBJ_35" = {
          isa = "PBXGroup";
          children = (
-            "Firebolt::Firebolt::Product",
-            "Firebolt::FireboltTests::Product"
+            "Firebolt::FireboltTests::Product",
+            "Firebolt::Firebolt::Product"
          );
          name = "Products";
          path = "";
