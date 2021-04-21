@@ -554,14 +554,20 @@ resolver.global
 let vc: ViewController = get()
 ```
 
-**Application Architecture**
+**Application Architecture - Manager Service Locator**
 ```swift
 // UserManager.swift
 class UserManager {}
 
 // ViewController.swift
 class ViewController: UIViewController {
-    public init(userManager: UserManager) {}
+  private let resolver: resolver
+  private let userManager: UserManager
+
+  public init(resolver: Resolver) {
+    self.resolver = resolver
+    self.userManager = resolver.get()
+  }
 }
 
 // AppDelegate.swift
@@ -572,13 +578,49 @@ class AppDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     resolver.register { UserManager() }
-    resolver.register { ViewController(userManager: $0.get()) }
 
-    let viewController: ViewController = resolver.get()
+    let viewController = ViewController(resolver: resolver)
     window?.rootViewController = viewController
   }
 }
 ```
+
+**Application Architecture - View Controller Hierarchy**
+
+```swift
+// UserManager.swift
+class UserManager {}
+
+// NextViewController.swift
+class NextViewController: UIViewController {
+  private let resolver: resolver
+  private let userManager: UserManager
+
+  public init(resolver: Resolver) {
+    self.resolver = resolver
+    self.userManager = resolver.get()
+  }
+}
+
+// ViewController.swift
+class RootViewController: UIViewController {
+  private let resolver: resolver
+  private let userManager: UserManager
+
+  public init(resolver: Resolver) {
+    self.resolver = resolver
+    self.userManager = resolver.get()
+  }
+  
+  public func presentNext() {
+    let vc = NextViewController(resolver: resolver)
+    self.present(vc, animated: true, completion: nil)
+  }
+}
+
+
+```
+
 
 **Unit Tests**
 
