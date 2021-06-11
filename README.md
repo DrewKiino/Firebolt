@@ -28,7 +28,7 @@ What does this mean? This means that you can scope out specific dependencies for
 ### Cocoapods
 
 `Firebolt` is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+it, simply add the following line to your Podfile and run `pod install`
 
 ```ruby
 pod 'Firebolt'
@@ -36,12 +36,14 @@ pod 'Firebolt'
 
 ### Carthage
 
-Add this to your `Cartfile`
+Add this to your `Cartfile` then run `carthage update Firebolt --use-xcframeworks`
 ```
-github "DrewKiino/Firebolt" "0.4.9"
+github "DrewKiino/Firebolt" "0.5.1"
 ```
 
 ### Swift Package Manager
+
+Add this to your project SPM dependencies list
 
 ```yml
 https://github.com/DrewKiino/Firebolt.git
