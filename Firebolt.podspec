@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Firebolt'
-  s.version          = '0.4.9'
+  s.version          = '0.5.2'
   s.summary          = 'Firebolt is a dependency injection framework written for Swift'
 
 # This description is used to generate tags and improve search results.

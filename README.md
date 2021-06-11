@@ -38,7 +38,7 @@ pod 'Firebolt'
 
 Add this to your `Cartfile` then run `carthage update Firebolt --use-xcframeworks`
 ```
-github "DrewKiino/Firebolt" "0.5.1"
+github "DrewKiino/Firebolt"
 ```
 
 ### Swift Package Manager
