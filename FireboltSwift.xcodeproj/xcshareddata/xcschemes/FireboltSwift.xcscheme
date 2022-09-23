@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "1400"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Firebolt::Firebolt"
-               BuildableName = "Firebolt.framework"
-               BlueprintName = "Firebolt"
-               ReferencedContainer = "container:Firebolt.xcodeproj">
+               BlueprintIdentifier = "firebolt::FireboltSwift"
+               BuildableName = "FireboltSwift.framework"
+               BlueprintName = "FireboltSwift"
+               ReferencedContainer = "container:FireboltSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,10 +50,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Firebolt::Firebolt"
-            BuildableName = "Firebolt.framework"
-            BlueprintName = "Firebolt"
-            ReferencedContainer = "container:Firebolt.xcodeproj">
+            BlueprintIdentifier = "firebolt::FireboltSwift"
+            BuildableName = "FireboltSwift.framework"
+            BlueprintName = "FireboltSwift"
+            ReferencedContainer = "container:FireboltSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

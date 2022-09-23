@@ -14,11 +14,11 @@
   <key>CFBundlePackageType</key>
   <string>FMWK</string>
   <key>CFBundleShortVersionString</key>
-  <string>0.4.9</string>
+  <string>1.0</string>
   <key>CFBundleSignature</key>
-  <string>firebolt</string>
+  <string>????</string>
   <key>CFBundleVersion</key>
-  <string>1</string>
+  <string>$(CURRENT_PROJECT_VERSION)</string>
   <key>NSPrincipalClass</key>
   <string></string>
 </dict>

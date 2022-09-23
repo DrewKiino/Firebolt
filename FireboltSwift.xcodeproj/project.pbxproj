@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		"Firebolt::FireboltPackageTests::ProductTarget" /* FireboltPackageTests */ = {
+		"firebolt::FireboltSwiftPackageTests::ProductTarget" /* FireboltSwiftPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_67 /* Build configuration list for PBXAggregateTarget "FireboltPackageTests" */;
+			buildConfigurationList = OBJ_67 /* Build configuration list for PBXAggregateTarget "FireboltSwiftPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
 				OBJ_70 /* PBXTargetDependency */,
 			);
-			name = FireboltPackageTests;
-			productName = FireboltPackageTests;
+			name = FireboltSwiftPackageTests;
+			productName = FireboltSwiftPackageTests;
 		};
 /* End PBXAggregateTarget section */
 
@@ -40,29 +40,27 @@
 		OBJ_65 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_76 /* SwiftResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* SwiftResolverTests.swift */; };
 		OBJ_77 /* TestClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* TestClasses.swift */; };
-		OBJ_79 /* Firebolt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Firebolt::Firebolt::Product" /* Firebolt.framework */; };
+		OBJ_79 /* FireboltSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "firebolt::FireboltSwift::Product" /* FireboltSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3A17EDCE26095F560058D48D /* PBXContainerItemProxy */ = {
+		3A3B255D28DD8F9C003E40D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Firebolt::Firebolt";
-			remoteInfo = Firebolt;
+			remoteGlobalIDString = "firebolt::FireboltSwift";
+			remoteInfo = FireboltSwift;
 		};
-		3A17EDD126095F570058D48D /* PBXContainerItemProxy */ = {
+		3A3B255E28DD8F9C003E40D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "Firebolt::FireboltTests";
+			remoteGlobalIDString = "firebolt::FireboltTests";
 			remoteInfo = FireboltTests;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		"Firebolt::Firebolt::Product" /* Firebolt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Firebolt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Firebolt::FireboltTests::Product" /* FireboltTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FireboltTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* SwiftResolverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftResolverError.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Resolver+Composable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Composable.swift"; sourceTree = "<group>"; };
 		OBJ_13 /* Resolver+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Get.swift"; sourceTree = "<group>"; };
@@ -82,6 +80,8 @@
 		OBJ_33 /* SwiftResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftResolverTests.swift; sourceTree = "<group>"; };
 		OBJ_34 /* TestClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClasses.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		"firebolt::FireboltSwift::Product" /* FireboltSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FireboltSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"firebolt::FireboltTests::Product" /* FireboltTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FireboltTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_79 /* Firebolt.framework in Frameworks */,
+				OBJ_79 /* FireboltSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,13 +172,13 @@
 		OBJ_35 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"Firebolt::FireboltTests::Product" /* FireboltTests.xctest */,
-				"Firebolt::Firebolt::Product" /* Firebolt.framework */,
+				"firebolt::FireboltSwift::Product" /* FireboltSwift.framework */,
+				"firebolt::FireboltTests::Product" /* FireboltTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -186,17 +186,18 @@
 				OBJ_31 /* Tests */,
 				OBJ_35 /* Products */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_8 /* Firebolt */,
+				OBJ_8 /* FireboltSwift */,
 			);
 			name = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_8 /* Firebolt */ = {
+		OBJ_8 /* FireboltSwift */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* Error */,
@@ -208,8 +209,8 @@
 				OBJ_22 /* Subclass */,
 				OBJ_25 /* Utility */,
 			);
-			name = Firebolt;
-			path = Sources/Firebolt;
+			name = FireboltSwift;
+			path = Sources/FireboltSwift;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_9 /* Error */ = {
@@ -223,9 +224,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		"Firebolt::Firebolt" /* Firebolt */ = {
+		"firebolt::FireboltSwift" /* FireboltSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_39 /* Build configuration list for PBXNativeTarget "Firebolt" */;
+			buildConfigurationList = OBJ_39 /* Build configuration list for PBXNativeTarget "FireboltSwift" */;
 			buildPhases = (
 				OBJ_42 /* Sources */,
 				OBJ_59 /* Frameworks */,
@@ -234,12 +235,12 @@
 			);
 			dependencies = (
 			);
-			name = Firebolt;
-			productName = Firebolt;
-			productReference = "Firebolt::Firebolt::Product" /* Firebolt.framework */;
+			name = FireboltSwift;
+			productName = FireboltSwift;
+			productReference = "firebolt::FireboltSwift::Product" /* FireboltSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"Firebolt::FireboltTests" /* FireboltTests */ = {
+		"firebolt::FireboltTests" /* FireboltTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_72 /* Build configuration list for PBXNativeTarget "FireboltTests" */;
 			buildPhases = (
@@ -253,12 +254,12 @@
 			);
 			name = FireboltTests;
 			productName = FireboltTests;
-			productReference = "Firebolt::FireboltTests::Product" /* FireboltTests.xctest */;
+			productReference = "firebolt::FireboltTests::Product" /* FireboltTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		"Firebolt::SwiftPMPackageDescription" /* FireboltPackageDescription */ = {
+		"firebolt::SwiftPMPackageDescription" /* FireboltSwiftPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_61 /* Build configuration list for PBXNativeTarget "FireboltPackageDescription" */;
+			buildConfigurationList = OBJ_61 /* Build configuration list for PBXNativeTarget "FireboltSwiftPackageDescription" */;
 			buildPhases = (
 				OBJ_64 /* Sources */,
 			);
@@ -266,8 +267,8 @@
 			);
 			dependencies = (
 			);
-			name = FireboltPackageDescription;
-			productName = FireboltPackageDescription;
+			name = FireboltSwiftPackageDescription;
+			productName = FireboltSwiftPackageDescription;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -279,22 +280,22 @@
 				LastSwiftMigration = 9999;
 				LastUpgradeCheck = 9999;
 			};
-			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Firebolt" */;
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "FireboltSwift" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5;
+			mainGroup = OBJ_5 /*  */;
 			productRefGroup = OBJ_35 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"Firebolt::Firebolt" /* Firebolt */,
-				"Firebolt::SwiftPMPackageDescription" /* FireboltPackageDescription */,
-				"Firebolt::FireboltPackageTests::ProductTarget" /* FireboltPackageTests */,
-				"Firebolt::FireboltTests" /* FireboltTests */,
+				"firebolt::FireboltSwift" /* FireboltSwift */,
+				"firebolt::SwiftPMPackageDescription" /* FireboltSwiftPackageDescription */,
+				"firebolt::FireboltSwiftPackageTests::ProductTarget" /* FireboltSwiftPackageTests */,
+				"firebolt::FireboltTests" /* FireboltTests */,
 			);
 		};
 /* End PBXProject section */
@@ -345,13 +346,13 @@
 /* Begin PBXTargetDependency section */
 		OBJ_70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "Firebolt::FireboltTests" /* FireboltTests */;
-			targetProxy = 3A17EDD126095F570058D48D /* PBXContainerItemProxy */;
+			target = "firebolt::FireboltTests" /* FireboltTests */;
+			targetProxy = 3A3B255E28DD8F9C003E40D1 /* PBXContainerItemProxy */;
 		};
 		OBJ_80 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "Firebolt::Firebolt" /* Firebolt */;
-			targetProxy = 3A17EDCE26095F560058D48D /* PBXContainerItemProxy */;
+			target = "firebolt::FireboltSwift" /* FireboltSwift */;
+			targetProxy = 3A3B255D28DD8F9C003E40D1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -376,7 +377,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USE_HEADERMAP = NO;
@@ -400,7 +402,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				USE_HEADERMAP = NO;
@@ -411,27 +414,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
 				ENABLE_TESTABILITY = YES;
-				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Firebolt.xcodeproj/Firebolt_Info.plist;
+				INFOPLIST_FILE = FireboltSwift.xcodeproj/FireboltSwift_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = Firebolt;
+				PRODUCT_BUNDLE_IDENTIFIER = FireboltSwift;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
-				TARGET_NAME = Firebolt;
+				TARGET_NAME = FireboltSwift;
 				TVOS_DEPLOYMENT_TARGET = 13.0;
 				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
@@ -441,28 +445,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
 				ENABLE_TESTABILITY = YES;
-				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Firebolt.xcodeproj/Firebolt_Info.plist;
+				INFOPLIST_FILE = FireboltSwift.xcodeproj/FireboltSwift_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = Firebolt;
+				PRODUCT_BUNDLE_IDENTIFIER = FireboltSwift;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
-				TARGET_NAME = Firebolt;
+				TARGET_NAME = FireboltSwift;
 				TVOS_DEPLOYMENT_TARGET = 13.0;
 				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
@@ -471,9 +475,8 @@
 		OBJ_62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1.0";
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -package-description-version 5.1.0";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -481,9 +484,8 @@
 		OBJ_63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1.0";
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -package-description-version 5.1.0";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -504,24 +506,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Firebolt.xcodeproj/FireboltTests_Info.plist;
+				INFOPLIST_FILE = FireboltSwift.xcodeproj/FireboltTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = FireboltTests;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
-				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
 		};
@@ -529,31 +533,33 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Firebolt.xcodeproj/FireboltTests_Info.plist;
+				INFOPLIST_FILE = FireboltSwift.xcodeproj/FireboltTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = FireboltTests;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
-				WATCHOS_DEPLOYMENT_TARGET = 6.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		OBJ_2 /* Build configuration list for PBXProject "Firebolt" */ = {
+		OBJ_2 /* Build configuration list for PBXProject "FireboltSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_3 /* Debug */,
@@ -562,7 +568,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_39 /* Build configuration list for PBXNativeTarget "Firebolt" */ = {
+		OBJ_39 /* Build configuration list for PBXNativeTarget "FireboltSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_40 /* Debug */,
@@ -571,7 +577,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_61 /* Build configuration list for PBXNativeTarget "FireboltPackageDescription" */ = {
+		OBJ_61 /* Build configuration list for PBXNativeTarget "FireboltSwiftPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_62 /* Debug */,
@@ -580,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_67 /* Build configuration list for PBXAggregateTarget "FireboltPackageTests" */ = {
+		OBJ_67 /* Build configuration list for PBXAggregateTarget "FireboltSwiftPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_68 /* Debug */,

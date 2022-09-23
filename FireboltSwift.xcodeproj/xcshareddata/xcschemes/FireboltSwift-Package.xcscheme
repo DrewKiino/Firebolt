@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "9999"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "firebolt::FireboltSwift"
+               BuildableName = "FireboltSwift.framework"
+               BlueprintName = "FireboltSwift"
+               ReferencedContainer = "container:FireboltSwift.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -16,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Firebolt::FireboltTests"
+               BlueprintIdentifier = "firebolt::FireboltTests"
                BuildableName = "FireboltTests.xctest"
                BlueprintName = "FireboltTests"
-               ReferencedContainer = "container:Firebolt.xcodeproj">
+               ReferencedContainer = "container:FireboltSwift.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
