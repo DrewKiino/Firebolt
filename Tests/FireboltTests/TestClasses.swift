@@ -1,6 +1,6 @@
 
 import Foundation
-@testable import Firebolt
+@testable import FireboltSwift
 
 let noName = "no_name"
 let noAge = 0

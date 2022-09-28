@@ -1,6 +1,6 @@
 
 import XCTest
-@testable import Firebolt
+@testable import FireboltSwift
 
 final class SwiftResolverTests: XCTestCase {
   
