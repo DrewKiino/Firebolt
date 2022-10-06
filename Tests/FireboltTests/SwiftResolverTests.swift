@@ -336,8 +336,13 @@ final class SwiftResolverTests: XCTestCase {
   }
   
   func test_multiple_expects_register_single() {
-    let resolver = MockResolver {
-      $0.register(.single, expects: [ClassAProtocol.self, ClassAProtocolB.self]) { ClassA() }
+    let resolver = MockResolver { resolver in
+      resolver.register(
+        .single,
+        expects: [ClassAProtocol.self, ClassAProtocolB.self]
+      ) {
+        (_: MockResolver) in ClassA()
+      }
     }
     
     let classA: ClassAProtocol? = resolver.get()
@@ -349,8 +354,13 @@ final class SwiftResolverTests: XCTestCase {
   }
 
   func test_multiple_expects_register_factory() {
-    let resolver = MockResolver {
-      $0.register(.factory, expects: [ClassAProtocol.self, ClassAProtocolB.self]) { ClassA() }
+    let resolver = MockResolver { resolver in
+      resolver.register(
+        .factory,
+        expects: [ClassAProtocol.self, ClassAProtocolB.self]
+      ) { (_: MockResolver) in
+        ClassA()
+      }
     }
 
     let classA: ClassAProtocol? = resolver.get()
@@ -366,7 +376,9 @@ final class SwiftResolverTests: XCTestCase {
       expects: [ClassAProtocol.self, ClassAProtocolB.self],
       arg1: String.self,
       arg2: Int.self
-    ) { ClassA(name: $0, age: $1) }
+    ) { (_: Resolver, a, b) in
+      ClassA(name: a, age: b)
+    }
 
     let name1 = "hello"
     let name2 = "hi"
@@ -385,7 +397,9 @@ final class SwiftResolverTests: XCTestCase {
       scope: .factory,
       arg1: String.self,
       arg2: Int?.self
-    ) { ClassA(name: $0, age: $1) }
+    ) { (_: Resolver, a, b) in
+      ClassA(name: a, age: b)
+    }
 
     let name1 = "hello"
     let age1 = 1
