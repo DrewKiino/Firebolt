@@ -115,6 +115,51 @@ public protocol ResolverProtocol {
     arg4: D.Type,
     closure: @escaping BoxClosure4ArgR<T, R, A, B, C, D>
   ) -> Self
+  
+  @discardableResult
+  func register<T, R: ResolverProtocol>(
+    _ scope: Resolver.Scope,
+    expects objects: [Any.Type],
+    closure: @escaping BoxClosureNoArgR<T, R>
+  ) -> Self
+  
+  @discardableResult
+  func register<T, R: ResolverProtocol, A>(
+    _ scope: Resolver.Scope,
+    expects objects: [Any.Type],
+    arg1: A.Type,
+    closure: @escaping BoxClosure1ArgR<T, R, A>
+  ) -> Self
+  
+  @discardableResult
+  func register<T, R: ResolverProtocol, A, B>(
+    scope: Resolver.Scope,
+    expects objects: [Any.Type],
+    arg1: A.Type,
+    arg2: B.Type,
+    closure: @escaping BoxClosure2ArgR<T, R, A, B>
+  ) -> Self
+  
+  @discardableResult
+  func register<T, R: ResolverProtocol, A, B, C>(
+    scope: Resolver.Scope,
+    expects objects: [Any.Type],
+    arg1: A.Type,
+    arg2: B.Type,
+    arg3: C.Type,
+    closure: @escaping BoxClosure3ArgR<T, R, A, B, C>
+  ) -> Self
+  
+  @discardableResult
+  func register<T, R: ResolverProtocol, A, B, C, D>(
+    scope: Resolver.Scope,
+    expects objects: [Any.Type],
+    arg1: A.Type,
+    arg2: B.Type,
+    arg3: C.Type,
+    arg4: D.Type,
+    closure: @escaping BoxClosure4ArgR<T, R, A, B, C, D>
+  ) -> Self
 
   func get<T>(
     _ scope: Resolver.Scope?,

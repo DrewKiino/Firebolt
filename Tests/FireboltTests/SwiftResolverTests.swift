@@ -605,4 +605,17 @@ final class SwiftResolverTests: XCTestCase {
     XCTAssertNotEqual(someClass2.id, classB?.id)
     XCTAssertEqual(someClass1.id, classB?.classA.id)
   }
+  
+  func test_register_expects() {
+    let resolver: ResolverProtocol = ResolverSubclass()
+    resolver.register(.single, expects: [ClassAProtocol.self, ClassAProtocolB.self]) { (resolver: ResolverSubclass) in
+      ClassA()
+    }
+    let classA: ClassAProtocol? = resolver.get()
+    let classAB: ClassAProtocolB? = resolver.get()
+    XCTAssertNotNil(classA)
+    XCTAssertNotNil(classAB)
+    XCTAssertEqual(classA?.id, classAB?.id)
+  }
+
 }
