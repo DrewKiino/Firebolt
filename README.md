@@ -4,6 +4,8 @@
 
 [How to do clean dependency injection using Firebolt — Swift.](https://medium.com/@andrewaquino118/clean-dependency-injection-with-firebolt-swift-95db68662a87)
 
+Please don't forget to ⭐ the repo if you like this framework! 🙂
+
 ## Why use Firebolt?
 
 To put it simply, **Firebolt** is nothing more than a [Service Locator](https://en.wikipedia.org/wiki/Service_locator_pattern) tool. It allows you to encapsulate
